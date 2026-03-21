@@ -1,14 +1,101 @@
-import React from 'react'
+import React from 'react';
+import { Phone, Mail, ArrowUpRight } from 'lucide-react';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-100 border-t">
-      <div className="container mx-auto px-4 py-6 text-sm text-gray-600">
-        <div className="flex justify-between items-center">
-          <div>© {new Date().getFullYear()} SIA</div>
-          <div>Mentions légales • Politique de confidentialité</div>
+    <footer className="w-full font-sans">
+      {/* --- SECTION ROUGE (CTA) --- */}
+      <section className="bg-sia-red-claire text-white py-16 px-6 text-center relative overflow-hidden">
+        
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <span className="uppercase tracking-widest text-sm font-bold mb-4 block">
+            Collaborons Ensemble
+          </span>
+          <h2 className="text-2xl md:text-4xl font-semibold leading-tight mb-10">
+            des pièces d’une qualité irréprochable, pensées <br className="hidden md:block" /> 
+            pour durer et à la hauteur de ce que vous méritez vraiment.
+          </h2>
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+            {/* Bouton Téléphone Blanc */}
+            <a href="tel:+21627314100" className="bg-white text-[#e30613] px-11 py-3 rounded-sm font-bold flex items-center gap-2 hover:bg-sia-red-claire hover:text-white transition-all">
+              <Phone size={18} />
+              +216 27 314 100
+            </a>
+            {/* Bouton Devis Contour */}
+            <button className="border-2 border-white px-8 py-3 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-[#e30613] transition-all">
+              DEMANDER UN DEVIS <ArrowUpRight size={18} />
+            </button>
+          </div>
         </div>
+      </section>
+
+      {/* --- SECTION BLANCHE (CONTENU) --- */}
+      <section className="bg-white py-16 px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1">
+          
+          {/* Logo & Slogan */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/src/assets/logo.png" alt="SIA Logo" className="h-10 w-10 object-contain"/>
+              <span className="text-2xl font-bold text-[#e30613]">SIA</span>
+            </div>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              L'excellence industrielle tunisienne en mouvement. Précision bicolore sans compromis.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="text-sia-red font-bold mb-6 tracking-wider">NAVIGATION</h4>
+            <ul className="space-y-3 text-gray-500 text-sm font-medium">
+              <li className="hover:text-black cursor-pointer">Accueil</li>
+              <li className="hover:text-black cursor-pointer">Nos Divisions</li>
+              <li className="hover:text-black cursor-pointer">Partenaires</li>
+              <li className="hover:text-black cursor-pointer">Contact</li>
+            </ul>
+          </div>
+
+          {/* Information */}
+          <div>
+            <h4 className="text-sia-red font-bold mb-6 tracking-wider">INFORMATION</h4>
+            <ul className="space-y-3 text-gray-500 text-sm font-medium">
+              <li className="hover:text-black cursor-pointer uppercase">À propos</li>
+              <li className="hover:text-black cursor-pointer uppercase">Contact</li>
+              <li className="hover:text-black cursor-pointer uppercase">B2B</li>
+            </ul>
+          </div>
+
+          {/* Contact Rapide */}
+          <div>
+            <h4 className="text-sia-red font-bold mb-6 tracking-wider text-sm">CONTACT</h4>
+            <div className="flex items-center gap-3 text-sia-red font-bold mb-4 text-sm">
+              <Phone size={16} /> +216 27 314 100
+            </div>
+            <div className="flex items-center gap-3 text-sia-red font-bold text-sm break-all">
+              <Mail size={16} /> SfaxienneIndustrielle@gmail.com
+            </div>
+          </div>
+
+          {/* Support Technique */}
+          <div>
+            <h4 className="text-[#e30613] font-bold mb-4 tracking-wider text-sm">SUPPORT TECHNIQUE</h4>
+            <p className="text-gray-400 text-xs mb-6 italic">Accédez à nos documentations certifiées.</p>
+            <button className="bg-black text-white w-full py-3 font-bold text-sm tracking-widest hover:bg-gray-800 transition-colors uppercase">
+              Contacter nous
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* --- FOOTER BOTTOM --- */}
+      <div className="border-t border-gray-100 py-6 px-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 font-medium tracking-widest">
+        <p>©SIA SFAX INDUSTRIELLE AUTOMOBILE. TOUS DROITS RÉSERVÉS.</p>
+        <p className="mt-2 md:mt-0">MADE IN TUNISIA</p>
       </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;
