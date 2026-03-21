@@ -1,59 +1,69 @@
 import React ,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FiUsers } from 'react-icons/fi'
-import { AiOutlineLike } from 'react-icons/ai'
+import { FaUsers, FaThumbsUp } from 'react-icons/fa'
 import { MdOutlineWork } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa'
 import { FaCar, FaCog, FaTint, FaBolt, FaShip, FaTruck, FaTools } from 'react-icons/fa'
+import cover from '../assets/image/cover-page-service.jpg'
+import Équipementsmarins from '../assets/image/Équipements marins.jpg'
+import Équipementsmoteurs from '../assets/image/Équipements moteurs et énergie_page_service.jpg'
+import Logistique from '../assets/image/Logistique et disponibilité.jpg'
+import Lubrifiants from '../assets/image/Lubrifiants et graisses_page_service.jpg'
+import Piècesderechange from '../assets/image/Pièces de rechange automobile.jpg'
+import Solutionsindustrielles from '../assets/image/Solutions industrielles_page_service.jpg'
+import Supporttechnique from '../assets/image/Support technique et SAV.jpg'
+import ahmed from '../assets/image/ahmed.jpg'
+
+
 const services = [
   {
     id: 1,
     titre: "Pièces de rechange automobile",
     icone: <FaCar />,
     description: "Vente de pièces de rechange pour véhicules : optiques, embrayage, freinage, suspension, moteurs et autres composants mécaniques.",
-    image: "..."
+    image: Piècesderechange
   },
   {
     id: 2,
     titre: "Solutions industrielles",
     icone:<FaCog />,
     description: "Fourniture de composants pour l'industrie : bandes transporteuses PVC et PU, courroies dentées, pignons, chaînes, moteurs électriques, moto-réducteurs, variateurs, roulements et tapis modulaires.",
-    image: "..."
+    image: Solutionsindustrielles
   },
   {
     id: 3,
     titre: "Lubrifiants et graisses",
     icone:<FaTint />,
     description: "Distribution de lubrifiants et de graisses pour applications automobiles et industrielles. Nous proposons notamment la marque Coften, reconnue pour la qualité de ses huiles industrielles et graisses techniques.",
-    image: "..."
+    image: Lubrifiants
   },
   {
     id: 4,
     titre: "Équipements moteurs et énergie",
     icone:<FaBolt />, 
     description: "Distribution de moteurs diesel, moteurs essence et groupes électrogènes pour applications industrielles et professionnelles.",
-    image: "..."
+    image: Équipementsmoteurs
   },
   {
     id: 5,
     titre: "Équipements marine",
     icone:<FaShip />, 
     description: "Solutions et équipements pour le secteur maritime, incluant groupes électrogènes marins et pièces associées.",
-    image: "..."
+    image: Équipementsmarins
   },
   {
     id: 6,
     titre: "Logistique et disponibilité",
     icone:<FaTruck />,
     description: "Stock disponible et réseau de fournisseurs internationaux permettant une livraison rapide ou sur commande selon les besoins.",
-    image: "..."
+    image: Logistique
   },
   {
     id: 7,
     titre: "Support technique et SAV",
     icone:<FaTools />, 
     description: "Assistance technico-commerciale, préparation et jonction de bandes transporteuses, installation et maintenance de groupes électrogènes.",
-    image: "..."
+    image: Supporttechnique
   },
 ]
 const distinctions = [
@@ -100,7 +110,7 @@ const temoignages = [
     nom: "Ahmed ",
     titre: "XXX",
     texte: <>excellent service et support,<br/> je suis très satisfait du résultat</>,
-    image:"..."
+    image: ahmed 
   },
   {
     id: 2,
@@ -125,11 +135,12 @@ export default function Services() {
   <div className="font-sans">
     <section className='relative h-[500px] flex flex-col items-center justify-center text-white text-center'
     style={{
-      backgroundImage: 'url(...)',
+
+      backgroundImage: `url(${cover})`,
       backgroundSize: 'cover',
       backgroundPosition:'center',
     }}>
-    <div className='absolute inset-0 bg-black opacity-80'></div>
+    <div className='absolute inset-0 bg-white opacity-10'></div>
     <div className='relative z-10'>
       <h1 className='text-6xl font-extrabold  mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> SERVICES</h1>
       <p className='text-lg text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>Avec SIA, vous trouvez une chaîne de valeur complète</p>
@@ -140,7 +151,7 @@ export default function Services() {
                         flex gap- z-20" style={{border:'1px solid #C00000',borderRadius: '60px 60px 0 0', width: '450px'}}>
           <div className=" flex-1 text-center py-4 px-4">
             <div className='w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',marginRight:'20px',}}>
-                <FiUsers className='text-white text-xl '/>
+                <FaUsers className='text-white text-xl '/>
            </div>
             <p className=" font-semibold text-2xl"style={{ color:'#C00000',fontFamily:'Montserrat',marginRight:'-20px'}}>+200</p>
             <p className="text-sm "style={{fontFamily:'Montserrat',color:'#C00000',marginRight:'-20px'}}>collaborateurs</p>
@@ -148,7 +159,7 @@ export default function Services() {
           <div className="border-l border-gray-300"></div>
           <div className=" flex-1 text-center py-4 px-4">
             <div className='w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2z'style={{ backgroundColor: '#C00000',marginTop: '-40px', }}>
-                <AiOutlineLike className='text-white text-xl'/>   
+                <FaThumbsUp className='text-white text-xl'/>   
             </div>
             <p className=" font-bold text-2xl"style={{fontFamily:'Montserrat',color:'#C00000'}}>XX k</p>
             <p className="text-sm "style={{fontFamily:'Montserrat',color:'#C00000'}}>clients satisfaits</p>
@@ -178,6 +189,11 @@ export default function Services() {
                 onMouseLeave={() => setHoveredCard(null)}>
             <div className='relative'>
               <img src={service.image} alt={service.titre} className='w-full h-48 object-cover'/>
+                <div className='absolute inset-0 transition-all duration-300'
+                  style={{
+                    backgroundColor: hoveredCard === service.id ? 'rgba(192, 0, 0, 0.5)' : 'transparent'
+                  }}>
+               </div>
               <div className='absolute bottom-[-20px] left-1/2 -translate-x-1/2  w-10 h-10 rounded-full flex items-center justify-center'style={{backgroundColor: hoveredCard === service.id ? '#f9fafb' : '#C00000',}}>
                 <span className="text-lg"
                         style={{ color: hoveredCard === service.id ? '#C00000' : '#f9fafb' }}>
@@ -282,7 +298,9 @@ export default function Services() {
                   <div className='flex items-center items-start  gap-4 '>
                           <div className='w-20 h-20 rounded-full flex flex-shrink-0 mt-4'
                               style={{ backgroundColor: '#C00000',marginLeft:'20px', }}>
-                             {temoignages[currentTemoignage].imgage}
+                             <img src={temoignages[currentTemoignage].image} 
+                              alt={temoignages[currentTemoignage].nom}
+                              className="w-full h-full object-cover rounded-full" />
                           </div>
                     <div >
                       <p className="font-bold" style={{ fontFamily: 'Montserrat' ,marginLeft:'120px',marginTop:'50px'}}>
@@ -296,7 +314,7 @@ export default function Services() {
               
       
             <div className='flex items-center justify-center gap-4 mt-8'>
-              <button onClick={() => setCurrentTemoignage(currentTemoignage === 0 ? temoignages.length - 1 : currentTemoignage - 1)}  className='w-8 h-8 rounded-full flex items-center justify-center bg-gray-50' style={{backgroundColor: '#C00000'}}> ← 
+              <button onClick={() => setCurrentTemoignage(currentTemoignage === 0 ? temoignages.length - 1 : currentTemoignage - 1)}  className='w-8 h-8 rounded-full flex items-center justify-center bg-white' style={{backgroundColor: '#C00000'}}> ← 
 
               </button>
                   {temoignages.map((_, i) => (
@@ -311,7 +329,7 @@ export default function Services() {
                     onClick={() => setCurrentTemoignage(
                       currentTemoignage === temoignages.length - 1 ? 0 : currentTemoignage + 1
                     )}
-                    className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-50"
+                    className="w-8 h-8 rounded-full flex items-center justify-center bg-white"
                     style={{ backgroundColor: '#C00000' }}>
                     →
                   </button>
