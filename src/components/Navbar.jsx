@@ -18,16 +18,10 @@ export default function Navbar() {
 
             {/* ACCUEIL */}
             <li className="relative group/main">
-              <Link to="/" className="font-medium relative hover:text-sia-red transition-colors">
+              <Link to="/src/pages/Accueil.jsx" className="font-medium relative hover:text-sia-red transition-colors">
                 ACCUEIL 
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/main:w-full transition-all duration-300"></span>
               </Link>
-              {/* Dropdown Accueil */}
-              <ul className="absolute top-full left-0 hidden group-hover/main:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 mt-2">
-                <li><Link to="/a-propos-sia" className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">CHIFFRES CLES</Link></li>
-                <li><Link to="/a-propos-sia" className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">À propos de SIA</Link></li>
-                <li><Link to="/divisions" className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">Nos Divisions</Link></li>
-              </ul>
             </li>
 
             {/* A PROPOS */}
@@ -107,13 +101,13 @@ export default function Navbar() {
         </nav>
 
             {/* CTA */}
-            <li>
+            <ul>
               <Link 
                 to="/contact" 
                 className="text-sia-red-claire border border-sia-red-claire px-6 py-2 text-sm font-medium">
                 Demander un devis
               </Link>
-            </li>
+            </ul>
       </div>
     </header>
   );
