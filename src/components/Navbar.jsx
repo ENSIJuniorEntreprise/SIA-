@@ -1,10 +1,25 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <header className="sticky top-0 bg-white shadow-md z-50 text-black">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled?'bg-white shadow-md py-2 text-black':'bg-transparent py-4 text-white'}`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         
         {/* LOGO (Gauche) */}
@@ -14,12 +29,12 @@ export default function Navbar() {
         </Link>
 
         {/* MENU PRINCIPAL (Centré grâce à flex-grow et justify-center) */}
-        <nav className="flex-grow flex justify-center">
+        <nav className="hidden md:flex items-center justify-center flex-grow">
           <ul className="flex gap-6 items-center">
 
             {/* ACCUEIL */}
             <li className="relative group/main">
-              <Link to="/src/pages/Accueil.jsx" className="font-medium relative hover:text-sia-red transition-colors">
+              <Link to="/Accueil" className="font-medium relative hover:text-sia-red transition-colors">
                 ACCUEIL 
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/main:w-full transition-all duration-300"></span>
               </Link>
@@ -105,7 +120,7 @@ export default function Navbar() {
             <ul>
               <Link 
                 to="/contact" 
-                className="text-sia-red-claire border border-sia-red-claire px-6 py-2 text-sm font-medium">
+                className={`px-6 py-2 text-sm font-medium border transition-all duration-300 ${isScrolled ? 'text-sia-red-claire border-sia-red-claire': 'text-white border-white'}`}>
                 Demander un devis
               </Link>
             </ul>
