@@ -4,11 +4,11 @@ const Hero = () => {
   return (
     // h-screen makes it 100% of the viewport height
     // w-full makes it 100% of the viewport width
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative w-screen h-screen overflow-hidden bg-black left-1/2 right-1/2 -ml-[50vw] +mr-[50vw]">
       
       {/* BACKGROUND IMAGE - No padding, no margins */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: "url('/src/assets/headerbackground.jpg')", 
         }}
@@ -31,8 +31,8 @@ const Hero = () => {
             industrielle et agricole depuis plus de 40 ans.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-red-700 transition-all">
+          <div className="flex flex-col sm:flex-row gap-20 justify-center">
+            <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
               Découvrir SIA
             </button>
             <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-white hover:text-black transition-all">

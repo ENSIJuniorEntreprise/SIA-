@@ -56,7 +56,7 @@ export default function Navbar() {
               </Link>
 
               {/* NIVEAU 1 : Liste des divisions */}
-              <ul className="absolute top-full left-0 hidden group-hover/lvl1:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 mt-2">
+              <ul className={`absolute top-full left-0 hidden group-hover/lvl1:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 mt-2 ${isScrolled ? 'text-black' : 'text-black'}`}>
                 <li className="relative group/lvl2">
                   <Link className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">
                     Division pièce de rechange automobile
@@ -65,7 +65,7 @@ export default function Navbar() {
                   {/* NIVEAU 2 : Catégories */}
                   <ul className="absolute top-0 left-full hidden group-hover/lvl2:block bg-[#E5E5E5] min-w-[220px] border-l border-gray-300 h-full">
                     <li className="relative group/moteur">
-                      <Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">
+                      <Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">
                         Moteur
                       </Link>
                       {/* NIVEAU 3 : Détails Moteur */}
@@ -91,14 +91,14 @@ export default function Navbar() {
                         <li><Link className="block px-4 py-2 hover:underline decoration-sia-red-claire  underline-offset-4">Embrayage</Link></li>
                       </ul>
                     </li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Suspension/Direction</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Climatisation/Chauffage</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Eléctricité/Électronique</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Transmission</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Consommables et divers</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Filtration</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Carosserie</Link></li>
-                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 hover:bg-white hover:text-sia-red transition">Freinage</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Suspension/Direction</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Climatisation/Chauffage</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Eléctricité/Électronique</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Transmission</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Consommables et divers</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Filtration</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Carosserie</Link></li>
+                        <li><Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">Freinage</Link></li>
                   </ul>
                 </li>
                 <li><Link className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">Division Industrielle </Link></li>
