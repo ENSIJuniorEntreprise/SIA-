@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
-// 1. On définit la petite carte séparément pour pouvoir l'utiliser dans la grille
+
 const StatCard = ({ number, suffix, title, subtitle }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -25,7 +25,7 @@ const StatCard = ({ number, suffix, title, subtitle }) => {
   );
 };
 
-// 2. Le composant principal de ta page
+
 export default function Accueil() {
   return (
     <main className="w-full min-h-screen">
@@ -75,7 +75,7 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* Tu peux ajouter d'autres sections ici */}
+      
     </main>
   );
 }

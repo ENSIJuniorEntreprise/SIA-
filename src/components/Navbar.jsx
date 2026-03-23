@@ -22,17 +22,17 @@ export default function Navbar() {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled?'bg-white shadow-md py-2 text-black':'bg-transparent py-4 text-white'}`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         
-        {/* LOGO (Gauche) */}
+        
         <Link to="/" className="flex items-center gap-2 shrink-0">
           <img src="/src/assets/logo.png" alt="SIA Logo" className="h-10 w-10 object-contain"/>
           <span className="text-xl font-bold">SIA</span>
         </Link>
 
-        {/* MENU PRINCIPAL (Centré grâce à flex-grow et justify-center) */}
+        
         <nav className="hidden md:flex items-center justify-center flex-grow">
           <ul className="flex gap-6 items-center">
 
-            {/* ACCUEIL */}
+           
             <li className="relative group/main">
               <Link to="/Accueil" className="font-medium relative hover:text-sia-red transition-colors">
                 ACCUEIL 
@@ -40,7 +40,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* A PROPOS */}
+        
             <li className="relative group">
               <Link to="/a-propos" className="font-medium relative hover:text-sia-red transition-colors">
                 A PROPOS
@@ -48,40 +48,31 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* DIVISIONS (Le Menu Complexe) */}
+            
             <li className="relative group/lvl1">
               <Link to="/divisions" className="font-medium relative hover:text-sia-red transition-colors">
-                DIVISIONS
+                DIVISIONS ▼
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
               </Link>
 
-              {/* NIVEAU 1 : Liste des divisions */}
               <ul className={`absolute top-full left-0 hidden group-hover/lvl1:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 mt-2 ${isScrolled ? 'text-black' : 'text-black'}`}>
                 <li className="relative group/lvl2">
                   <Link className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">
                     Division pièce de rechange automobile
                   </Link>
 
-                  {/* NIVEAU 2 : Catégories */}
+                  
                   <ul className="absolute top-0 left-full hidden group-hover/lvl2:block bg-[#E5E5E5] min-w-[220px] border-l border-gray-300 h-full">
                     <li className="relative group/moteur">
                       <Link className="flex justify-between items-center px-4 py-3 border-b border-gray-300 bg-white hover:text-sia-red transition">
                         Moteur
                       </Link>
-                      {/* NIVEAU 3 : Détails Moteur */}
+                     
                       <ul className="absolute top-0 left-full hidden group-hover/moteur:block bg-white border border-gray-200 min-w-[250px] py-2 shadow-lg">
                         <li><Link className="block px-4 py-2 hover:underline decoration-red-600 underline-offset-4">Refroidissement</Link></li>
                         <li className="relative group/lub">
                           <Link className="block px-4 py-2 hover:underline decoration-red-600 underline-offset-4">Lubrification</Link>
-                          {/* Sous-produit Lubrification */}
-                          <ul className="absolute top-0 left-full hidden group-hover/lub:block bg-white border border-gray-200 min-w-[200px] py-2">
-                            <li><Link className="block px-4 py-2 text-xs">LUBRIFIANT 2T DIMABIKE SINTETICO 4L</Link></li>
-                            <li><Link className="block px-4 py-2 text-xs">LUBRIFIANT 4T DIMABIKE 20W50 1L</Link></li>
-                            <li><Link className="block px-4 py-2 text-xs">Huile moteur Magnatec 5W-40</Link></li>
-                            <li><Link className="block px-4 py-2 text-xs">Huile moteur GTX 20W-50</Link></li>
-                            <li><Link className="block px-4 py-2 text-xs">Huile moteur Professional Edge Titanium FST Long life 5W-30</Link></li>
-                            <li><Link className="block px-4 py-2 text-xs">Lubrifiant semi synthétique 10W-40 </Link></li>
-                          </ul>
+                          
                         </li>
                         <li><Link className="block px-4 py-2 hover:underline decoration-sia-red-claire underline-offset-4">Admission/Échappement</Link></li>
                         <li><Link className="block px-4 py-2 hover:underline decoration-sia-red-claire  underline-offset-4">Injection/Carburant</Link></li>
@@ -107,7 +98,7 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* AUTRES LIENS */}
+        
             <li><Link to="/marques" className="font-medium hover:text-red-600 transition-colors">MARQUES</Link></li>
             <li><Link to="/b2b" className="font-medium hover:text-red-600 transition-colors">B2B</Link></li>
             <li><Link to="/b2b" className="font-medium hover:text-red-600 transition-colors">PARTENAIRES</Link></li>
@@ -116,11 +107,11 @@ export default function Navbar() {
           </ul>
         </nav>
 
-            {/* CTA */}
+           
             <ul>
               <Link 
                 to="/contact" 
-                className={`px-6 py-2 text-sm font-medium border transition-all duration-300 ${isScrolled ? 'text-sia-red-claire border-sia-red-claire': 'text-white border-white'}`}>
+                className={`px-6 py-2 text-sm font-medium border   transition-all duration-300 ${isScrolled ? 'text-sia-red-claire border-sia-red-claire hover:text-white hover:bg-sia-red-claire': 'text-white border-white hover:text-sia-red-claire hover:bg-white'}`}>
                 Demander un devis
               </Link>
             </ul>

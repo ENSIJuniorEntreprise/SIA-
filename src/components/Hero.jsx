@@ -2,8 +2,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    // h-screen makes it 100% of the viewport height
-    // w-full makes it 100% of the viewport width
+   
     <section className="relative w-screen h-screen overflow-hidden bg-black left-1/2 right-1/2 -ml-[50vw] +mr-[50vw]">
       
       {/* BACKGROUND IMAGE - No padding, no margins */}
@@ -13,11 +12,11 @@ const Hero = () => {
           backgroundImage: "url('/src/assets/headerbackground.jpg')", 
         }}
       >
-        {/* Darker overlay to help the white text stand out */}
+      
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      {/* CONTENT - Centered but allowed to breathe */}
+      
       <div className="relative z-10 h-full w-full flex flex-col justify-center items-center px-4">
         <div className="max-w-5xl text-center">
           <h1 className="text-white text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-6">
@@ -35,7 +34,7 @@ const Hero = () => {
             <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
               Découvrir SIA
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-white hover:text-black transition-all">
+            <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all">
               Nos Divisions
             </button>
           </div>
