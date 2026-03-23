@@ -30,7 +30,7 @@ const Hero = () => {
             industrielle et agricole depuis plus de 40 ans.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-20 justify-center">
+          <div className="flex flex-col sm:flex-row gap-12 justify-center">
             <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
               Découvrir SIA
             </button>

@@ -29,24 +29,24 @@ const StatCard = ({ number, suffix, title, subtitle }) => {
 export default function Accueil() {
   return (
     <main className="w-full min-h-screen">
-      {/* Ta section HERO (Full Width) */}
+     
       <Hero />
 
-      {/* Ta section CHIFFRES CLÉS */}
-      <section className="w-full py-24 bg-[#F8F9FA]"> {/* Un gris très léger pour faire ressortir les cartes blanches */}
+    
+      <section className="w-full py-40 bg-[#F8F9FA]">  
         <div className="container mx-auto px-6">
           
-          {/* Titre de la section */}
+         
           <div className="text-center mb-16">
-            <h2 className="text-sia-red-claire text-3xl font-bold uppercase border-b-2 border-sia-red-claire inline-block pb-1">
+            <h2 className="text-sia-red-claire text-5xl font-bold uppercase border-b-2 border-sia-red-claire inline-block pb-1">
               Chiffres Clés
             </h2>
-            <p className="text-black font-bold uppercase text-xs mt-4 tracking-widest">
+            <p className="text-black font-bold uppercase text-3xs mt-4 tracking-widest">
               SIA en quelques chiffres
             </p>
           </div>
 
-          {/* Grille des compteurs */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <StatCard 
               suffix="+" 

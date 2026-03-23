@@ -32,12 +32,12 @@ const Footer = () => {
 
       
       <section className="bg-white py-16 px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1">
+        <div className="max-w-9xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1">
           
          
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/src/assets/logo.png" alt="SIA Logo" className="h-10 w-10 object-contain"/>
+              <img src="/src/assets/logo.png" alt="SIA Logo" className="h-12 w-12 object-contain"/>
               <span className="text-2xl font-bold text-[#e30613]">SIA</span>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">

@@ -24,7 +24,7 @@ export default function Navbar() {
         
         
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/src/assets/logo.png" alt="SIA Logo" className="h-10 w-10 object-contain"/>
+          <img src="/src/assets/logo.png" alt="SIA Logo" className="h-12 w-12 object-contain"/>
           <span className="text-xl font-bold">SIA</span>
         </Link>
 
@@ -55,9 +55,9 @@ export default function Navbar() {
                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
               </Link>
 
-              <ul className={`absolute top-full left-0 hidden group-hover/lvl1:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 mt-2 ${isScrolled ? 'text-black' : 'text-black'}`}>
+              <ul className={`absolute top-full left-0 hidden group-hover/lvl1:block bg-[#F3F3F3] min-w-[230px] shadow-2xl py-0 pt-2 mt-1 ${isScrolled ? 'text-black' : 'text-black'}`}>
                 <li className="relative group/lvl2">
-                  <Link className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full">
+                  <Link className="flex justify-between items-center px-4 py-3 hover:bg-sia-red hover:text-white transition w-full ">
                     Division pièce de rechange automobile
                   </Link>
 
@@ -99,11 +99,21 @@ export default function Navbar() {
             </li>
 
         
-            <li><Link to="/marques" className="font-medium hover:text-red-600 transition-colors">MARQUES</Link></li>
-            <li><Link to="/b2b" className="font-medium hover:text-red-600 transition-colors">B2B</Link></li>
-            <li><Link to="/b2b" className="font-medium hover:text-red-600 transition-colors">PARTENAIRES</Link></li>
-            <li><Link to="/services" className="font-medium hover:text-red-600 transition-colors">SERVICES</Link></li>
-            <li><Link to="/contact" className="font-medium hover:text-red-600 transition-colors">CONTACT</Link></li>
+            <li className="relative group/lvl1"><Link to="/marques" className="font-medium hover:text-red-600 transition-colors">MARQUES
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
+            </Link></li>
+            <li className="relative group/lvl1"><Link to="/b2b" className="font-medium hover:text-red-600 transition-colors">B2B
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
+            </Link></li>
+            <li className="relative group/lvl1"><Link to="/partenaires" className="font-medium hover:text-red-600 transition-colors">PARTENAIRES
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
+            </Link></li>
+            <li className="relative group/lvl1"><Link to="/services" className="font-medium hover:text-red-600 transition-colors">SERVICES
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
+            </Link></li>
+            <li className="relative group/lvl1"><Link to="/contact" className="font-medium hover:text-red-600 transition-colors">CONTACT
+            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-sia-red group-hover/lvl1:w-full transition-all duration-300 "></span>
+            </Link></li>
           </ul>
         </nav>
 
