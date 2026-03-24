@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SocialSidebar from './components/SocialSidebar';
 import Accueil from './pages/Accueil'
 import APropos from './pages/APropos'
 import Partenaires from './pages/Partenaires'
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/marques" element={<Marques />} />
         </Routes>
       </main>
+      <SocialSidebar />
       <Footer />
     </div>
   )
