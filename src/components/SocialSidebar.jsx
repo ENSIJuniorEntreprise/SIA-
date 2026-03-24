@@ -6,7 +6,7 @@ const SocialSidebar = () => {
 
   return (
    
-    <div className="fixed right-1 bottom-7 -translate-y-1/2 z-50  flex flex-col items-center gap-4">
+    <div className="fixed bottom-10 right-2 z-50 hidden flex-col items-center gap-4 md:flex">
       
      
       <button 

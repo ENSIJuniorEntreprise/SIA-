@@ -15,11 +15,13 @@ import Marques from './pages/Marques'
 export default function App() {
   const location = useLocation()
   const isServicesPage = location.pathname === '/services'
+  const isHomePage = location.pathname === '/'
+  const isFullBleedPage = isServicesPage || isHomePage
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Navbar />
-      <main className={isServicesPage ? 'flex-grow' : 'mx-auto w-full max-w-7xl flex-grow px-4 py-6 sm:px-6 sm:py-8 lg:px-8'}>
+      <main className={isFullBleedPage ? 'flex-grow' : 'mx-auto w-full max-w-7xl flex-grow px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-28 lg:px-8'}>
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/a-propos" element={<APropos />} />

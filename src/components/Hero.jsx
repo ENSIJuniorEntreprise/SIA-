@@ -2,8 +2,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-   
-    <section className="relative w-screen h-screen overflow-hidden bg-black left-1/2 right-1/2 -ml-[50vw] +mr-[50vw]">
+    <section className="relative w-full overflow-hidden bg-black pt-20 min-h-[100svh]">
       
       {/* BACKGROUND IMAGE - No padding, no margins */}
       <div 
@@ -17,24 +16,24 @@ const Hero = () => {
       </div>
 
       
-      <div className="relative z-10 h-full w-full flex flex-col justify-center items-center px-4">
+      <div className="relative z-10 flex h-full min-h-[calc(100svh-5rem)] w-full flex-col items-center justify-center px-4 py-10 sm:py-16">
         <div className="max-w-5xl text-center">
-          <h1 className="text-white text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-6">
+          <h1 className="mb-6 text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
             Sfaxienne <br />
             <span className="text-sia-red-claire">Industrielle</span> <br />
             et Automobile
           </h1>
 
-          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
+          <p className="mx-auto mb-8 max-w-2xl text-base font-medium text-white/90 sm:text-lg md:mb-10 md:text-xl">
             Leader national dans la distribution des pièces automobiles, 
             industrielle et agricole depuis plus de 40 ans.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-12 justify-center">
-            <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
+            <button className="bg-sia-red-claire px-8 py-3 text-sm font-bold uppercase text-white transition-all hover:bg-white hover:text-sia-red-claire sm:px-10 sm:py-4 sm:text-base">
               Découvrir SIA
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all">
+            <button className="border-2 border-white px-8 py-3 text-sm font-bold uppercase text-white transition-all hover:border-sia-red-claire hover:bg-sia-red-claire hover:text-white sm:px-10 sm:py-4 sm:text-base">
               Nos Divisions
             </button>
           </div>

@@ -5,25 +5,25 @@ const Footer = () => {
   return (
     <footer className="w-full font-sans">
       
-      <section className="bg-sia-red-claire text-white py-16 px-6 text-center relative overflow-hidden">
+      <section className="relative overflow-hidden bg-sia-red-claire px-4 py-12 text-center text-white sm:px-6 sm:py-16">
         
         <div className="relative z-10 max-w-5xl mx-auto">
           <span className="uppercase tracking-widest text-sm font-bold mb-4 block">
             Collaborons Ensemble
           </span>
-          <h2 className="text-2xl md:text-4xl font-semibold leading-tight mb-10">
+          <h2 className="mb-8 text-xl font-semibold leading-tight sm:text-2xl md:mb-10 md:text-4xl">
             des pièces d’une qualité irréprochable, pensées <br className="hidden md:block" /> 
             pour durer et à la hauteur de ce que vous méritez vraiment.
           </h2>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
            
-            <a href="tel:+21627314100" className="bg-white text-[#e30613] px-11 py-3 rounded-sm font-bold flex items-center gap-2 hover:bg-sia-red-claire hover:text-white transition-all">
+            <a href="tel:+21627314100" className="flex items-center gap-2 rounded-sm bg-white px-6 py-3 font-bold text-[#e30613] transition-all hover:bg-sia-red-claire hover:text-white sm:px-11">
               <Phone size={18} />
               +216 27 314 100
             </a>
             
-            <button className="border-2 border-white px-8 py-3 rounded-sm font-bold flex items-center gap-2 hover:bg-white hover:text-[#e30613] transition-all">
+            <button className="flex items-center gap-2 rounded-sm border-2 border-white px-6 py-3 font-bold transition-all hover:bg-white hover:text-[#e30613] sm:px-8">
               DEMANDER UN DEVIS <ArrowUpRight size={18} />
             </button>
           </div>
@@ -31,8 +31,8 @@ const Footer = () => {
       </section>
 
       
-      <section className="bg-white py-16 px-8">
-        <div className="max-w-9xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1">
+      <section className="bg-white px-4 py-12 sm:px-6 md:px-8 md:py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           
          
           <div className="lg:col-span-1">
@@ -90,8 +90,8 @@ const Footer = () => {
       </section>
 
       
-      <div className="border-t border-gray-100 py-6 px-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 font-medium tracking-widest">
-        <p>©SIA SFAX INDUSTRIELLE AUTOMOBILE. TOUS DROITS RÉSERVÉS.</p>
+      <div className="flex flex-col items-center justify-between border-t border-gray-100 px-4 py-6 text-center text-[10px] font-medium tracking-widest text-gray-400 md:flex-row md:px-8 md:text-left">
+        <p>©SIA SFAX INDUSTRIELLE AUTOMOBILE. TOUS DROITS RESERVES.</p>
         <p className="mt-2 md:mt-0">MADE IN TUNISIA</p>
       </div>
     </footer>
