@@ -139,8 +139,8 @@ export default function Services() {
     const [hoveredDistinction, setHoveredDistinction] = useState(null)
     const navigate = useNavigate()
   return (
-  <div className="font-sans">
-    <section className='relative h-[300px] sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col items-center justify-center text-white text-center px-4'
+  <div className="overflow-x-hidden font-sans">
+    <section className='relative flex h-[320px] flex-col items-center justify-center px-4 text-center text-white sm:h-[380px] md:h-[450px] lg:h-[500px]'
     style={{
 
       backgroundImage: `url(${cover})`,
@@ -153,25 +153,25 @@ export default function Services() {
       <p className='text-sm sm:text-base md:text-lg text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>Avec SIA, vous trouvez une chaîne de valeur complète</p>
 
     </div>
-     <div className='absolute bottom-[-30px] sm:bottom-[-55px] md:bottom-[-60px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-10 bg-gray-50 shadow-xl z-20 flex w-[260px] sm:w-[320px] md:w-[450px]'style={{border:'1px solid #C00000',borderRadius: '60px 60px 0 0', }}>
-          <div className='flex-1 text-center py-3 md:py-4 px-2'>
-            <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
+    <div className='absolute bottom-[-56px] left-1/2 z-20 flex w-[min(94%,980px)] -translate-x-1/2 flex-row overflow-hidden bg-gray-50 pt-3 shadow-xl md:bottom-[-64px] md:pt-4' style={{ border: '1px solid #C00000', borderRadius: '32px 32px 0 0' }}>
+          <div className='flex-1 px-2 py-3 text-center md:py-4'>
+            <div className='mx-auto mb-1 flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10 md:h-12 md:w-12'style={{ backgroundColor: '#C00000' ,marginTop: '0',}}>
                 <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
            </div>
             <p className='font-semibold text-sm sm:text-base md:text-2xl'style={{ color:'#C00000',fontFamily:'Montserrat',}}>+200</p>
             <p className='text-xs 'style={{fontFamily:'Montserrat',color:'#C00000',}}>collaborateurs</p>
           </div>
           <div className="border-l border-gray-300"></div>
-          <div className='flex-1 text-center py-3 md:py-4 px-2'>
-            <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000',marginTop: '-40px', }}>
+          <div className='flex-1 px-2 py-3 text-center md:py-4'>
+            <div className='mx-auto mb-1 flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10 md:h-12 md:w-12'style={{ backgroundColor: '#C00000',marginTop: '0', }}>
                 <FaThumbsUp className='text-white text-xs sm:text-sm md:text-xl'/>   
             </div>
             <p className='font-bold text-sm sm:text-base md:text-2xl'style={{fontFamily:'Montserrat',color:'#C00000'}}>XX k</p>
             <p className="text-xs "style={{fontFamily:'Montserrat',color:'#C00000'}}>clients satisfaits</p>
           </div>
           <div className="border-l border-gray-300"></div>
-          <div className='flex-1 text-center py-3 md:py-4 px-2'>
-           <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000',marginTop: '-40px',}}>
+              <div className='flex-1 px-2 py-3 text-center md:py-4'>
+               <div className='mx-auto mb-1 flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10 md:h-12 md:w-12'style={{ backgroundColor: '#C00000',marginTop: '0',}}>
                  <MdOutlineWork className='text-white text-xs sm:text-sm md:text-xl'/>
            </div>
             <p className='font-bold text-sm sm:text-base md:text-2xl'style={{fontFamily:'Montserrat',color:'#C00000'}}>XX ans</p>
@@ -179,7 +179,7 @@ export default function Services() {
           </div>
       </div>
     </section>
-    <section className='px-4 sm:px-8 md:px-12 lg:px-16 pb-16' style={{ marginTop: '80px' }}>
+    <section className='px-1 pb-16 pt-20 sm:px-2 sm:pt-24 md:px-4 md:pt-24 lg:px-6' >
       <div className='flex items-center gap-3 mb-8 md:mb-10'>
         <div className='w-2 h-7' style={{ backgroundColor: '#C00000', borderRadius:'4px' }}></div>
         <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800'style={{fontFamily:'Montserrat',}}>Nous offrons</h2>
@@ -298,7 +298,7 @@ export default function Services() {
     </section>
 
    
-      <section className='py-12 md:py-20 px-4 sm:px-8 md:px-16 text-center'
+      <section className='px-4 py-12 text-center sm:px-6 md:px-10 md:py-20 lg:px-16'
         style={{ backgroundColor: 'white' }}>
         
         <h2 className='text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2'
@@ -310,7 +310,7 @@ export default function Services() {
           Découvrez ce que nos clients pensent de nos services
         </p>
 
-        <div className='max-w-2xl mx-auto rounded-lg relative'
+        <div className='relative mx-auto max-w-3xl rounded-lg'
           style={{ border: '2px solid #C00000' }}>
 
           <div className='flex flex-col md:flex-row'>
@@ -338,9 +338,9 @@ export default function Services() {
               </div>
 
             
-              <p className='text-sm sm:text-base md:text-lg mb-6'
+              <p className='mb-6 text-sm sm:text-base md:text-lg'
                 style={{ fontFamily: 'Montserrat' }}>
-                "{temoignages[currentTemoignage].texte}"
+                {temoignages[currentTemoignage].texte}
               </p>
 
               

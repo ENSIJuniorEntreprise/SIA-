@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Accueil from './pages/Accueil'
@@ -12,10 +12,13 @@ import B2B from './pages/B2B'
 import Marques from './pages/Marques'
 
 export default function App() {
+  const location = useLocation()
+  const isServicesPage = location.pathname === '/services'
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className={isServicesPage ? 'flex-grow' : 'mx-auto w-full max-w-7xl flex-grow px-4 py-6 sm:px-6 sm:py-8 lg:px-8'}>
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/a-propos" element={<APropos />} />
