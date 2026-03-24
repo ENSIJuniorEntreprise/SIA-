@@ -149,8 +149,8 @@ export default function Services() {
     }}>
     <div className='absolute inset-0 bg-white opacity-10'></div>
     <div className='relative z-10 px-4'>
-      <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-2 md:mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> SERVICES</h1>
-      <p className='text-sm sm:text-base md:text-lg text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>Avec SIA, vous trouvez une chaîne de valeur complète</p>
+      <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-2 md:mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> SERVICES</h1>
+      <p className='text-sm sm:text-base md:text-xl text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>Avec SIA, vous trouvez une chaîne de valeur complète</p>
 
     </div>
      <div className='absolute bottom-[-30px] sm:bottom-[-55px] md:bottom-[-60px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-10 bg-gray-50 shadow-xl z-20 flex w-[260px] sm:w-[320px] md:w-[450px]'style={{border:'1px solid #C00000',borderRadius: '60px 60px 0 0', }}>
@@ -212,8 +212,8 @@ export default function Services() {
 
             </div>
             <div  className='p-6 pt-10 flex flex-col flex-1'>
-              <h3 className='font-extrabold text-lg mb-2 text-center' style={{color: hoveredCard === service.id ? '#f9fafb' : '#1f2937',fontFamily:'Montserrat'}}>{service.titre}</h3>
-              <p className='text-sm mb-6 text-center mt-5' style={{color: hoveredCard === service.id ? 'rgba(255,255,255,0.85)' : '#6b7280',}}>{service.description}</p>
+              <h3 className='font-extrabold text-xl mb-2 text-center' style={{color: hoveredCard === service.id ? '#f9fafb' : '#1f2937',fontFamily:'Montserrat'}}>{service.titre}</h3>
+              <p className='text-lg mb-6 text-center mt-5' style={{color: hoveredCard === service.id ? 'rgba(255,255,255,0.85)' : '#6b7280',}}>{service.description}</p>
               <div className='w-9 h-9 rounded-full flex items-center justify-center cursor-pointer mt-auto mx-auto  ' style={{backgroundColor: hoveredCard === service.id ? '#f9fafb' : '#C00000',}}onClick={() => navigate('/contact')}>
                   <FaArrowRight
                     className="text-sm"
@@ -228,9 +228,9 @@ export default function Services() {
           </div>
         ))}
           <div className='py-8 md:py-16 text-center col-span-1 sm:col-span-2 lg:col-span-2 justify-center items-center rounded-lg flex flex-col min-h-[300px] md:min-h-[480px]' style={{ backgroundColor: '#f9fafb',border: '1px solid #e5e7eb' }}>
-            <h2 className='text-lg sm:text-xl lg:text-3xl font-bold mb-3' style={{ fontFamily: 'Montserrat' }}>BESOIN D'UNE SOLUTION SPÉCIFIQUE?</h2>
-            <p className ='text-gray-500 mb-8 text-sm md:text-base' style={{fontFamily:'Montserrat'}}>N'hésitez pas à nous contacter afin d'obtenir votre solution spécifique</p>
-            <button     className='px-6 md:px-8 py-3 text-white font-semibold rounded-full transition-all duration-300 text-sm md:text-base' style={{ backgroundColor: '#C00000', fontFamily: 'Montserrat' }}onMouseEnter={(e) => e.target.style.backgroundColor = '#900000'}onMouseLeave={(e) => e.target.style.backgroundColor = '#C00000'} onClick={() => navigate('/contact')}>
+            <h2 className='text-xl sm:text-xl lg:text-5xl font-bold mb-3' style={{ fontFamily: 'Montserrat' }}>BESOIN D'UNE SOLUTION SPÉCIFIQUE?</h2>
+            <p className ='text-gray-500 mb-8 text-sm md:text-lg font-bold' style={{fontFamily:'Montserrat'}}>N'hésitez pas à nous contacter afin d'obtenir votre solution spécifique</p>
+            <button     className='px-6 md:px-8 py-3 text-white font-bold rounded-full transition-all duration-300 text-sm md:text-xl' style={{ backgroundColor: '#C00000', fontFamily: 'Montserrat' }}onMouseEnter={(e) => e.target.style.backgroundColor = '#900000'}onMouseLeave={(e) => e.target.style.backgroundColor = '#C00000'} onClick={() => navigate('/contact')}>
               Nous contacter
             </button>
           </div>
@@ -238,8 +238,8 @@ export default function Services() {
     </section>
     <section className='px-4 sm:px-8 md:px-12 lg:px-16 py-12 md:py-20' style={{ backgroundColor: '#f9fafb' }}>
       <div className='text-center mb-10 md:mb-16'>
-        <h2 className='text-2xl sm:text-3xl lg:text-4xl font-extrabold'style={{ fontFamily: 'Montserrat' }} >Ce qui nous <span style={{ color: '#C00000' }}>distingue </span></h2>
-        <p className='text-gray-500 mt-1 font-bold text-sm md:text-base' style={{ fontFamily: 'Montserrat' }}>
+        <h2 className='text-2xl sm:text-3xl lg:text-7xl font-extrabold'style={{ fontFamily: 'Montserrat' }} >Ce qui nous <span style={{ color: '#C00000' }}>distingue </span></h2>
+        <p className='text-gray-500 mt-1 font-bold text-sm md:text-xl' style={{ fontFamily: 'Montserrat' }}>
           Nous offrons des services de haute qualité
         </p>
       </div>
@@ -276,10 +276,10 @@ export default function Services() {
                         </div>
                       )}
                       <div className='w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center relative overflow-hidden ' style={{ backgroundColor: 'white' }} >
-                        <h3 className='text-lg md:text-xl font-bold mb-3 relative z-10' style={{ color: '#C00000', fontFamily: 'Montserrat', }}>
+                        <h3 className='text-xl md:text-3xl font-bold mb-3 relative z-10' style={{ color: '#C00000', fontFamily: 'Montserrat', }}>
                           {item.titre}
                         </h3>
-                        <p className='text-gray-600 text-sm leading-relaxed relative z-10'>
+                        <p className='text-gray-600 text-lg leading-relaxed relative z-10'>
                           {item.description}
                         </p>
                       </div>
@@ -301,11 +301,11 @@ export default function Services() {
       <section className='py-12 md:py-20 px-4 sm:px-8 md:px-16 text-center'
         style={{ backgroundColor: 'white' }}>
         
-        <h2 className='text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2'
+        <h2 className='text-2xl sm:text-3xl lg:text-7xl font-extrabold mb-2'
           style={{ fontFamily: 'Montserrat' }}>
           Ce qu'ils <span style={{ color: '#C00000' }}>en disent</span>
         </h2>
-        <p className='text-gray-500 mb-8 md:mb-12 font-bold text-sm md:text-base'
+        <p className='text-gray-500 mb-8 md:mb-12 font-bold text-sm md:text-lg'
           style={{ fontFamily: 'Montserrat' }}>
           Découvrez ce que nos clients pensent de nos services
         </p>
@@ -328,7 +328,7 @@ export default function Services() {
             </div>
 
             
-            <div className='w-full md:w-3/5 p-6 md:p-8 text-left flex flex-col justify-between'>
+            <div className='w-full md:w-3/5 p-6 md:p-20 text-left flex flex-col justify-between'>
 
               
               <div className='flex gap-1 mb-3'>
