@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
 const categories = [
   {
@@ -14,7 +15,7 @@ const categories = [
   },
   {
     id: 3,
-    title: "Démarrage",
+    title: "D�marrage",
     image: "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=120&h=80&fit=crop",
   },
   {
@@ -34,7 +35,7 @@ const categories = [
   },
   {
     id: 7,
-    title: "Admission/Échappement",
+    title: "Admission/�chappement",
     image: "fi.png",
   },
   {
@@ -56,7 +57,7 @@ export default function DivisionAuto() {
       {/* HERO BANNER */}
       <div style={styles.hero}>
         <img
-      h    src="main.png"
+          src={heroImage}
           alt="hero"
           style={styles.heroImg}
         />
@@ -67,22 +68,26 @@ export default function DivisionAuto() {
       </div>
 
       {/* BREADCRUMB */}
-      <div style={styles.breadcrumbBar}>
-        <span style={styles.breadcrumbGray}>Catalogue</span>
-        <span style={styles.breadcrumbSep}> &gt; </span>
-        <span style={styles.breadcrumbSep}>Division Pièces de Rechange Automobile</span>
-        <span style={styles.breadcrumbSep}> &gt; </span>
-        <span style={styles.breadcrumbActive}>Lubrification</span>
-        
+      <div style={styles.breadcrumbContainer}>
+        <div style={styles.breadcrumbBar}>
+          <span style={styles.breadcrumbGray}>Catalogue</span>
+          <span style={styles.breadcrumbSep}> &gt; </span>
+          <span style={styles.breadcrumbGray}>Division Pi�ces de Rechange Automobile</span>
+          <span style={styles.breadcrumbSep}> &gt; </span>
+          <span style={styles.breadcrumbActive}>Moteur</span>
+        </div>
       </div>
 
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+              to={cat.id === 1 ? "/divisions/piece-de-rechange/moteur/lubrification" : "#"}
               key={cat.id}
               style={{
+                textDecoration: "none",
+                color: "inherit",
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
               }}
@@ -90,7 +95,7 @@ export default function DivisionAuto() {
               onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Red diamond icon */}
-              <span style={styles.diamond}>◆</span>
+              
               <span style={styles.cardTitle}>{cat.title}</span>
               <div style={styles.cardImgWrap}>
                 <img
@@ -102,7 +107,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -113,7 +118,7 @@ export default function DivisionAuto() {
 const styles = {
   page: {
     fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
-    background: "#f0f0f0",
+    background: "#ffffff",
     minHeight: "100vh",
     color: "#090909",
   },
@@ -148,7 +153,7 @@ const styles = {
     zIndex: 2,
     margin: 0,
     color: "#fff",
-    fontSize: "clamp(3px, 4vw, 50px)",
+    fontSize: "clamp(30px, 4vw, 50px)",
     fontWeight: 800,
     textAlign: "center",
     lineHeight: 1.25,
@@ -160,7 +165,7 @@ const styles = {
     zIndex: 2,
     margin: 0,
     color: "#C00000",
-    fontSize: "clamp(3px, 4vw, 50px)",
+    fontSize: "clamp(30px, 4vw, 50px)",
     fontWeight: 800,
     textAlign: "center",
     lineHeight: 1.25,
@@ -170,21 +175,30 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID
   section: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "30px 0px 30px",
+    padding: "30px 20px 30px",
   },
   grid: {
     display: "grid",

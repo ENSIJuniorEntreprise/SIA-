@@ -6,22 +6,22 @@ const SocialSidebar = () => {
 
   return (
    
-    <div className="fixed bottom-10 right-2 z-50 hidden flex-col items-center gap-4 md:flex">
+    <div className="fixed top-1/2 right-0 z-50 hidden -translate-y-1/2 flex-col items-end gap-4 md:flex">
       
      
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#e30613] text-white p-2 rounded-sm shadow-lg hover:bg-sia-red transition-all duration-300"
+        className="bg-[#e30613] text-white p-3 rounded-l-md shadow-lg hover:bg-sia-red transition-all duration-300"
       >
         
-        {isOpen ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+        {isOpen ? <ChevronRight size={24} /> : <ChevronLeft size={24} />}
       </button>
 
       
-      <div className={`flex flex-col gap-6 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm transition-all duration-500 ${
+      <div className={`flex flex-col gap-6 p-3 bg-white/90 backdrop-blur-sm rounded-l-lg shadow-md transition-all duration-500 mr-2 ${
         isOpen 
           ? 'opacity-100 scale-100 translate-x-0' 
-          : 'opacity-0 scale-50 translate-x-10 pointer-events-none'
+          : 'opacity-0 scale-50 translate-x-10 pointer-events-none absolute'
       }`}>
         <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
           <Facebook size={22} strokeWidth={1.2} />

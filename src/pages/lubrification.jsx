@@ -1,4 +1,5 @@
-import { useState } from "react";
+﻿import { useState } from "react";
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
 const products = [
   {
@@ -84,18 +85,18 @@ const products = [
   },
 ];
 
-const filterTypes = ["Moteur 2T", "Moteur 4T", "Moteur Diesel", "Boite de Vitesse"];
-const filterMarques = ["Castrol", "Total", "Mobil", "Shell", "Elf"];
-const filterTailles = ["1L", "4L", "5L", "20L"];
+const filterDivision = ["Division Pièces de Rechange Automobile", "Division Industrielle", "Division Marine", "Division Travaux Publics"];
+const filterSousDivision1 = ["Moteur", "Suspension", "Freinage", "Filtration"];
+const filterSousDivision2 = ["Lubrification", "Pistons", "Courroies", "Échappement"];
 
 const Breadcrumb = () => (
   <nav style={styles.breadcrumb}>
     <span style={styles.breadLink}>catalogue</span>
-    <span style={styles.breadSep}> › </span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadLink}>Division Pièces de Rechange Automobile</span>
-    <span style={styles.breadSep}> › </span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadLink}>Moteur</span>
-    <span style={styles.breadSep}> › </span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadActive}>Lubrification</span>
   </nav>
 );
@@ -107,45 +108,45 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset }) => {
 
   return (
     <aside style={styles.filterPanel}>
-      <h3 style={styles.filterTitle}>Chercher par Type</h3>
+      <h3 style={styles.filterTitle}>Chercher par</h3>
 
       <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un Type</p>
+        <p style={styles.filterLabel}>Sélectionner un Division</p>
         <select
           style={styles.select}
-          value={filters.type}
-          onChange={(e) => handleSelect("type", e.target.value)}
+          value={filters.division}
+          onChange={(e) => handleSelect("division", e.target.value)}
         >
-          <option value="">-- Type --</option>
-          {filterTypes.map((t) => (
+          <option value="">-- Division --</option>
+          {filterDivision.map((t) => (
             <option key={t} value={t}>{t}</option>
           ))}
         </select>
       </div>
 
       <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un Marque</p>
+        <p style={styles.filterLabel}>Sélectionner un Sous-Division 1</p>
         <select
           style={styles.select}
-          value={filters.marque}
-          onChange={(e) => handleSelect("marque", e.target.value)}
+          value={filters.sousDivision1}
+          onChange={(e) => handleSelect("sousDivision1", e.target.value)}
         >
-          <option value="">-- Marque --</option>
-          {filterMarques.map((m) => (
+          <option value="">-- Sous-Division 1 --</option>
+          {filterSousDivision1.map((m) => (
             <option key={m} value={m}>{m}</option>
           ))}
         </select>
       </div>
 
       <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un taille</p>
+        <p style={styles.filterLabel}>Sélectionner un Sous-Division 2</p>
         <select
           style={styles.select}
-          value={filters.size}
-          onChange={(e) => handleSelect("size", e.target.value)}
+          value={filters.sousDivision2}
+          onChange={(e) => handleSelect("sousDivision2", e.target.value)}
         >
-          <option value="">-- Taille --</option>
-          {filterTailles.map((s) => (
+          <option value="">-- Sous-Division 2 --</option>
+          {filterSousDivision2.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
@@ -208,22 +209,21 @@ const ProductCard = ({ product, index }) => {
 };
 
 export default function LubrificationPage() {
-  const [filters, setFilters] = useState({ type: "", marque: "", size: "" });
-  const [activeFilters, setActiveFilters] = useState({ type: "", marque: "", size: "" });
+  const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+  const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
 
   const handleFilter = () => setActiveFilters({ ...filters });
   const handleReset = () => {
-    const empty = { type: "", marque: "", size: "" };
+    const empty = { division: "", sousDivision1: "", sousDivision2: "" };
     setFilters(empty);
     setActiveFilters(empty);
   };
 
   const filtered = products.filter((p) => {
-    const okSize = !activeFilters.size || p.size === activeFilters.size;
-    const okMarque =
-      !activeFilters.marque ||
-      p.name.toLowerCase().includes(activeFilters.marque.toLowerCase());
-    return okSize && okMarque;
+    const okDivision = !activeFilters.division || p.name.includes(activeFilters.division);
+    const okSousDiv1 = !activeFilters.sousDivision1 || p.name.includes(activeFilters.sousDivision1);
+    const okSousDiv2 = !activeFilters.sousDivision2 || p.name.includes(activeFilters.sousDivision2);
+    return okDivision && okSousDiv1 && okSousDiv2;
   });
 
   return (
@@ -235,14 +235,18 @@ export default function LubrificationPage() {
           <h1 style={styles.heroTitle}>
             Division Pièces de Rechange
             <br />
-            <h1 style={styles.heroTitle1}>Automobile</h1>
+            <span style={styles.heroTitle1}>Automobile</span>
           </h1>
         </div>
       </div>
 
-      <div style={styles.container}>
-        <Breadcrumb />
+      <div style={styles.breadcrumbContainer}>
+        <div style={styles.breadcrumbInner}>
+          <Breadcrumb />
+        </div>
+      </div>
 
+      <div style={styles.container}>
         <div style={styles.layout}>
           <FilterPanel
             filters={filters}
@@ -264,7 +268,7 @@ export default function LubrificationPage() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Source Sans 3', sans-serif; background: #f4f5f7; }
+        body { font-family: 'Source Sans 3', sans-serif; background: #ffffff; }
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -279,23 +283,25 @@ const RED = "#c0141c";
 const DARK = "#1a1a2e";
 
 const styles = {
-  page: { fontFamily: "'Source Sans 3', sans-serif", background: "#f4f5f7", minHeight: "100vh" },
+  page: { fontFamily: "'Source Sans 3', sans-serif", background: "#ffffff", minHeight: "100vh" },
 
   // Hero
   hero: { position: "relative", height: 250, overflow: "hidden", background: `linear-gradient(135deg, ${DARK} 0%, #2d2d44 100%)` },
-  heroOverlay: { position: "absolute", inset: 0, background: "url('main.png')", opacity: 0.9 },
+  heroOverlay: { position: "absolute", inset: 0, background: `url(${heroImage}) center/cover no-repeat`, opacity: 0.9 },
   heroContent: { position: "relative", zIndex: 1, height: "100%", display: "flex", alignItems: "center", justifyContent: "center" },
-  heroTitle: { fontFamily: "'Raleway', sans-serif", color: "#fff", fontSize: 40, fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
-  heroTitle1: { fontFamily: "'Raleway', sans-serif", color: "#C00000", fontSize: 40, fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
+  heroTitle: { fontFamily: "'Raleway', sans-serif", color: "#fff", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
+  heroTitle1: { fontFamily: "'Raleway', sans-serif", color: "#C00000", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
 
   // Layout
+  breadcrumbContainer: { width: "100%", background: "#f8f8f8", borderBottom: "1px solid #eaeaea", marginBottom: 24 },
+  breadcrumbInner: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
   container: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
   layout: { display: "flex", gap: 24, alignItems: "flex-start", paddingBottom: 48 },
 
   // Breadcrumb
-  breadcrumb: { padding: "14px 0 20px", fontSize: 13, color: "#888", display: "flex", flexWrap: "wrap", gap: 2 },
+  breadcrumb: { padding: "16px 0", fontSize: 14, color: "#888", display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" },
   breadLink: { color: "#555", cursor: "pointer", textDecoration: "none" },
-  breadSep: { color: "#aaa" },
+  breadSep: { color: "#aaa", fontSize: 16 },
   breadActive: { color: RED, fontWeight: 600 },
 
   // Sidebar
@@ -334,16 +340,16 @@ const styles = {
   sizeVal: { color: RED },
   btnDevis: {
     margin: "10px 14px 14px",
-    background: RED,
-    color: "#fff",
-    border: "none",
-    borderRadius: 6,
+    background: "transparent",
+    color: "#E10600",
+    border: "1px solid #E10600",
+    borderRadius: 0,
     padding: "9px 0",
-    fontSize: 11,
-    fontWeight: 700,
+    fontSize: 14,
+    fontWeight: 500,
     letterSpacing: "0.6px",
     cursor: "pointer",
-    transition: "background .2s",
+    transition: "all 0.3s",
   },
-  btnDevisHover: { background: "#a0111a" },
+  btnDevisHover: { background: "#E10600", color: "#fff" },
 };

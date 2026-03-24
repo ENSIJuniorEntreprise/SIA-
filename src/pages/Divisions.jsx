@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 const divisions = [
   {
@@ -45,7 +45,7 @@ export default function NsDivisions() {
       <div style={styles.hero}>
         <div style={styles.heroOverlay} />
         <img
-          src="div.png"
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
           alt="hero"
           style={styles.heroImg}
         />
@@ -59,9 +59,12 @@ export default function NsDivisions() {
       <section style={styles.cardsSection}>
         <div style={styles.cardsGrid}>
           {divisions.map((div) => (
-            <div
+            <Link
+              to={div.id === 1 ? "/divisions/piece-de-rechange" : "#"}
               key={div.id}
               style={{
+                textDecoration: "none",
+                color: "inherit",
                 ...styles.card,
                 ...(hoveredCard === div.id ? styles.cardHovered : {}),
               }}
@@ -81,17 +84,16 @@ export default function NsDivisions() {
               <div style={styles.cardBody}>
                 <h3 style={styles.cardTitle}>{div.title}</h3>
                 <p style={styles.cardDesc}>{div.description}</p>
-                <a
-                  href="#"
+                <div
                   style={{
                     ...styles.cardLink,
                     ...(hoveredCard === div.id ? styles.cardLinkHovered : {}),
                   }}
                 >
                   Voir plus &gt;
-                </a>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -102,7 +104,7 @@ export default function NsDivisions() {
 const styles = {
   page: {
     fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
-    background: "#f5f5f5",
+    background: "#ffffff",
     minHeight: "100vh",
     color: "#1a1a1a",
   },
