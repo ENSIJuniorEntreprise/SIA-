@@ -15,7 +15,7 @@ const categories = [
   },
   {
     id: 3,
-    title: "D�marrage",
+    title: "Démarrage",
     image: "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=120&h=80&fit=crop",
   },
   {
@@ -35,7 +35,7 @@ const categories = [
   },
   {
     id: 7,
-    title: "Admission/�chappement",
+    title: "Admission/Échappement",
     image: "fi.png",
   },
   {
@@ -72,7 +72,7 @@ export default function DivisionAuto() {
         <div style={styles.breadcrumbBar}>
           <span style={styles.breadcrumbGray}>Catalogue</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbGray}>Division Pi�ces de Rechange Automobile</span>
+          <span style={styles.breadcrumbGray}>Division Pièces de Rechange Automobile</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
           <span style={styles.breadcrumbActive}>Moteur</span>
         </div>

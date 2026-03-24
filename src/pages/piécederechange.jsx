@@ -20,7 +20,7 @@ const categories = [
   },
   {
     id: 4,
-    title: "�l�ctricit�/ �lectronique",
+    title: "Électricité/ Électronique",
     image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=120&h=80&fit=crop",
   },
   {
@@ -76,7 +76,7 @@ export default function DivisionAuto() {
         <div style={styles.breadcrumbBar}>
           <span style={styles.breadcrumbGray}>Catalogue</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbActive}>Division Pi�ces de Rechange Automobile</span>
+          <span style={styles.breadcrumbActive}>Division Pièces de Rechange Automobile</span>
         </div>
       </div>
 
