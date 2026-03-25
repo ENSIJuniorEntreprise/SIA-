@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
    
     <section className="relative w-screen h-screen overflow-hidden bg-black left-1/2 right-1/2 -ml-[50vw] +mr-[50vw]">
       
-      {/* BACKGROUND IMAGE - No padding, no margins */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
         style={{ 
@@ -34,9 +34,9 @@ const Hero = () => {
             <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
               Découvrir SIA
             </button>
-            <button className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all">
+            <Link to="/Division" className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all">
               Nos Divisions
-            </button>
+            </Link>
           </div>
         </div>
       </div>
