@@ -3,6 +3,60 @@ import Hero from '../components/Hero';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+const brands = [
+  { name: 'Invertek Drives', logo: 'src/assets/invertek.png' },
+  { name: 'Valeo', logo: 'src/assets/valeo.svg' },
+  { name: 'OCAP Group', logo: 'src/assets/ocap.png' },
+  { name: 'Misfat Filtration', logo: 'src/assets/misfsat.png' },
+  { name: 'OMEC', logo: 'src/assets/omec.png' },
+  { name: 'lpr', logo: 'src/assets/lpr.jpg' },
+  { name: 'cofran', logo: 'src/assets/cofran.png' },
+  { name: 'SNR', logo: 'src/assets/SNR.jpg' },
+];
+const services = [
+  {
+    id: "01.",
+    title: "GARANTIE QUALITÉ",
+    description: "Nous sélectionnons des produits fiables auprès de fabricants reconnus. Notre gamme comprend différentes solutions afin de proposer le meilleur équilibre entre qualité, performance et prix adapté au marché tunisien.",
+    image:"src/assets/tech.jpg",
+    isRed: false
+  },
+  {
+    id: "02.",
+    title: "LIVRAISON RAPIDE",
+    description: "Nous disposons d'un stock important pour répondre rapidement aux besoins de nos clients. Certains produits sont disponibles immédiatement, tandis que d'autres peuvent être fournis sur commande avec des délais adaptés selon les fournisseurs.",
+    image:"src/assets/chariot.jpg",
+    isRed: false
+  },
+  {
+    id: "03.",
+    title: "SUPPORT TECHNIQUE",
+    description: "Une équipe technico-commerciale qualifiée est à votre écoute pour vous orienter dans l'identification et la sélection des pièces adaptées à vos besoins.",
+    image:"src/assets/interv.jpg",
+    isRed: false
+  },
+  {
+    id: "04.",
+    title: "MARQUES PREMIUM",
+    description: "Partenariats officiels avec les grandes marques internationales pour une offre authentique et certifiée.",
+    image:"src/assets/partenaire.jpg",
+    isRed: true,
+  },
+  {
+    id: "05.",
+    title: "SAV PROFESSIONNEL",
+    description: "Notre service technique intervient pour la préparation et la jonction des bandes transporteuses ainsi que des courroies plates. Nous assurons aussi l'installation, la mise en service et la réparation des groupes électrogènes Kohler.",
+    image:"src/assets/profi.jpg",
+    isRed: false
+  },
+  {
+    id: "06.",
+    title: "SOURCING INTERNATIONAL",
+    image:"src/assets/monde.jpg",
+    description: "Grâce à notre réseau de partenaires et de fournisseurs internationaux, nous pouvons rechercher et fournir des produits spécifiques selon les besoins de nos clients.",
+    isRed: false
+  }
+];
 
 const divisions = [
   {
@@ -200,29 +254,19 @@ export default function Accueil() {
             <div
               key={index} 
               href={item.link} 
-              // Le parent définit le groupe et l'état par défaut (avec ombre)
-              className="relative h-72 md:h-96 overflow-hidden rounded-xl group shadow-lg transition-all"
-            >
-              {/* ÉTATS PAR DÉFAUT (Masqués au survol) */}
               
-              {/* 1. L'image de fond qui disparaît au survol */}
+              className="relative h-72 md:h-96 overflow-hidden rounded-xl group shadow-lg transition-all">
+              
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 opacity-100 group-hover:opacity-0"
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
-              {/* 2. L'overlay sombre qui disparaît au survol */}
+                style={{ backgroundImage: `url(${item.image})` }}/>
+              
               <div className="absolute inset-0 bg-black/60 transition-opacity duration-500 opacity-100 group-hover:opacity-0" />
-
               
-              {/* ÉTATS AU SURVOL (Masqués par défaut) */}
-              
-              {/* 3. Le fond rouge qui apparaît au survol */}
               <div className="absolute inset-0 bg-sia-red-claire transition-opacity duration-500 opacity-0 group-hover:opacity-100 shadow-sia-red-claire/30 shadow-2xl" />
-
               
-              {/* CONTENU MIXTE (Le titre est toujours visible, les autres apparaissent) */}
               <div className="absolute inset-0 flex flex-col items-start justify-end p-8 md:p-12 transition-all">
-                {/* 4. Le titre qui reste visible mais change de style si besoin (ici il est toujours blanc) */}
+                
                 <h3 className="text-white text-xl md:text-2xl font-extrabold text-left leading-tight uppercase drop-shadow-lg mb-2">
                   {item.title}
                 </h3>
@@ -239,7 +283,78 @@ export default function Accueil() {
           ))}
         </div>
       </section>
-      
+      <section className="py-20 bg-white font-sans">
+      <div className="container mx-auto px-6">
+        
+       
+        <div className="text-center mb-16 ">
+          <div className="inline-block relative mb-4">
+            <h2 className="text-sia-red-claire text-3xl md:text-4xl font-bold uppercase pb-2">NOS SERVICES</h2>
+            <div className="w-100 h-1 bg-sia-red-claire mx-auto"></div>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-Montserrat font-bold text-black uppercase mb-4 tracking-tight">CE QUE NOUS APPORTONS</h2>
+          <div className="w-24 h-1 bg-sia-red mx-auto mb-6"></div>
+          <p className="max-w-3xl mx-auto text-gray-500 text-sm md:text-base leading-relaxed ">
+           SIA offre bien plus que des produits. Notre engagement couvre l'ensemble de la<br></br>chaine de valeur, du conseil technique à la livraison.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <div 
+              key={index}
+              className="relative p-10 h-[300px]  flex flex-col justify-start overflow-hidden group shadow-lg transition-all duration-300 hover:shadow-2xl bg-gray-900 "
+            >
+              
+              <div 
+                className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-700 group-hover:scale-110" 
+                style={{ backgroundImage: `url(${service.image})` }}
+              />
+              
+             
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300 z-10" />
+
+             
+              <div className="relative z-20">
+                
+                <span className="text-4xl font-black block mb-6 text-sia-red">
+                  {service.id}
+                </span>
+                <h3 className="text-white text-xl font-bold mb-4 uppercase tracking-wider">
+                  {service.title}
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed font-light">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section className="py-20 bg-white">
+
+  <div className="container mx-auto px-6 text-center mb-12">
+    <h2 className="inline-block relative text-sia-red-claire text-4xl font-bold uppercase pb-2">
+      NOS MARQUES
+      <div className="w-full h-[4px] bg-sia-red-claire mt-1"></div>
+    </h2>
+  </div>
+
+  <div className="full-bleed bg-[#D1D5DB] py-12 overflow-hidden border-y border-gray-300">
+    <div className="marquee-content">
+      {[...brands, ...brands, ...brands].map((brand, index) => (
+        <div key={index} className="flex-none mx-12 w-48 flex items-center justify-center">
+          <img 
+            src={brand.logo} 
+            alt={brand.name} 
+            className="h-16 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
     </main>
   );
 }
