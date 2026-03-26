@@ -23,13 +23,13 @@ const LOGO_IMAGE = logoImage;
 // ── TRANSMISSION ──────────────────────────────────────────────
 import logoOmec            from "../assets/brands/omec.jpg";
 import logoOptibelt        from "../assets/brands/optibelt.svg";
-import logoAmmeraal        from "../assets/brands/ammeral-beltech.png";
+import logoAmmeraal        from "../assets/brands/ameral-removebg-preview.png";
 import logoBkGears         from "../assets/brands/b.k-gear.jpg";
 import logoInvertek        from "../assets/brands/invertek.svg";
 import logoNord            from "../assets/brands/nord.svg";
 
 // ── ROULEMENTS ────────────────────────────────────────────────
-import logoSnr             from "../assets/brands/snr.png";
+import logoSnr             from "../assets/brands/images__1_-removebg-preview.png";
 import logoUbc             from "../assets/brands/ubc.png";
 import logoRegina          from "../assets/brands/regina.png";
 import logoChiaravalli     from "../assets/brands/chiaravalli.png";
@@ -42,12 +42,18 @@ import logoOcap            from "../assets/brands/ocap.png";
 import logoImp             from "../assets/brands/imp.png";
 import logoRa              from "../assets/brands/r2a.webp";
 import logoFare            from "../assets/brands/fare.png";
-import logoTecno           from "../assets/brands/tecno.png";
-import logoEanes           from "../assets/brands/misfat.png";
+import logoSiarecord       from "../assets/brands/siarecord.png";
+import logoSnt             from "../assets/brands/SNT.png";
+import logoMisfat          from "../assets/brands/misfat.png";
 
 // ── MOTEUR ────────────────────────────────────────────────────
 import logoChampion        from "../assets/brands/champion.png";
 import logoCofran          from "../assets/brands/cofran.svg";
+import logoKohler          from "../assets/brands/kohler.png";
+import logoGlyco           from "../assets/brands/glyco.png";
+import logoNural           from "../assets/brands/nural.png";
+import logoGoetze          from "../assets/brands/Goetze.png";
+import logoPayen           from "../assets/brands/payen.png";
 
 /* ════════════════════════════════════════════════════════════════
    TABLE DE CORRESPONDANCE  nom-marque → logo importé
@@ -74,16 +80,17 @@ const BRAND_LOGOS = {
   IMP:                logoImp,
   "R&A":              logoRa,
   FARE:               logoFare,
-  SIARECROD:          null,
-  TECNO:              logoTecno,
-  "EANES / MISFAT":   logoEanes,
+  SIARECROD:          logoSiarecord,
+  SNT:                logoSnt,
+  MISFAT:             logoMisfat,
   // ── Moteur
   CHAMPION:           logoChampion,
-  GLYCO:              null,
-  PAYEN:              null,
-  GOETZE:             null,
-  "NÜRAL":            null,
+  GLYCO:              logoGlyco,
+  PAYEN:              logoPayen,
+  GOETZE:             logoGoetze,
+  "NÜRAL":            logoNural,
   COFRAN:             logoCofran,
+  KOHLER:             logoKohler,
 };
 
 /* ─── DONNÉES ─────────────────────────────────────────────────── */
@@ -124,8 +131,8 @@ const automobileBrands = [
   { name: "R&A",            country: "Italie",          desc: "Pare-chocs" },
   { name: "FARE",           country: "Espagne",         desc: "Silentblocs, durites" },
   { name: "SIARECROD",      country: "Tunisie",         desc: "Amortisseurs" },
-  { name: "TECNO",          country: "Tunisie",         desc: "Soupapes moteur" },
-  { name: "EANES / MISFAT", country: "Tunisie",         desc: "Filtres" },
+  { name: "SNT",            country: "Italie",          desc: "Pièces de rechange" },
+  { name: "MISFAT",         country: "Tunisie",         desc: "Filtres" },
 ];
 const moteurBrands = [
   { name: "CHAMPION", country: "Belgique", desc: "Bougies de préchauffage/allumage, balais d'essuie-glace" },
@@ -134,6 +141,7 @@ const moteurBrands = [
   { name: "GOETZE",   country: "Belgique", desc: "Jeux de segments, chemises moteur" },
   { name: "NÜRAL",    country: "Belgique", desc: "Pistons" },
   { name: "COFRAN",   country: "France",   desc: "Lubrifiants" },
+  { name: "KOHLER",   country: "USA",      desc: "Moteurs et pièces de rechange courantes" },
 ];
 
 const brandsByCategory = {
@@ -204,11 +212,15 @@ function BrandLogo({ name }) {
   if (!url || failed) {
     return <div className="brand-logo brand-logo--fallback">{initials}</div>;
   }
+  
+  // Appliquer une classe spécifique pour grossir PAYEN
+  const isPayen = name === "PAYEN";
+  
   return (
     <img
       src={url}
       alt={`Logo ${name}`}
-      className="brand-logo"
+      className={`brand-logo ${isPayen ? 'brand-logo--scale-up' : ''}`}
       onError={() => setFailed(true)}
       loading="lazy"
     />
@@ -268,7 +280,7 @@ function BrandCard({ brand, reduced }) {
       </div>
 
       <h3 className="brand-card__title">{brand.name}</h3>
-      <p className="brand-card__country"><span className="brand-card__dot" /> {brand.country}</p>
+      <p className="brand-card__country"><span className="brand-card__dot" /> siège: {brand.country}</p>
       <p className="brand-card__description">{brand.desc}</p>
 
       {/* Shimmer au hover */}

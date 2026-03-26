@@ -18,10 +18,8 @@ const Hero = () => {
       
       <div className="relative z-10 flex h-full min-h-[calc(100svh-5rem)] w-full flex-col items-center justify-center px-4 py-10 sm:py-16">
         <div className="max-w-5xl text-center">
-          <h1 className="mb-6 text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
-            Sfaxienne <br />
-            <span className="text-sia-red-claire">Industrielle</span> <br />
-            et Automobile
+          <h1 className="mb-6 text-7xl font-extrabold uppercase leading-tight tracking-widest text-sia-red-claire sm:text-8xl md:text-9xl lg:text-[150px]" style={{fontFamily:'Montserrat'}}>
+            SIA
           </h1>
 
           <p className="mx-auto mb-8 max-w-2xl text-base font-medium text-white/90 sm:text-lg md:mb-10 md:text-xl">
