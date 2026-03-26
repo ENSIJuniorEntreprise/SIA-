@@ -21,9 +21,10 @@ export default function App() {
   const isHomePage = location.pathname === '/'
   const isDivisionsPage = location.pathname.startsWith('/divisions')
   const isPartenairesPage = location.pathname === '/partenaires'
+  const isMarquesPage = location.pathname === '/marques'
 
   let mainClasses = "flex-grow";
-  if (isHomePage || isServicesPage || isPartenairesPage) {
+  if (isHomePage || isServicesPage || isPartenairesPage || isMarquesPage) {
     mainClasses = "flex-grow";
   } else if (isDivisionsPage) {
     mainClasses = "flex-grow pt-24 sm:pt-28";

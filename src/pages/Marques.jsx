@@ -10,6 +10,7 @@ import opel from '../assets/image/opel.jpg'
 import peugeot from '../assets/image/peugeot.jpg'
 import renault from '../assets/image/renault.jpg'
 import volkswagen from '../assets/image/volkswagen.jpg'
+import bgArriere from '../assets/arriere (2).png'
 
 const categories = ['Tous', 'Transmission', 'Automobile', 'Roulement', 'Motorisation', 'Industrie', 'Pneumatique']
 const marques = [
@@ -32,15 +33,15 @@ export default function Marques() {
     return matchCat && matchSearch
   })
   const navigate = useNavigate()
-  return ( <div className='font-sans'>
-              <section className='relative h-[300px] sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col  justify-center text-white text-center px-4'
-                style={{backgroundImage: 'url("...")',backgroundSize:'cover',backgroundPosition:'center'}}>
+  return ( <div className='font-sans pt-20 sm:pt-24 lg:pt-28'>
+              <section className='relative w-full h-[300px] sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col justify-center text-white text-center'
+                style={{backgroundImage: `url("${bgArriere}")`,backgroundSize:'cover',backgroundPosition:'center'}}>
                   <div className='absolute inset-0 bg-black opacity-60'></div>
                       <div className='relative z-10 px-4'>
                         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-2 md:mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> MARQUES</h1>
-                        <p className='text-sm sm:text-base md:text-xl text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>SIA : L'excellence mondiale, disponible localement.</p>
+                        <p className='text-sm sm:text-base md:text-xl text-gray-50 font-bold' style={{fontFamily:'Montserrat'}}>SIA : L'excellence mondiale, disponible localement.</p>
                       </div>
-                  <div className='absolute bottom-[-95px] left-1/2 transform -translate-x-1/2 flex z-20 w-[100%] max-w-7xl h-[150px] flex gap-3'>
+                  <div className='absolute bottom-[-95px] left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-4 flex z-20 h-[150px] flex gap-4 md:gap-6'>
                           <div className='flex-1 bg-white px-6 py-5 justify-center items-center text-center' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}} >
                               <div className=' text-center '>
                                     <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
@@ -80,41 +81,51 @@ export default function Marques() {
                   </div>
               </section>
               
-              <section className='max-w-6xl mx-auto px-4 mb-16 mt-60'>
-                
-                          <div className='flex flex-col gap-10'>
-                            {marques.map((m) => (
-                              <div key={m.id} className='relative h-[400px]  overflow-visible group mb-4'>
-                                    <div className='absolute left-[180px] right-0 bottom-9 h-full overflow-hidden ml-20 ' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
-                                      <img
-                                        src={m.brandImages}
-                                        alt={m.name}
-                                        className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
-                                      />
-                                    </div>
+              <style>{`
+                @keyframes fadeInRight {
+                  from { opacity: 0; transform: translateX(-30px); }
+                  to { opacity: 1; transform: translateX(0); }
+                }
+              `}</style>
+              <section className='max-w-5xl mx-auto px-4 mb-20 mt-40 w-full'>
+                <div className='flex flex-col gap-8 md:gap-12'>
+                  {marques.map((m, index) => (
+                    <div key={m.id} 
+                         className='relative h-[180px] md:h-[220px] overflow-visible group mb-4 mx-auto w-full'
+                         style={{ animation: `fadeInRight 0.6s ease-out ${index * 0.15}s both` }}>
+                          
+                      {/* L'image de la marque à droite */}
+                      <div className='absolute left-[20%] md:left-[30%] right-0 h-full overflow-hidden rounded-md shadow-md bg-white' style={{border: '1px solid #f3f4f6'}}>
+                        {/* On décale l'image vers la droite pour que l'encadré blanc ne la cache pas */}
+                        <div className='ml-[40%] md:ml-[35%] w-[60%] md:w-[65%] h-full p-4 md:p-6 flex items-center justify-center'>
+                          <img
+                            src={m.brandImages}
+                            alt={m.name}
+                            className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-105'
+                          />
+                        </div>
+                      </div>
 
-                                
-                                <div className='absolute top-[10px] left-0 h-[80%] w-[500px] bg-white border border-red-600 shadow-lg flex items-center justify-between px-6 z-10' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
-                                  <div className='text-center flex-1  '>
-                                    <p className='font-extrabold  text-5xl  uppercase text-gray-900'style={{fontFamily:'Montserrat'}} >{m.name}</p>
-                                    <p className='text-3xl text-bold text-red-600 font-semibold mt-0.5'style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
-                                    <p className='text-xl text-bold text-gray-400 mt-0.5'style={{fontFamily:'Montserrat'}}>origine {m.origine.toLowerCase()}</p>
-                                  </div>
-                                  <div className='w-8 h-8 rounded-full border-2 border-gray-300 group-hover:border-red-600 flex items-center justify-center transition-all duration-300'>
-                                    <svg className='w-4 h-4 text-gray-400 group-hover:text-red-600 transition-all duration-300' fill='none' stroke='currentColor' strokeWidth='2.5' viewBox='0 0 24 24'>
-                                      <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
-                                    </svg>
-                                  </div>
-                              
-                                </div>
-                                
-                               
-                                
+                      {/* L'encadré blanc à gauche */}
+                      <div className='absolute top-1/2 -translate-y-1/2 left-0 h-[80%] w-[65%] md:w-[45%] bg-white shadow-xl flex items-center justify-between px-6 z-10 transition-all duration-300 rounded-sm' 
+                           style={{border: '2px solid #C00000'}}>
+                        <div className='text-left flex-1'>
+                          <p className='font-extrabold text-xl md:text-3xl uppercase text-gray-900 tracking-wide' style={{fontFamily:'Montserrat'}}>{m.name}</p>
+                          <p className='text-xs md:text-sm text-gray-500 font-bold mt-1 uppercase tracking-widest' style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
+                          <p className='text-xs md:text-sm text-gray-400 mt-1 lowercase' style={{fontFamily:'Montserrat'}}>origine {m.origine}</p>
+                        </div>
+                        
+                        {/* La flèche */}
+                        <div className='text-gray-800 transition-transform duration-300 group-hover:translate-x-2'>
+                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
 
-                              </div>
-                            ))}
-                         </div>
-                       
+                    </div>
+                  ))}
+                </div>
                </section>
                <section>
                     <div className='py-8 md:py-16 text-center col-span-1 sm:col-span-2 lg:col-span-2 justify-center items-center rounded-lg flex flex-col min-h-[300px] md:min-h-[480px]' style={{ backgroundColor: '#f9fafb',border: '1px solid #e5e7eb' }}>
