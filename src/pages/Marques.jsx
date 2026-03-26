@@ -33,53 +33,53 @@ export default function Marques() {
     return matchCat && matchSearch
   })
   const navigate = useNavigate()
-  return ( <div className='font-sans pt-20 sm:pt-24 lg:pt-28'>
-              <section className='relative w-full h-[300px] sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col justify-center text-white text-center'
+  return ( <div className='font-sans pt-20 sm:pt-24 lg:pt-28 flex flex-col items-center w-full'>
+              <section className='relative w-full h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] flex flex-col justify-center items-center text-white text-center'
                 style={{backgroundImage: `url("${bgArriere}")`,backgroundSize:'cover',backgroundPosition:'center'}}>
                   <div className='absolute inset-0 bg-black opacity-60'></div>
                       <div className='relative z-10 px-4'>
                         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-2 md:mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> MARQUES</h1>
                         <p className='text-sm sm:text-base md:text-xl text-gray-50 font-bold' style={{fontFamily:'Montserrat'}}>SIA : L'excellence mondiale, disponible localement.</p>
                       </div>
-                  <div className='absolute bottom-[-95px] left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-4 flex z-20 h-[150px] flex gap-4 md:gap-6'>
-                          <div className='flex-1 bg-white px-6 py-5 justify-center items-center text-center' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}} >
+              </section>
+              
+              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
+                          <div className='flex-1 bg-white px-4 py-6 md:py-8 justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}} >
                               <div className=' text-center '>
-                                    <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                    <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>
+                                      <FaUsers className='text-white text-xl md:text-2xl'/>
                                     </div>
-                                    <div className='mt-6'>
-                                      <p className='font-black text-lg text-center uppercase text-gray-900 font-bold' style={{fontFamily:'Montserrat'}}> Produits 100% Authentiques</p>
-                                      <p className='text-md text-gray-500 font-bold  text-center mt-1' style={{fontFamily:'Montserrat'}}>Garantie constructeur préservée</p>
-
+                                    <div className='mt-4 md:mt-5'>
+                                      <p className='font-black text-sm md:text-lg text-center uppercase text-gray-900' style={{fontFamily:'Montserrat'}}> Produits 100% Authentiques</p>
+                                      <p className='text-xs md:text-sm text-gray-500 font-medium text-center mt-2' style={{fontFamily:'Montserrat'}}>Garantie constructeur préservée</p>
                                     </div>
                                </div>
                           </div>
-                          <div className='flex-1 bg-white px-6 py-5' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
+                          <div className='flex-1 bg-white px-4 py-6 md:py-8 text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}}>
                               <div className=' items-start gap-3'>
-                                  <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>
+                                      <FaUsers className='text-white text-xl md:text-2xl'/>
                                   </div>
                   
-                                  <div className='mt-6'>
-                                    <p className='font-black text-lg uppercase text-gray-900 font-bold'style={{fontFamily:'Montserrat'}}> Leaders Mondiaux</p>
-                                    <p className='text-md text-gray-500 mt-1 font-bold 'style={{fontFamily:'Montserrat'}}>Stock permanent à Sfax</p>
+                                  <div className='mt-4 md:mt-5'>
+                                    <p className='font-black text-sm md:text-lg uppercase text-gray-900'style={{fontFamily:'Montserrat'}}> Leaders Mondiaux</p>
+                                    <p className='text-xs md:text-sm text-gray-500 mt-2 font-medium 'style={{fontFamily:'Montserrat'}}>Stock permanent à Sfax</p>
                                   </div>
                               </div>
                           </div>
-                          <div className='flex-1 bg-white px-6 py-5 ' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
+                          <div className='flex-1 bg-white px-4 py-6 md:py-8 text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}}>
                               <div className=' items-start gap-3'>
-                                  <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                  <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>
+                                      <FaUsers className='text-white text-xl md:text-2xl'/>
                                   </div>
 
-                                  <div className='mt-6'>
-                                    <p className='font-bold text-lg uppercase text-gray-900 font-bold' style={{fontFamily:'Montserrat'}}> Disponibilité Immédiate</p>
-                                    <p className='text-sm text-gray-500 mt-1 font-bold 'style={{fontFamily:'Montserrat'}}>+50 marques de références disponible chez SIA</p>
+                                  <div className='mt-4 md:mt-5'>
+                                    <p className='font-black text-sm md:text-lg uppercase text-gray-900' style={{fontFamily:'Montserrat'}}> Disponibilité Immédiate</p>
+                                    <p className='text-xs md:text-sm text-gray-500 mt-2 font-medium 'style={{fontFamily:'Montserrat'}}>+50 marques de références</p>
                                   </div>
                               </div>
                           </div>
-                  </div>
-              </section>
+              </div>
               
               <style>{`
                 @keyframes fadeInRight {
@@ -87,8 +87,8 @@ export default function Marques() {
                   to { opacity: 1; transform: translateX(0); }
                 }
               `}</style>
-              <section className='max-w-5xl mx-auto px-4 mb-20 mt-40 w-full'>
-                <div className='flex flex-col gap-8 md:gap-12'>
+              <section className='max-w-5xl mx-auto px-4 mb-20 mt-12 md:mt-24 w-full'>
+                <div className='flex flex-col gap-6 md:gap-12'>
                   {marques.map((m, index) => (
                     <div key={m.id} 
                          className='relative h-[180px] md:h-[220px] overflow-visible group mb-4 mx-auto w-full'
