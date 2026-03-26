@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
 import { FaUsers, FaThumbsUp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import audi from '../assets/image/audi.jpg'
+import benz from '../assets/image/benz.jpg'
+import citroen from '../assets/image/citroen.jpg'
+import fiat from '../assets/image/fiat.jpg'
+import isuzu from '../assets/image/isuzu.jpg'
+import opel from '../assets/image/opel.jpg'
+import peugeot from '../assets/image/peugeot.jpg'
+import renault from '../assets/image/renault.jpg'
+import volkswagen from '../assets/image/volkswagen.jpg'
+
 const categories = ['Tous', 'Transmission', 'Automobile', 'Roulement', 'Motorisation', 'Industrie', 'Pneumatique']
 const marques = [
-  { id: 1, name: 'OPTIBELT',        categorie: 'Transmission', origine: 'Allemagne' ,brandImages:"..."},
-  { id: 2, name: 'BOSCH',           categorie: 'Automobile',   origine: 'Allemagne' ,brandImages:"..."},
-  { id: 3, name: 'SKF',             categorie: 'Roulement',    origine: 'Suède'     ,brandImages:"..."},
-  { id: 4, name: 'GATES',           categorie: 'Transmission', origine: 'USA'       ,brandImages:"..."},
-  { id: 5, name: 'VALEO',           categorie: 'Automobile',   origine: 'France'    ,brandImages:"..."},
-  { id: 6, name: 'CONTINENTAL',     categorie: 'Pneumatique',  origine: 'Allemagne' ,brandImages:"..."},
-  { id: 7, name: 'MAGNETI MARELLI', categorie: 'Automobile',   origine: 'Italie'    ,brandImages:"..."},
-  { id: 8, name: 'NGK',             categorie: 'Motorisation', origine: 'Japon'     ,brandImages:"..."},
+  { id: 1, name: 'AUDI',        categorie: 'Automobile', origine: 'Allemagne' ,brandImages: audi},
+  { id: 2, name: 'Renault',           categorie: 'Automobile',   origine: 'Allemagne' ,brandImages: renault},
+  { id: 3, name: 'Isuzu',             categorie: 'Automobile',    origine: 'Suède'     ,brandImages: isuzu},
+  { id: 4, name: 'Mercedes-Benz',           categorie: 'Automobile', origine: 'USA'       ,brandImages: benz},
+  { id: 5, name: 'Peugeot',           categorie: 'Automobile',   origine: 'France'    ,brandImages: peugeot},
+  { id: 6, name: 'Citroën',     categorie: 'Automobile',  origine: 'Allemagne' ,brandImages: citroen},
+  { id: 7, name: 'Opel', categorie: 'Automobile',   origine: 'Italie'    ,brandImages: opel},
+  { id: 8, name: 'Fiat',             categorie: 'Automobile', origine: 'Japon'     ,brandImages: fiat},
 ]
 
 export default function Marques() {
@@ -69,62 +79,42 @@ export default function Marques() {
                           </div>
                   </div>
               </section>
-              <section className=' relative px-10 sm:px-8 md:px-12 lg:px-4 pb-16' style={{ marginTop: '200px' }}>
-                <div className=' flex  items-center gap-2'>
-                  {categories.map((ca)=> 
-                  <button 
-                    key={ca} 
-                    onClick={()=>setActiveCategory(ca)}
-                                  className={`px-9 py-1.5 rounded-full text-md font-semibold border transition-all duration-200
-                                    ${activeCategory === ca
-                                      ? 'bg-red-600 text-white border-red-600'
-                                      : 'bg-white text-gray-700 border-gray-300 hover:border-red-400'
-                                    }`} style={{fontFamily:'Montserrat'}}>{ca}</button>
-                                    )}
-                                    <div className='px-9 py-1.5 rounded-full text-lg font-semibold border transition-all duration-200'>
-                                          <input
-                                            type="text"
-                                            placeholder="Rechercher une marque..."
-                                            value={search}
-                                            onChange={(e) => setSearch(e.target.value)}
-                                            className='text-sm outline-none w-48 text-gray-700 placeholder-gray-400 bg-transparent' style={{fontFamily:'Montserrat'}}
-                                          />
-                                    </div>
-                                    
-                </div>
-
-              </section>
-              <section className='max-w-4xl mx-auto px-4 mb-16'>
-                {filtered.length === 0 ? (<p className="text-center text-gray-400 py-16">Aucune marque trouvée.</p>):(
+              
+              <section className='max-w-6xl mx-auto px-4 mb-16 mt-60'>
+                
                           <div className='flex flex-col gap-10'>
-                            {filtered.map((m) => (
-                              <div key={m.id} className='flex h-[200px] overflow-hidden group'>
+                            {marques.map((m) => (
+                              <div key={m.id} className='relative h-[400px]  overflow-visible group mb-4'>
+                                    <div className='absolute left-[180px] right-0 bottom-9 h-full overflow-hidden ml-20 ' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
+                                      <img
+                                        src={m.brandImages}
+                                        alt={m.name}
+                                        className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                                      />
+                                    </div>
 
                                 
-                                <div className='w-[50%] bg-white border border-gray-300 group-hover:border-red-600 transition-all duration-300  flex  items-center justify-between px-6' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
+                                <div className='absolute top-[10px] left-0 h-[80%] w-[500px] bg-white border border-red-600 shadow-lg flex items-center justify-between px-6 z-10' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
                                   <div className='text-center flex-1  '>
-                                    <p className='font-extrabold  text-xl  uppercase text-gray-900'style={{fontFamily:'Montserrat'}} >{m.name}</p>
-                                    <p className='text-lg text-bold text-red-600 font-semibold mt-0.5'style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
-                                    <p className='text-md text-bold text-gray-400 mt-0.5'style={{fontFamily:'Montserrat'}}>origine {m.origine.toLowerCase()}</p>
+                                    <p className='font-extrabold  text-5xl  uppercase text-gray-900'style={{fontFamily:'Montserrat'}} >{m.name}</p>
+                                    <p className='text-3xl text-bold text-red-600 font-semibold mt-0.5'style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
+                                    <p className='text-xl text-bold text-gray-400 mt-0.5'style={{fontFamily:'Montserrat'}}>origine {m.origine.toLowerCase()}</p>
                                   </div>
-                                  <div className="w-8 h-8 rounded-full border-2 border-gray-300 group-hover:border-red-600 flex items-center justify-center transition-all duration-300">
-                                    <svg className="w-4 h-4 text-gray-400 group-hover:text-red-600 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                  <div className='w-8 h-8 rounded-full border-2 border-gray-300 group-hover:border-red-600 flex items-center justify-center transition-all duration-300'>
+                                    <svg className='w-4 h-4 text-gray-400 group-hover:text-red-600 transition-all duration-300' fill='none' stroke='currentColor' strokeWidth='2.5' viewBox='0 0 24 24'>
+                                      <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
                                     </svg>
                                   </div>
+                              
                                 </div>
-                                <div className="flex-1 overflow-hidden">
-                                  <img
-                                    src={m.brandImages}
-                                    alt={m.name}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                  />
-                                </div>
+                                
+                               
+                                
 
                               </div>
                             ))}
                          </div>
-                        )}
+                       
                </section>
                <section>
                     <div className='py-8 md:py-16 text-center col-span-1 sm:col-span-2 lg:col-span-2 justify-center items-center rounded-lg flex flex-col min-h-[300px] md:min-h-[480px]' style={{ backgroundColor: '#f9fafb',border: '1px solid #e5e7eb' }}>
