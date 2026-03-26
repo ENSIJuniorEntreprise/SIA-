@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-import { FaUsers, FaThumbsUp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import audi from '../assets/image/audi.jpg'
 import benz from '../assets/image/benz.jpg'
@@ -10,41 +8,42 @@ import opel from '../assets/image/opel.jpg'
 import peugeot from '../assets/image/peugeot.jpg'
 import renault from '../assets/image/renault.jpg'
 import volkswagen from '../assets/image/volkswagen.jpg'
+import { FaShieldAlt, FaMedal, FaBolt } from 'react-icons/fa'
+import { FaChevronRight } from 'react-icons/fa'
+import coverr from '../assets/image/arriere marque.jpg'
+
 
 const categories = ['Tous', 'Transmission', 'Automobile', 'Roulement', 'Motorisation', 'Industrie', 'Pneumatique']
 const marques = [
   { id: 1, name: 'AUDI',        categorie: 'Automobile', origine: 'Allemagne' ,brandImages: audi},
-  { id: 2, name: 'Renault',           categorie: 'Automobile',   origine: 'Allemagne' ,brandImages: renault},
-  { id: 3, name: 'Isuzu',             categorie: 'Automobile',    origine: 'Suède'     ,brandImages: isuzu},
-  { id: 4, name: 'Mercedes-Benz',           categorie: 'Automobile', origine: 'USA'       ,brandImages: benz},
+  { id: 2, name: 'Renault',           categorie: 'Automobile',   origine: 'bologne' ,brandImages: renault},
+  { id: 3, name: 'Isuzu',             categorie: 'Automobile',    origine: 'Japan'     ,brandImages: isuzu},
+  { id: 4, name: 'Mercedes-Benz',           categorie: 'Automobile', origine: 'Allemagne'       ,brandImages: benz},
   { id: 5, name: 'Peugeot',           categorie: 'Automobile',   origine: 'France'    ,brandImages: peugeot},
-  { id: 6, name: 'Citroën',     categorie: 'Automobile',  origine: 'Allemagne' ,brandImages: citroen},
-  { id: 7, name: 'Opel', categorie: 'Automobile',   origine: 'Italie'    ,brandImages: opel},
-  { id: 8, name: 'Fiat',             categorie: 'Automobile', origine: 'Japon'     ,brandImages: fiat},
+  { id: 6, name: 'Citroën',     categorie: 'Automobile',  origine: 'France' ,brandImages: citroen},
+  { id: 7, name: 'Opel', categorie: 'Automobile',   origine: 'Allemagne'    ,brandImages: opel},
+  { id: 8, name: 'Fiat',             categorie: 'Automobile', origine: 'Italie'     ,brandImages: fiat},
+  { id: 9, name: 'Volkswagen',       categorie: 'Automobile',   origine: 'Allemagne' ,brandImages: volkswagen}
 ]
 
 export default function Marques() {
-  const [activeCategory, setActiveCategory] = useState('Tous')
-  const [search, setSearch] = useState('')
-  const filtered = marques.filter((m) => {
-    const matchCat = activeCategory === 'Tous' || m.categorie === activeCategory
-    const matchSearch = m.name.toLowerCase().includes(search.toLowerCase())
-    return matchCat && matchSearch
-  })
+  
+
+
   const navigate = useNavigate()
   return ( <div className='font-sans'>
-              <section className='relative h-[300px] sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col  justify-center text-white text-center px-4'
-                style={{backgroundImage: 'url("...")',backgroundSize:'cover',backgroundPosition:'center'}}>
-                  <div className='absolute inset-0 bg-black opacity-60'></div>
+              <section className='relative h-full sm:h-[380px] md:h-[450px] lg:h-[500px] flex flex-col  justify-center text-white text-center px-4'
+                style={{backgroundImage: `url(${coverr})`,backgroundSize:'cover',backgroundPosition:'center'}}>
+                  <div className='absolute inset-0 bg-black opacity-10'></div>
                       <div className='relative z-10 px-4'>
                         <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-2 md:mb-4'style={{fontFamily:'Montserrat'}}><span style={{ color:'#C00000'}}>NOS</span> MARQUES</h1>
                         <p className='text-sm sm:text-base md:text-xl text-gray-50' font-bold  style={{fontFamily:'Montserrat'}}>SIA : L'excellence mondiale, disponible localement.</p>
                       </div>
                   <div className='absolute bottom-[-95px] left-1/2 transform -translate-x-1/2 flex z-20 w-[100%] max-w-7xl h-[150px] flex gap-3'>
-                          <div className='flex-1 bg-white px-6 py-5 justify-center items-center text-center' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}} >
+                          <div className='flex-1 bg-gray-50 px-6 py-5 justify-center items-center text-center' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}} >
                               <div className=' text-center '>
                                     <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                      <FaShieldAlt className='text-white text-xs sm:text-sm md:text-xl '/>
                                     </div>
                                     <div className='mt-6'>
                                       <p className='font-black text-lg text-center uppercase text-gray-900 font-bold' style={{fontFamily:'Montserrat'}}> Produits 100% Authentiques</p>
@@ -53,10 +52,10 @@ export default function Marques() {
                                     </div>
                                </div>
                           </div>
-                          <div className='flex-1 bg-white px-6 py-5' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
+                          <div className='flex-1 bg-gray-50 px-6 py-5' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
                               <div className=' items-start gap-3'>
                                   <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                      <FaMedal className='text-white text-xs sm:text-sm md:text-xl '/>
                                   </div>
                   
                                   <div className='mt-6'>
@@ -65,10 +64,10 @@ export default function Marques() {
                                   </div>
                               </div>
                           </div>
-                          <div className='flex-1 bg-white px-6 py-5 ' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
+                          <div className='flex-1 bg-gray-50 px-6 py-5 ' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px',}}>
                               <div className=' items-start gap-3'>
                                   <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mx-auto mb-1'style={{ backgroundColor: '#C00000' ,marginTop: '-40px',}}>
-                                      <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
+                                      <FaBolt className='text-white text-xs sm:text-sm md:text-xl '/>
                                   </div>
 
                                   <div className='mt-6'>
@@ -89,22 +88,21 @@ export default function Marques() {
                                       <img
                                         src={m.brandImages}
                                         alt={m.name}
-                                        className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                                        className='w-full h-full md:h-full object-contain transition-transform duration-500 group-hover:scale-105'
                                       />
                                     </div>
 
                                 
-                                <div className='absolute top-[10px] left-0 h-[80%] w-[500px] bg-white border border-red-600 shadow-lg flex items-center justify-between px-6 z-10' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
+                                <div className='absolute top-[10px] left-0 h-[80%] w-[500px] bg-gray-50 border border-red-600 shadow-lg flex items-center justify-between px-6 z-10' style={{border:'1px solid #C00000',borderRadius: '30px 30px 30px 30px'}}>
                                   <div className='text-center flex-1  '>
                                     <p className='font-extrabold  text-5xl  uppercase text-gray-900'style={{fontFamily:'Montserrat'}} >{m.name}</p>
                                     <p className='text-3xl text-bold text-red-600 font-semibold mt-0.5'style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
                                     <p className='text-xl text-bold text-gray-400 mt-0.5'style={{fontFamily:'Montserrat'}}>origine {m.origine.toLowerCase()}</p>
                                   </div>
-                                  <div className='w-8 h-8 rounded-full border-2 border-gray-300 group-hover:border-red-600 flex items-center justify-center transition-all duration-300'>
-                                    <svg className='w-4 h-4 text-gray-400 group-hover:text-red-600 transition-all duration-300' fill='none' stroke='currentColor' strokeWidth='2.5' viewBox='0 0 24 24'>
-                                      <path strokeLinecap='round' strokeLinejoin='round' d='M9 5l7 7-7 7' />
-                                    </svg>
-                                  </div>
+                                  
+                                    <FaChevronRight className='text-gray-400 group-hover:text-red-600 transition-all duration-300' />
+                                  
+                                 
                               
                                 </div>
                                 
