@@ -100,7 +100,9 @@ export default function Navbar() {
   const [mobileDivisionsOpen, setMobileDivisionsOpen] = useState(false)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
-  const useLightTheme = !isHomePage || isScrolled
+  const isPartenairesPage = location.pathname === '/partenaires'
+  const isTransparentTheme = isHomePage || isPartenairesPage
+  const useLightTheme = !isTransparentTheme || isScrolled
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,7 +124,7 @@ export default function Navbar() {
         useLightTheme ? 'bg-white py-2 text-black shadow-md' : 'bg-transparent py-4 text-white'
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 py-3 md:px-8 xl:px-12 md:py-4">
         <Link to="/" className="flex shrink-0 items-center gap-2">
           <img src="/src/assets/logo.png" alt="SIA Logo" className="h-12 w-12 object-contain md:h-14 md:w-14" />
           <span className="text-xl font-bold md:text-2xl">SIA</span>

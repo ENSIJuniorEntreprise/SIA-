@@ -87,12 +87,6 @@ const BRAND_LOGOS = {
 };
 
 /* ─── DONNÉES ─────────────────────────────────────────────────── */
-const NAV_ITEMS = [
-  { id: "accueil",     label: "Accueil",     href: "#hero"       },
-  { id: "divisions",   label: "Divisions",   href: "#categories" },
-  { id: "partenaires", label: "Partenaires", href: "#categories" },
-  { id: "contact",     label: "Contact",     href: "#footer"     },
-];
 
 const stats = [
   { unit: "Pays",     text: "Couverture mondiale en Europe, Asie et Amérique.",         icon: "", value: 11    },
@@ -341,15 +335,6 @@ function AnimatedSection({ children, className = "", id }) {
 export default function App() {
   const reduced                             = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState(null);
-  const [activeNav,      setActiveNav]      = useState("accueil");
-  const [mobileOpen,     setMobileOpen]     = useState(false);
-  const [scrolled,       setScrolled]       = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
 
   const { scrollY } = useScroll();
   const heroY       = useTransform(scrollY, [0, 500], [0, -80]);
@@ -362,75 +347,6 @@ export default function App() {
         style={{ backgroundImage: `url("${HERO_BG_IMAGE}")`, y: reduced ? 0 : heroY }}
       >
         <div className="hero-overlay" />
-
-        {/* NAVBAR */}
-        <motion.div
-          className={`navbar${scrolled ? " navbar--scrolled" : ""}`}
-          animate={scrolled
-            ? { backgroundColor: "rgba(0,0,0,0.72)", backdropFilter: "blur(12px)" }
-            : { backgroundColor: "transparent",      backdropFilter: "blur(0px)"  }}
-          transition={{ duration: 0.4 }}
-        >
-          <div className="navbar__left">
-            <motion.img src={LOGO_IMAGE} alt="SIA" className="navbar__logo-image"
-              whileHover={reduced ? undefined : { rotate: -6, scale: 1.06 }}
-              whileTap={reduced ? undefined : { scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            />
-          </div>
-
-          <button type="button" className="navbar__mobile-toggle"
-            onClick={() => setMobileOpen((v) => !v)} aria-label="Menu"
-          >
-            <motion.span animate={{ rotate: mobileOpen ? 90 : 0 }} transition={{ duration: 0.25 }}>
-              {mobileOpen ? "✕" : "☰"}
-            </motion.span>
-          </button>
-
-          <nav className="navbar__links desktop-nav">
-            {NAV_ITEMS.map((item) => (
-              <a key={item.id} href={item.href}
-                className={activeNav === item.id ? "nav-active" : ""}
-                onClick={() => setActiveNav(item.id)}
-              >
-                {item.label}
-                {activeNav === item.id && (
-                  <motion.span layoutId="nav-indicator" className="nav-indicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            ))}
-          </nav>
-
-          <motion.button className="navbar__btn" type="button"
-            whileHover={reduced ? undefined : { y: -2, backgroundColor: "var(--red)", borderColor: "var(--red)" }}
-            whileTap={reduced ? undefined : { scale: 0.97 }}
-            transition={{ duration: 0.2 }}
-          >
-            DEMANDER UN DEVIS
-          </motion.button>
-        </motion.div>
-
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.nav className="mobile-nav"
-              initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: reduced ? 0 : 0.32, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {NAV_ITEMS.map((item, i) => (
-                <motion.a key={item.id} href={item.href}
-                  initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  onClick={() => { setActiveNav(item.id); setMobileOpen(false); }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
-            </motion.nav>
-          )}
-        </AnimatePresence>
 
         <motion.div id="hero" className="hero-content"
           variants={heroContainerVariants} initial="hidden" animate="visible"
@@ -543,35 +459,6 @@ export default function App() {
               animate={{ x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             >→</motion.span>
           </motion.button>
-        </div>
-      </AnimatedSection>
-
-      {/* ── BANNER ── */}
-      <AnimatedSection className="partner-banner">
-        <div className="container partner-banner__inner">
-          <motion.div variants={fadeUpVariants}>
-            <motion.span className="partner-banner__mini"
-              initial={{ opacity: 0, letterSpacing: "0.1em" }}
-              whileInView={{ opacity: 1, letterSpacing: "0.22em" }}
-              viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              COLLABORONS ENSEMBLE
-            </motion.span>
-            <h2>Des pièces d'une qualité irréprochable, pensées pour durer et à la hauteur de ce que vous méritez vraiment.</h2>
-          </motion.div>
-          <motion.div className="partner-banner__actions" variants={fadeUpVariants}>
-            {[
-              { label: "+216 27 314 100",  cls: "white-btn"   },
-              { label: "DEMANDER UN DEVIS", cls: "outline-btn" },
-            ].map(({ label, cls }) => (
-              <motion.button key={label} type="button" className={cls}
-                whileHover={reduced ? undefined : { y: -3, transition: { type: "spring", stiffness: 320, damping: 20 } }}
-                whileTap={reduced ? undefined : { scale: 0.97 }}
-              >
-                {label}
-              </motion.button>
-            ))}
-          </motion.div>
         </div>
       </AnimatedSection>
     </div>
