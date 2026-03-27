@@ -1,11 +1,14 @@
 import React from 'react';
 import { Phone, Mail, ArrowUpRight } from 'lucide-react';
 
+import { useLocation } from 'react-router-dom';
 const Footer = () => {
+  const location = useLocation();
+  const isContactPage = location.pathname.startsWith('/contact');
   return (
     <footer className="w-full font-sans">
       
-      <section className="relative overflow-hidden bg-sia-red-claire px-4 py-12 text-center text-white sm:px-6 sm:py-16">
+      {!isContactPage && (      <section className="relative overflow-hidden bg-sia-red-claire px-4 py-12 text-center text-white sm:px-6 sm:py-16">
         
         <div className="relative z-10 max-w-5xl mx-auto">
           <span className="uppercase tracking-widest text-sm font-bold mb-4 block">
@@ -27,11 +30,8 @@ const Footer = () => {
               DEMANDER UN DEVIS <ArrowUpRight size={18} />
             </button>
           </div>
-        </div>
-      </section>
-
-      
-      <section className="bg-white px-4 py-12 sm:px-6 md:px-8 md:py-16">
+        </div></section>)}
+<section className="bg-white px-4 py-12 sm:px-6 md:px-8 md:py-16">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           
          
@@ -99,3 +99,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

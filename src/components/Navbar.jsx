@@ -101,7 +101,8 @@ export default function Navbar() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
   const isPartenairesPage = location.pathname === '/partenaires'
-  const isTransparentTheme = isHomePage || isPartenairesPage
+  const isContactPage = location.pathname.startsWith('/contact')
+  const isTransparentTheme = isHomePage || isPartenairesPage || isContactPage
   const useLightTheme = !isTransparentTheme || isScrolled
 
   useEffect(() => {
