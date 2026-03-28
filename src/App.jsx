@@ -15,6 +15,7 @@ import TravauxPublic from './pages/travauxpublic'
 import PieceDeRechange from './pages/piécederechange'
 import Moteur from './pages/moteur'
 import Lubrification from './pages/lubrification'
+import MoteurTravaux from './pages/moteur-et_groupe-electrogene'
 
 export default function App() {
   const location = useLocation()
@@ -39,6 +40,7 @@ export default function App() {
       <Navbar />
       <main className={mainClasses}>
         <Routes>
+          
           <Route path="/" element={<Accueil />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/partenaires" element={<Partenaires />} />
@@ -48,6 +50,7 @@ export default function App() {
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />
           <Route path="/divisions/piece-de-rechange/moteur" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
+          <Route path="/divisions/travaux-publics/moteur-et-groupe-electrogene" element={<MoteurTravaux />} />
           <Route path="/services" element={<Services />} />
           <Route path="/b2b" element={<B2B />} />
           <Route path="/marques" element={<Marques />} />
