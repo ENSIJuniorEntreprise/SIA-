@@ -62,10 +62,12 @@ export default function DivisionAuto() {
         <div style={styles.grid}>
           {categories.map((cat) => (
             <Link
-
-
-              to={cat.id === 1 ? "/divisions/travaux-publics" : "#"}
-
+              to={
+                cat.id === 1 ? "/divisions/travaux-publics/moteur-et-groupe-electrogene"
+                : cat.id === 2 ? "/divisions/travaux-publics/lubrifiant-moteur"
+                : cat.id === 3 ? "/divisions/travaux-publics/Machine-soudure"
+                : "#"
+              }
               key={cat.id}
               style={{
                 textDecoration: "none",

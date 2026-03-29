@@ -11,14 +11,13 @@ import Divisions from './pages/Divisions'
 import Services from './pages/Services'
 import B2B from './pages/B2B'
 import Marques from './pages/Marques'
-import TravauxPublic from './pages/travaux-publics'
+import TravauxPublic from './pages/travauxpublic'
 import PieceDeRechange from './pages/piécederechange'
 import Moteur from './pages/moteur'
 import Lubrification from './pages/lubrification'
-
-import MoteursGroupes from './pages/moteurs-et-groupes-electrogenes';
-
-
+import MoteurTravaux from './pages/moteur-et_groupe-electrogene'
+import Lubrifiant from './pages/lubrifiant-moteur' 
+import Machine from './pages/Machine-soudure'
 
 export default function App() {
   const location = useLocation()
@@ -43,6 +42,7 @@ export default function App() {
       <Navbar />
       <main className={mainClasses}>
         <Routes>
+          
           <Route path="/" element={<Accueil />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/partenaires" element={<Partenaires />} />
@@ -50,9 +50,11 @@ export default function App() {
           <Route path="/divisions" element={<Divisions />} />
           <Route path="/divisions/piece-de-rechange" element={<PieceDeRechange />} />
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />
-          <Route path="/divisions/travaux-publics/moteurs-et-groupes-electrogenes" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
+          <Route path="/divisions/travaux-publics/moteur-et-groupe-electrogene" element={<MoteurTravaux />} />
+          <Route path="/divisions/travaux-publics/lubrifiant-moteur" element={<Lubrifiant />} />
+          <Route path="/divisions/travaux-publics/Machine-soudure" element={<Machine />} />
           <Route path="/services" element={<Services />} />
           <Route path="/b2b" element={<B2B />} />
           <Route path="/marques" element={<Marques />} />
