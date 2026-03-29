@@ -11,10 +11,11 @@ import Divisions from './pages/Divisions'
 import Services from './pages/Services'
 import B2B from './pages/B2B'
 import Marques from './pages/Marques'
-import TravauxPublic from './pages/travauxpublic'
+import TravauxPublic from './pages/travaux-publics'
 import PieceDeRechange from './pages/piécederechange'
 import Moteur from './pages/moteur'
 import Lubrification from './pages/lubrification'
+import MoteursGroupes from './pages/moteurs-et-groupes-electrogenes';
 
 export default function App() {
   const location = useLocation()
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/divisions" element={<Divisions />} />
           <Route path="/divisions/piece-de-rechange" element={<PieceDeRechange />} />
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />
+          <Route path="/divisions/travaux-publics/moteurs-et-groupes-electrogenes" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
           <Route path="/services" element={<Services />} />
