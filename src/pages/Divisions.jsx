@@ -60,7 +60,13 @@ export default function NsDivisions() {
         <div style={styles.cardsGrid}>
           {divisions.map((div) => (
             <Link
-              to={div.id === 1 ? "/divisions/piece-de-rechange" : "#"}
+             to={
+                  div.id === 1
+                    ? "/divisions/piece-de-rechange"
+                    : div.id === 3
+                    ? "/divisions/travaux-publics"
+                    : "#"
+                }
               key={div.id}
               style={{
                 textDecoration: "none",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
@@ -15,7 +15,7 @@ const categories = [
   },
   {
     id: 3,
-    title: "Démarrage",
+    title: "DÃ©marrage",
     image: "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=120&h=80&fit=crop",
   },
   {
@@ -35,7 +35,7 @@ const categories = [
   },
   {
     id: 7,
-    title: "Admission/Échappement",
+    title: "Admission/Ã‰chappement",
     image: "fi.png",
   },
   {
@@ -63,8 +63,9 @@ export default function DivisionAuto() {
         />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange <h1 style={styles.heroTitle1}>Automobile</h1>
-        </h1>
+  Division Pièces de Rechange <span style={styles.heroTitle1}>Automobile</span>
+</h1>
+      
       </div>
 
       {/* BREADCRUMB */}

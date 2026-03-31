@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
 const products = [

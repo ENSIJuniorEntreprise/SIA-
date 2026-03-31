@@ -152,7 +152,7 @@ export default function Contact() {
                   <option value="Division Marine">Division Marine</option>
                   <option value="Division Travaux Publics">Division Travaux Publics</option>
                   <option value="Division Industrielle">Division Industrielle</option>
-                  <option value="Division Pi�ce de rechange automobile">Division Pièce de rechange automobile</option>
+                  <option value="Division Piece de rechange automobile">Division Pièce de rechange automobile</option>
                </Select>
             </Field>
 
