@@ -7,93 +7,115 @@ import {
   useTransform,
 } from "framer-motion";
 import "./Partenaires.css";
-import heroHeaderImage from "./assets/hero-header.png";
-import logoImage from "./assets/logo-sia.png";
+import heroHeaderImage from "../assets/headerbackground.jpg";
+import logoImage from "../assets/logo.png";
 
 const HERO_BG_IMAGE = heroHeaderImage;
 const LOGO_IMAGE = logoImage;
 
-/* ════════════════════════════════════════════════════════════════
-   LOGOS LOCAUX — COLLE LE CHEMIN DE TON FICHIER ICI
-   Tous les fichiers sont dans : src/assets/brands/
-   Format accepté : .png / .svg / .jpg / .webp
-   Si un logo est null → fallback automatique (initiales en rouge)
-════════════════════════════════════════════════════════════════ */
-
 // ── TRANSMISSION ──────────────────────────────────────────────
-import logoOmec            from "./assets/brands/omec.jpg";
-import logoOptibelt        from "./assets/brands/optibelt.svg";
-import logoAmmeraal        from "./assets/brands/ammeral-beltech.png";
-import logoBkGears         from "./assets/brands/b.k-gear.jpg";
-import logoInvertek        from "./assets/brands/invertek.svg";
-import logoNord            from "./assets/brands/nord.svg";
+import logoOmec            from "../assets/brands/omec.jpg";
+import logoOptibelt        from "../assets/brands/optibelt.svg";
+import logoAmmeraal        from "../assets/brands/ameral-removebg-preview.png";
+import logoBkGears         from "../assets/brands/b.k-gear.jpg";
+import logoInvertek        from "../assets/brands/invertek.svg";
+import logoNord            from "../assets/brands/nord.svg";
 
 // ── ROULEMENTS ────────────────────────────────────────────────
-import logoSnr             from "./assets/brands/snr.png";
-import logoUbc             from "./assets/brands/ubc.png";
-import logoRegina          from "./assets/brands/regina.png";
-import logoChiaravalli     from "./assets/brands/chiaravalli.png";
-import logoZmc             from "./assets/brands/zmc.webp";
+import logoSnr             from "../assets/brands/images__1_-removebg-preview.png";
+import logoUbc             from "../assets/brands/ubc.png";
+import logoRegina          from "../assets/brands/regina.png";
+import logoChiaravalli     from "../assets/brands/chiaravalli.png";
+import logoZmc             from "../assets/brands/zmc.webp";
 
 // ── AUTOMOBILE ────────────────────────────────────────────────
-import logoValeo           from "./assets/brands/Valeo.svg";
-import logoLpr             from "./assets/brands/lpr.jpg";
-import logoOcap            from "./assets/brands/ocap.png";
-import logoImp             from "./assets/brands/imp.png";
-import logoRa              from "./assets/brands/r2a.webp";
-import logoFare            from "./assets/brands/fare.png";
-import logoTecno           from "./assets/brands/tecno.png";
-import logoEanes           from "./assets/brands/misfat.png";
+import logoValeo           from "../assets/brands/Valeo.svg";
+import logoLpr             from "../assets/brands/lpr.jpg";
+import logoOcap            from "../assets/brands/ocap.png";
+import logoImp             from "../assets/brands/imp.png";
+import logoRa              from "../assets/brands/r2a.webp";
+import logoFare            from "../assets/brands/fare.png";
+import logoSiarecord       from "../assets/brands/siarecord.png";
+import logoSnt             from "../assets/brands/SNT.png";
+import logoMisfat          from "../assets/brands/misfat.png";
 
 // ── MOTEUR ────────────────────────────────────────────────────
-import logoChampion        from "./assets/brands/champion.png";
-import logoCofran          from "./assets/brands/cofran.svg";
+import logoChampion        from "../assets/brands/champion.png";
+import logoCofran          from "../assets/brands/cofran.svg";
+import logoKohler          from "../assets/brands/kohler.png";
+import logoGlyco           from "../assets/brands/glyco.png";
+import logoNural           from "../assets/brands/nural.png";
+import logoGoetze          from "../assets/brands/Goetze.png";
+import logoPayen           from "../assets/brands/payen.png";
 
-/* ════════════════════════════════════════════════════════════════
-   TABLE DE CORRESPONDANCE  nom-marque → logo importé
-   Si tu n'as pas encore un logo → remplace par null
-════════════════════════════════════════════════════════════════ */
 const BRAND_LOGOS = {
-  // ── Transmission
   OMEC:               logoOmec,
   OPTIBELT:           logoOptibelt,
   "AMMERAAL BELTECH": logoAmmeraal,
   "B.K. GEARS":       logoBkGears,
   INVERTEK:           logoInvertek,
   NORD:               logoNord,
-  // ── Roulements
   SNR:                logoSnr,
   UBC:                logoUbc,
   REGINA:             logoRegina,
   CHIARAVALLI:        logoChiaravalli,
   ZMC:                logoZmc,
-  // ── Automobile
   VALEO:              logoValeo,
   LPR:                logoLpr,
   OCAP:               logoOcap,
   IMP:                logoImp,
   "R&A":              logoRa,
   FARE:               logoFare,
-  SIARECROD:          null,
-  TECNO:              logoTecno,
-  "EANES / MISFAT":   logoEanes,
-  // ── Moteur
+  SIARECROD:          logoSiarecord,
+  SNT:                logoSnt,
+  MISFAT:             logoMisfat,
   CHAMPION:           logoChampion,
-  GLYCO:              null,
-  PAYEN:              null,
-  GOETZE:             null,
-  "NÜRAL":            null,
+  GLYCO:              logoGlyco,
+  PAYEN:              logoPayen,
+  GOETZE:             logoGoetze,
+  "NÜRAL":            logoNural,
   COFRAN:             logoCofran,
+  KOHLER:             logoKohler,
+};
+
+/* ════════════════════════════════════════════════════════════════
+   SITES OFFICIELS — URL du site de chaque partenaire
+════════════════════════════════════════════════════════════════ */
+const BRAND_URLS = {
+  // ── Transmission
+  OMEC:               "https://www.omec.nl",
+  OPTIBELT:           "https://www.optibelt.com",
+  "AMMERAAL BELTECH": "https://www.ammeraalbeltech.com",
+  "B.K. GEARS":       null,
+  INVERTEK:           "https://www.invertek.co.uk",
+  NORD:               "https://www.nord.com",
+  // ── Roulements
+  SNR:                "https://www.ntn-snr.com",
+  UBC:                "https://www.ubc-bearings.com",
+  REGINA:             "https://www.regina.it",
+  CHIARAVALLI:        "https://www.chiaravalli.com",
+  ZMC:                "https://www.zmcitalia.com",
+  // ── Automobile
+  VALEO:              "https://www.valeo.com",
+  LPR:                "https://www.lpr.it",
+  OCAP:               "https://www.ocap.it",
+  IMP:                "https://www.imp-group.com",
+  "R&A":              null,
+  FARE:               "https://www.fare.es",
+  SIARECROD:          null,
+  SNT:                null,
+  MISFAT:             null,
+  // ── Moteur
+  CHAMPION:           "https://www.champion-autoparts.com",
+  GLYCO:              "https://www.glyco.de",
+  PAYEN:              "https://www.payengaskets.com",
+  GOETZE:             "https://www.goetze-kgm.de",
+  "NÜRAL":            "https://www.nural.de",
+  COFRAN:             "https://www.cofran.fr",
+  KOHLER:             "https://www.kohlerengines.com",
 };
 
 /* ─── DONNÉES ─────────────────────────────────────────────────── */
-const NAV_ITEMS = [
-  { id: "accueil",     label: "Accueil",     href: "#hero"       },
-  { id: "divisions",   label: "Divisions",   href: "#categories" },
-  { id: "partenaires", label: "Partenaires", href: "#categories" },
-  { id: "contact",     label: "Contact",     href: "#footer"     },
-];
-
 const stats = [
   { unit: "Pays",     text: "Couverture mondiale en Europe, Asie et Amérique.",         icon: "", value: 11    },
   { unit: "Produits", text: "Gamme complète de solutions techniques et industrielles.", icon: "", value: 13230 },
@@ -123,15 +145,15 @@ const roulementBrands = [
   { name: "ZMC",         country: "Italie", desc: "Chaînes" },
 ];
 const automobileBrands = [
-  { name: "VALEO",          country: "France",          desc: "Optiques, embrayages, refroidissement, pompes à eau, comodos" },
-  { name: "LPR",            country: "Italie / France", desc: "Systèmes de freinage" },
-  { name: "OCAP",           country: "Italie",          desc: "Pièces de suspension" },
-  { name: "IMP",            country: "Italie",          desc: "Cosses électriques" },
-  { name: "R&A",            country: "Italie",          desc: "Pare-chocs" },
-  { name: "FARE",           country: "Espagne",         desc: "Silentblocs, durites" },
-  { name: "SIARECROD",      country: "Tunisie",         desc: "Amortisseurs" },
-  { name: "TECNO",          country: "Tunisie",         desc: "Soupapes moteur" },
-  { name: "EANES / MISFAT", country: "Tunisie",         desc: "Filtres" },
+  { name: "VALEO",     country: "France",          desc: "Optiques, embrayages, refroidissement, pompes à eau, comodos" },
+  { name: "LPR",       country: "Italie / France", desc: "Systèmes de freinage" },
+  { name: "OCAP",      country: "Italie",          desc: "Pièces de suspension" },
+  { name: "IMP",       country: "Italie",          desc: "Cosses électriques" },
+  { name: "R&A",       country: "Italie",          desc: "Pare-chocs" },
+  { name: "FARE",      country: "Espagne",         desc: "Silentblocs, durites" },
+  { name: "SIARECROD", country: "Tunisie",         desc: "Amortisseurs" },
+  { name: "SNT",       country: "Italie",          desc: "Pièces de rechange" },
+  { name: "MISFAT",    country: "Tunisie",         desc: "Filtres" },
 ];
 const moteurBrands = [
   { name: "CHAMPION", country: "Belgique", desc: "Bougies de préchauffage/allumage, balais d'essuie-glace" },
@@ -140,6 +162,7 @@ const moteurBrands = [
   { name: "GOETZE",   country: "Belgique", desc: "Jeux de segments, chemises moteur" },
   { name: "NÜRAL",    country: "Belgique", desc: "Pistons" },
   { name: "COFRAN",   country: "France",   desc: "Lubrifiants" },
+  { name: "KOHLER",   country: "USA",      desc: "Moteurs et pièces de rechange courantes" },
 ];
 
 const brandsByCategory = {
@@ -150,22 +173,10 @@ const brandsByCategory = {
 };
 
 /* ─── VARIANTS ────────────────────────────────────────────────── */
-const heroContainerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.2 } },
-};
-const heroWordVariants = {
-  hidden:  { opacity: 0, y: 60, skewY: 4 },
-  visible: { opacity: 1, y: 0, skewY: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
-};
-const heroSubtitleVariants = {
-  hidden:  { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 } },
-};
-const heroLineVariants = {
-  hidden:  { scaleX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 } },
-};
+const heroContainerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.14, delayChildren: 0.2 } } };
+const heroWordVariants = { hidden: { opacity: 0, y: 60, skewY: 4 }, visible: { opacity: 1, y: 0, skewY: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } } };
+const heroSubtitleVariants = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 } } };
+const heroLineVariants = { hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 } } };
 const sectionVariants   = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 const fadeUpVariants    = { hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } } };
 const panelVariants     = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }, exit: { opacity: 0, y: -20, transition: { duration: 0.28 } } };
@@ -201,26 +212,40 @@ function useCounter(target, active, duration = 1800) {
   return n;
 }
 
-/* ─── BRAND LOGO avec fallback initiales ─────────────────────── */
+/* ─── BRAND LOGO cliquable ───────────────────────────────────── */
 function BrandLogo({ name }) {
   const [failed, setFailed] = useState(false);
-  const url = BRAND_LOGOS[name];
+  const url     = BRAND_LOGOS[name];
+  const website = BRAND_URLS[name];
   const initials = name.replace(/[^A-Z]/g, "").slice(0, 2) || name.slice(0, 2).toUpperCase();
+  const isPayen  = name === "PAYEN";
 
-  if (!url || failed) {
-    return <div className="brand-logo brand-logo--fallback">{initials}</div>;
-  }
-  return (
+  const logoEl = (!url || failed) ? (
+    <div className="brand-logo brand-logo--fallback">{initials}</div>
+  ) : (
     <img
       src={url}
       alt={`Logo ${name}`}
-      className="brand-logo"
+      className={`brand-logo ${isPayen ? "brand-logo--scale-up" : ""}`}
       onError={() => setFailed(true)}
       loading="lazy"
     />
   );
-}
 
+  if (!website) return <div>{logoEl}</div>;
+
+  return (
+    <a
+      href={website}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => e.stopPropagation()}
+      style={{ display: "inline-flex", alignItems: "center", cursor: "pointer" }}
+    >
+      {logoEl}
+    </a>
+  );
+}
 
 
 /* ─── STAT CARD ───────────────────────────────────────────────── */
@@ -228,7 +253,6 @@ function StatCard({ item, reduced }) {
   const ref    = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const count  = useCounter(item.value, inView && !reduced);
-
   return (
     <motion.article ref={ref} className="stat-card" variants={fadeUpVariants}
       whileHover={reduced ? undefined : { y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
@@ -267,17 +291,15 @@ function BrandCard({ brand, reduced }) {
         viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       />
 
-      {/* ── LOGO RÉEL ── */}
       <div className="brand-card__logo-wrap">
         <BrandLogo name={brand.name} />
         <span className="brand-card__badge">✓</span>
       </div>
 
       <h3 className="brand-card__title">{brand.name}</h3>
-      <p className="brand-card__country"><span className="brand-card__dot" /> {brand.country}</p>
+      <p className="brand-card__country"><span className="brand-card__dot" /> siège: {brand.country}</p>
       <p className="brand-card__description">{brand.desc}</p>
 
-      {/* Shimmer au hover */}
       <motion.div className="brand-card__shimmer"
         initial={{ x: "-110%" }}
         whileHover={reduced ? undefined : { x: "110%", transition: { duration: 0.55, ease: "easeInOut" } }}
@@ -298,7 +320,6 @@ function BrandGrid({ categoryId, onBack, reduced }) {
       >
         ← Retour aux catégories
       </motion.button>
-
       <motion.div className="section-title-row"
         initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -309,14 +330,12 @@ function BrandGrid({ categoryId, onBack, reduced }) {
         />
         <h2>{data.title}</h2>
       </motion.div>
-
       <motion.p className="section-subtitle"
         initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {data.description}
       </motion.p>
-
       <motion.div className="brands-grid" variants={cardGridVariants} initial="hidden" animate="visible">
         {data.brands.map((b) => <BrandCard key={b.name} brand={b} reduced={reduced} />)}
       </motion.div>
@@ -341,97 +360,16 @@ function AnimatedSection({ children, className = "", id }) {
 export default function App() {
   const reduced                             = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState(null);
-  const [activeNav,      setActiveNav]      = useState("accueil");
-  const [mobileOpen,     setMobileOpen]     = useState(false);
-  const [scrolled,       setScrolled]       = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
   const { scrollY } = useScroll();
   const heroY       = useTransform(scrollY, [0, 500], [0, -80]);
   const handleCat   = useCallback((id) => setActiveCategory((c) => (c === id ? null : id)), []);
 
   return (
     <div className="partners-page">
-      {/* ── HERO ── */}
       <motion.header className="partners-hero"
         style={{ backgroundImage: `url("${HERO_BG_IMAGE}")`, y: reduced ? 0 : heroY }}
       >
         <div className="hero-overlay" />
-
-        {/* NAVBAR */}
-        <motion.div
-          className={`navbar${scrolled ? " navbar--scrolled" : ""}`}
-          animate={scrolled
-            ? { backgroundColor: "rgba(0,0,0,0.72)", backdropFilter: "blur(12px)" }
-            : { backgroundColor: "transparent",      backdropFilter: "blur(0px)"  }}
-          transition={{ duration: 0.4 }}
-        >
-          <div className="navbar__left">
-            <motion.img src={LOGO_IMAGE} alt="SIA" className="navbar__logo-image"
-              whileHover={reduced ? undefined : { rotate: -6, scale: 1.06 }}
-              whileTap={reduced ? undefined : { scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            />
-          </div>
-
-          <button type="button" className="navbar__mobile-toggle"
-            onClick={() => setMobileOpen((v) => !v)} aria-label="Menu"
-          >
-            <motion.span animate={{ rotate: mobileOpen ? 90 : 0 }} transition={{ duration: 0.25 }}>
-              {mobileOpen ? "✕" : "☰"}
-            </motion.span>
-          </button>
-
-          <nav className="navbar__links desktop-nav">
-            {NAV_ITEMS.map((item) => (
-              <a key={item.id} href={item.href}
-                className={activeNav === item.id ? "nav-active" : ""}
-                onClick={() => setActiveNav(item.id)}
-              >
-                {item.label}
-                {activeNav === item.id && (
-                  <motion.span layoutId="nav-indicator" className="nav-indicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            ))}
-          </nav>
-
-          <motion.button className="navbar__btn" type="button"
-            whileHover={reduced ? undefined : { y: -2, backgroundColor: "var(--red)", borderColor: "var(--red)" }}
-            whileTap={reduced ? undefined : { scale: 0.97 }}
-            transition={{ duration: 0.2 }}
-          >
-            DEMANDER UN DEVIS
-          </motion.button>
-        </motion.div>
-
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.nav className="mobile-nav"
-              initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: reduced ? 0 : 0.32, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {NAV_ITEMS.map((item, i) => (
-                <motion.a key={item.id} href={item.href}
-                  initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  onClick={() => { setActiveNav(item.id); setMobileOpen(false); }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
-            </motion.nav>
-          )}
-        </AnimatePresence>
-
         <motion.div id="hero" className="hero-content"
           variants={heroContainerVariants} initial="hidden" animate="visible"
         >
@@ -439,22 +377,17 @@ export default function App() {
             <motion.span variants={heroWordVariants} className="hero-title-white hero-word">NOS</motion.span>
             <motion.span variants={heroWordVariants} className="hero-title-red hero-word">PARTENAIRES</motion.span>
           </motion.h1>
-
           <motion.div className="hero-divider" variants={heroLineVariants} initial="hidden" animate="visible" />
-
           <motion.p className="hero-subtitle" variants={heroSubtitleVariants}>
-            SIA fédère les plus grands noms du domaine pour vous garantir performance, sécurité et longévité.{" "}
+            SIA fédère les plus grands noms du domaine pour vous garantir performance, sécurité et longévité.
           </motion.p>
-
           <motion.div className="hero-scroll-hint" variants={heroSubtitleVariants}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          >
-          </motion.div>
+          />
         </motion.div>
       </motion.header>
 
-      {/* ── STATS ── */}
       <AnimatedSection className="stats-section">
         <div className="container">
           <motion.div className="stats-grid" variants={sectionVariants}>
@@ -463,7 +396,6 @@ export default function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── CATÉGORIES ── */}
       <AnimatedSection id="categories" className="categories-section">
         <div className="container">
           <motion.div className="section-header" variants={fadeUpVariants}>
@@ -475,7 +407,6 @@ export default function App() {
             />
             <p className="main-section-subtitle">Sélectionnez une catégorie pour explorer nos partenaires.</p>
           </motion.div>
-
           <motion.div className="categories-grid" variants={cardGridVariants}>
             {categories.map((cat, i) => (
               <motion.button key={cat.id} type="button"
@@ -491,18 +422,10 @@ export default function App() {
                   transition={{ duration: 0.35 }}
                 />
                 <div className="category-card__content">
-                  <motion.h3
-                    initial={{ y: 8, opacity: 0.85 }}
-                    whileHover={reduced ? undefined : { y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <motion.h3 initial={{ y: 8, opacity: 0.85 }} whileHover={reduced ? undefined : { y: 0, opacity: 1 }} transition={{ duration: 0.3 }}>
                     {cat.title}
                   </motion.h3>
-                  <motion.span className="category-card__cta"
-                    whileHover={reduced ? undefined : { x: 4 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  >
-                  </motion.span>
+                  <motion.span className="category-card__cta" whileHover={reduced ? undefined : { x: 4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }} />
                 </div>
                 {activeCategory === cat.id && (
                   <motion.div className="category-card__active-border" layoutId="active-border"
@@ -515,7 +438,6 @@ export default function App() {
         </div>
       </AnimatedSection>
 
-      {/* ── PANEL MARQUES ── */}
       <div className="container">
         <AnimatePresence mode="wait">
           {activeCategory && (
@@ -526,7 +448,6 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      {/* ── CTA ── */}
       <AnimatedSection className="partner-cta-top">
         <div className="container partner-cta-top__inner">
           <motion.span className="cta-eyebrow" variants={fadeUpVariants}>Opportunité exclusive</motion.span>
@@ -543,35 +464,6 @@ export default function App() {
               animate={{ x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             >→</motion.span>
           </motion.button>
-        </div>
-      </AnimatedSection>
-
-      {/* ── BANNER ── */}
-      <AnimatedSection className="partner-banner">
-        <div className="container partner-banner__inner">
-          <motion.div variants={fadeUpVariants}>
-            <motion.span className="partner-banner__mini"
-              initial={{ opacity: 0, letterSpacing: "0.1em" }}
-              whileInView={{ opacity: 1, letterSpacing: "0.22em" }}
-              viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              COLLABORONS ENSEMBLE
-            </motion.span>
-            <h2>Des pièces d'une qualité irréprochable, pensées pour durer et à la hauteur de ce que vous méritez vraiment.</h2>
-          </motion.div>
-          <motion.div className="partner-banner__actions" variants={fadeUpVariants}>
-            {[
-              { label: "+216 27 314 100",  cls: "white-btn"   },
-              { label: "DEMANDER UN DEVIS", cls: "outline-btn" },
-            ].map(({ label, cls }) => (
-              <motion.button key={label} type="button" className={cls}
-                whileHover={reduced ? undefined : { y: -3, transition: { type: "spring", stiffness: 320, damping: 20 } }}
-                whileTap={reduced ? undefined : { scale: 0.97 }}
-              >
-                {label}
-              </motion.button>
-            ))}
-          </motion.div>
         </div>
       </AnimatedSection>
     </div>
