@@ -20,6 +20,13 @@ import Lubrification from './pages/lubrification'
 import MoteurTravaux from './pages/moteur-et_groupe-electrogene'
 import Lubrifiant from './pages/lubrifiant-moteur' 
 import Machine from './pages/Machine-soudure'
+import Carrosserie from './pages/carroserie'
+import Climatisation from './pages/Climatisation'
+import Electricite from './pages/Eléctricité'
+import Filtration from './pages/Filtration'
+import Freinage from './pages/freinage'
+import Suspension from './pages/suspension'
+import Transmission from './pages/Transmission'
 
 export default function App() {
   const location = useLocation()
@@ -55,6 +62,14 @@ export default function App() {
           <Route path="/divisions/industrielle" element={<DivisionIndustrielle />} />
           <Route path="/divisions/marine" element={<Divisionmarine />} />
           <Route path="/divisions/piece-de-rechange/moteur" element={<Moteur />} />
+          <Route path="/divisions/piece-de-rechange/carrosserie" element={<Carrosserie />} />
+          <Route path="/divisions/piece-de-rechange/electricite" element={<Electricite />} />
+          <Route path="/divisions/piece-de-rechange/filtration" element={<Filtration />} />
+          <Route path="/divisions/piece-de-rechange/suspension" element={<Suspension />} />
+          <Route path="/divisions/piece-de-rechange/transmission" element={<Transmission />} />
+          <Route path="/divisions/piece-de-rechange/carosserie" element={<Carrosserie />} />
+          <Route path="/divisions/piece-de-rechange/climatisation" element={<Climatisation />} />
+          <Route path="/divisions/piece-de-rechange/freinage" element={<Freinage />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />
           <Route path="/divisions/travaux-publics/moteur-et-groupe-electrogene" element={<MoteurTravaux />} />
