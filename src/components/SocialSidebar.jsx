@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 
 const FacebookIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
@@ -64,9 +64,6 @@ const SocialSidebar = () => {
           <LinkedinIcon />
         </a>
         <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
-          <InstagramIcon />
-        </a>
-        <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
           <PhoneIcon />
         </a>
       </div>
@@ -75,3 +72,4 @@ const SocialSidebar = () => {
 };
 
 export default SocialSidebar;
+

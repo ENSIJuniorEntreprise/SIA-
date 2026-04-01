@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import Hero from '../components/Hero';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
@@ -17,7 +17,7 @@ const services = [
   {
     id: "01.",
     title: "GARANTIE QUALITÉ",
-    description: "Nous sélectionnons des produits fiables auprès de fabricants reconnus. Notre gamme comprend différentes solutions afin de proposer le meilleur équilibre entre qualité, performance et prix adapté au marché tunisien.",
+    description: "Nous sélectionnons des produits fiables auprÃ¨s de fabricants reconnus. Notre gamme comprend différentes solutions afin de proposer le meilleur équilibre entre qualité, performance et prix adapté au marché tunisien.",
     image:"src/assets/tech.jpg",
     isRed: false
   },
@@ -31,7 +31,7 @@ const services = [
   {
     id: "03.",
     title: "SUPPORT TECHNIQUE",
-    description: "Une équipe technico-commerciale qualifiée est à votre écoute pour vous orienter dans l'identification et la sélection des pièces adaptées à vos besoins.",
+    description: "Une équipe technico-commerciale qualifiée est à votre écoute pour vous orienter dans l'identification et la sélection des piÃ¨ces adaptées à vos besoins.",
     image:"src/assets/interv.jpg",
     isRed: false
   },
@@ -45,7 +45,7 @@ const services = [
   {
     id: "05.",
     title: "SAV PROFESSIONNEL",
-    description: "Notre service technique intervient pour la préparation et la jonction des bandes transporteuses ainsi que des courroies plates. Nous assurons aussi l'installation, la mise en service et la réparation des groupes électrogènes Kohler.",
+    description: "Notre service technique intervient pour la préparation et la jonction des bandes transporteuses ainsi que des courroies plates. Nous assurons aussi l'installation, la mise en service et la réparation des groupes électrogÃ¨nes Kohler.",
     image:"src/assets/profi.jpg",
     isRed: false
   },
@@ -61,29 +61,28 @@ const services = [
 const divisions = [
   {
     title: "DIVISION PIÈCES DE RECHANGE AUTOMOBILE",
-    description: "Large gamme de pièces de rechange pour tous véhicules.",
+    description: "Large gamme de piÃ¨ces de rechange pour tous véhicules.",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800", 
-    link: "#"
+    link: "/divisions/piece-de-rechange"
   },
   {
-    title: "DIVISION INDUSTRIELLE",
+  title: "DIVISION INDUSTRIELLE",
     description:"Solutions techniques et équipements pour la maintenance industrielle.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800", 
-    link: "#"
+    link: "/divisions/industrielle"
   },
   {
-    title: "DIVISION TRAVAUX PUBLICS",
-    description:"Matériels de chantier et pièces pour engins de génie civil.",
+  title: "DIVISION TRAVAUX PUBLICS",
+    description:"Matériels de chantier et piÃ¨ces pour engins de génie civil.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800", 
-    link: "#"
+    link: "/divisions/travaux-publics"
   },
   {
-    title: "DIVISION MARINE",
-    description:"Équipements et pièces pour la motorisation et la sécurité maritime.",
+  title: "DIVISION MARINE",
+    description:"Équipements et piÃ¨ces pour la motorisation et la sécurité maritime.",
     image: "https://images.unsplash.com/photo-1524522173746-f628baad3644?q=80&w=800", 
-    link: "#"
-  }
-];
+    link: "/divisions/marine"
+  }];
 const StatCard = ({ number, suffix, title, subtitle }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -199,7 +198,7 @@ export default function Accueil() {
             
             <div className="text-gray-600 space-y-4 text-sm leading-relaxed mb-10">
               <p>
-                La Sfaxienne Industrielle Automobile (SIA Ben Djemaa & Cie) est un distributeur de référence basé à Tunis et Sfax, en Tunisie. Depuis plus de cinq décennies, nous accompagnons les professionnels dans leurs besoins en pièces de rechange et équipements techniques.
+                La Sfaxienne Industrielle Automobile (SIA Ben Djemaa & Cie) est un distributeur de référence basé à Tunis et Sfax, en Tunisie. Depuis plus de cinq décennies, nous accompagnons les professionnels dans leurs besoins en piÃ¨ces de rechange et équipements techniques.
               </p>
               <p>
                 Notre savoir-faire s'étend sur quatre secteurs stratégiques: l'automobile, l'industrie, les travaux publics et le maritime. Grâce à un réseau de partenaires internationaux rigoureusement sélectionnés,nous garantissons qualité, disponibilité et réactivité.
@@ -227,10 +226,7 @@ export default function Accueil() {
             </div>
 
             
-            <button className="bg-sia-red hover:bg-white hover:text-sia-red text-white font-bold py-3 px-8 text-xs uppercase tracking-widest transition-colors">
-              En savoir plus sur SIA
-              <span className="ml-1 group-hover:translate-x-1 transition-transform">›</span>
-            </button>
+            <Link to="/a-propos" className="inline-block bg-sia-red hover:bg-white hover:text-sia-red text-white font-bold py-4 px-10 text-sm uppercase tracking-widest transition-colors group">En savoir plus sur SIA<span className="ml-1 group-hover:translate-x-1 transition-transform inline-block">›</span></Link>
           </div>
 
         </div>
@@ -243,7 +239,7 @@ export default function Accueil() {
           </div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
           <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight text-black border-l-4 border-sia-red-claire pl-4">4 Pôles d'expertise</h2>
-          <Link to="/division" className="bg-sia-red text-white px-6 py-3 uppercase text-4xs font-bold flex items-center hover:bg-white hover:text-sia-red-claire hover:border-sia-red-claire transition-all group">
+          <Link to="/divisions" className="bg-sia-red text-white px-8 py-4 uppercase text-sm font-bold flex items-center border hover:bg-white hover:text-sia-red-claire hover:border-sia-red-claire transition-all group">
             Voir toutes les divisions
             <span className="ml-1 group-hover:translate-x-1 transition-transform">›</span>
           </Link>
@@ -275,7 +271,7 @@ export default function Accueil() {
                   {item.description}
                 </p>
 
-                <Link to="/Division " className="mt-8 border-2 border-white text-white font-bold py-3 px-8 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:block hidden delay-200 hover:bg-white hover:text-[#CC0000] cursor-pointer">
+                <Link to={item.link} className="mt-8 border-2 border-white text-white font-bold py-4 px-10 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:inline-block hidden delay-200 hover:bg-white hover:text-[#CC0000] cursor-pointer inline-block">
                   EXPLORER
                 </Link>
               </div>
@@ -330,6 +326,12 @@ export default function Accueil() {
             </div>
           ))}
         </div>
+        <div className="flex justify-center mt-12">
+          <Link to="/services" className="bg-sia-red hover:bg-white hover:text-sia-red border border-transparent hover:border-sia-red text-white py-4 px-10 text-base font-bold uppercase transition-all duration-300 group flex items-center">
+            Voir tous les services
+            <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">›</span>
+          </Link>
+        </div>
       </div>
     </section>
     <section className="py-20 bg-white">
@@ -341,14 +343,14 @@ export default function Accueil() {
     </h2>
   </div>
 
-  <div className="full-bleed bg-[#D1D5DB] py-12 overflow-hidden border-y border-gray-300">
+  <div className="full-bleed bg-white py-12 overflow-hidden border-y border-gray-300">
     <div className="marquee-content">
       {[...brands, ...brands, ...brands].map((brand, index) => (
         <div key={index} className="flex-none mx-12 w-48 flex items-center justify-center">
           <img 
             src={brand.logo} 
             alt={brand.name} 
-            className="h-16 w-auto object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className="h-16 w-auto object-contain opacity-100 filter-none hover:scale-105 transition-all duration-300"
           />
         </div>
       ))}
@@ -358,3 +360,10 @@ export default function Accueil() {
     </div>
   );
 }
+
+
+
+
+
+
+

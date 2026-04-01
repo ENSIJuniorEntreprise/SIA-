@@ -61,11 +61,11 @@ export default function NsDivisions() {
           {divisions.map((div) => (
             <Link
              to={
-                  div.id === 1
-                    ? "/divisions/piece-de-rechange"
-                    : div.id === 3
-                    ? "/divisions/travaux-publics"
-                    : "#"
+                  div.id === 1 ? "/divisions/piece-de-rechange"
+                  : div.id === 2 ? "/divisions/industrielle"
+                  : div.id === 3 ? "/divisions/travaux-publics"
+                  : div.id === 4 ? "/divisions/marine"
+                  : "#"
                 }
               key={div.id}
               style={{

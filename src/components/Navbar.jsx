@@ -102,9 +102,9 @@ export default function Navbar() {
   const isHomePage = location.pathname === '/'
   const isPartenairesPage = location.pathname === '/partenaires'
   const isContactPage = location.pathname.startsWith('/contact')
-  const isTransparentTheme = isHomePage || isPartenairesPage || isContactPage
+  const isAProposPage = location.pathname === '/a-propos'
+  const isTransparentTheme = isHomePage || isPartenairesPage || isContactPage || isAProposPage
   const useLightTheme = !isTransparentTheme || isScrolled
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import headerBackground from '../assets/headerbackground.jpg';
 
@@ -30,10 +30,8 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
-            <button className="bg-sia-red-claire px-8 py-3 text-sm font-bold uppercase text-white transition-all hover:bg-white hover:text-sia-red-claire sm:px-10 sm:py-4 sm:text-base">
-              Découvrir SIA
-            </button>
-            <Link to="/divisions" className="border-2 border-white px-8 py-3 text-sm font-bold uppercase text-white transition-all hover:border-sia-red-claire hover:bg-sia-red-claire hover:text-white sm:px-10 sm:py-4 sm:text-base">
+            <Link to="/a-propos" className="bg-sia-red-claire px-10 py-4 text-base font-bold uppercase text-white transition-all hover:bg-white hover:text-sia-red-claire sm:px-12 sm:py-5 sm:text-lg">Découvrir SIA</Link>
+            <Link to="/divisions" className="border-2 border-white px-10 py-4 text-base font-bold uppercase text-white transition-all hover:border-sia-red-claire hover:bg-sia-red-claire hover:text-white sm:px-12 sm:py-5 sm:text-lg">
               Nos Divisions
             </Link>
           </div>

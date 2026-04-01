@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -12,6 +12,8 @@ import Services from './pages/Services'
 import B2B from './pages/B2B'
 import Marques from './pages/Marques'
 import PieceDeRechange from './pages/piécederechange'
+import DivisionIndustrielle from './pages/DivisionIndustrielle'
+import Divisionmarine from './pages/Divisionmarine'
 import TravauxPublic from './pages/travauxpublic'
 import Moteur from './pages/moteur'
 import Lubrification from './pages/lubrification'
@@ -27,9 +29,10 @@ export default function App() {
   const isPartenairesPage = location.pathname === '/partenaires'
   const isMarquesPage = location.pathname === '/marques'
   const isContactPage = location.pathname === '/contact'
+  const isAProposPage = location.pathname === '/a-propos'
 
   let mainClasses = "flex-grow";
-  if (isHomePage || isServicesPage || isPartenairesPage || isMarquesPage || isContactPage) {
+  if (isHomePage || isServicesPage || isPartenairesPage || isMarquesPage || isContactPage || isAProposPage) {
     mainClasses = "flex-grow";
   } else if (isDivisionsPage) {
     mainClasses = "flex-grow pt-24 sm:pt-28";
@@ -49,6 +52,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/divisions" element={<Divisions />} />
           <Route path="/divisions/piece-de-rechange" element={<PieceDeRechange />} />
+          <Route path="/divisions/industrielle" element={<DivisionIndustrielle />} />
+          <Route path="/divisions/marine" element={<Divisionmarine />} />
           <Route path="/divisions/piece-de-rechange/moteur" element={<Moteur />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />

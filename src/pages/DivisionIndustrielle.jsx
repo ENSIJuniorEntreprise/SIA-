@@ -1,26 +1,26 @@
-import { useState, useRef, useEffect } from "react";
+﻿import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import logoImage from "./assets/logo-sia.png";
+import logoImage from "../assets/logo.png";
 
 /* ═══════════════════════════════════════════════════════════════
    IMPORTS IMAGES LOCALES
 ═══════════════════════════════════════════════════════════════ */
-import imgHero          from "./assets/images-division-industrielle/hero-industrial.jpg";
-import imgTransmission  from "./assets/images-division-industrielle/transmission.jpg";
-import imgMotorisation  from "./assets/images-division-industrielle/motorisation.jpg";
-import imgRoulement     from "./assets/images-division-industrielle/roulement.jpg";
-import imgCourroie      from "./assets/images-division-industrielle/courroie.webp";
-import imgBande         from "./assets/images-division-industrielle/bande.webp";
-import imgChaine        from "./assets/images-division-industrielle/chaine.png";
-import imgAccouplement  from "./assets/images-division-industrielle/accouplement.jpg";
-import imgMotoreducteur from "./assets/images-division-industrielle/motoreducteur.png";
-import imgMoteur        from "./assets/images-division-industrielle/moteur.jpg";
-import imgVariateur     from "./assets/images-division-industrielle/variateur.jpg";
-import imgPalier        from "./assets/images-division-industrielle/palier.jpg";
-import imgRoulBille     from "./assets/images-division-industrielle/roul-bille.jpg";
-import imgRoulRouleau   from "./assets/images-division-industrielle/roul-rouleau.jpg";
-import imgSupport       from "./assets/images-division-industrielle/support.jpg";
+import imgHero          from "../assets/images-division-industrielle/hero-industrial.jpg";
+import imgTransmission  from "../assets/images-division-industrielle/transmission.jpg";
+import imgMotorisation  from "../assets/images-division-industrielle/motorisation.jpg";
+import imgRoulement     from "../assets/images-division-industrielle/roulement.jpg";
+import imgCourroie      from "../assets/images-division-industrielle/courroie.webp";
+import imgBande         from "../assets/images-division-industrielle/bande.webp";
+import imgChaine        from "../assets/images-division-industrielle/chaine.png";
+import imgAccouplement  from "../assets/images-division-industrielle/accouplement.jpg";
+import imgMotoreducteur from "../assets/images-division-industrielle/motoreducteur.png";
+import imgMoteur        from "../assets/images-division-industrielle/moteur.jpg";
+import imgVariateur     from "../assets/images-division-industrielle/variateur.jpg";
+import imgPalier        from "../assets/images-division-industrielle/palier.jpg";
+import imgRoulBille     from "../assets/images-division-industrielle/roul-bille.jpg";
+import imgRoulRouleau   from "../assets/images-division-industrielle/roul-rouleau.jpg";
+import imgSupport       from "../assets/images-division-industrielle/support.jpg";
 
 const LOGO_IMAGE = logoImage;
 
@@ -302,217 +302,314 @@ function BackButton({ label, onClick }) {
 /* ═══════════════════════════════════════════════════════════════
    MAIN
 ═══════════════════════════════════════════════════════════════ */
+﻿
 export default function DivisionIndustrielle() {
-  const [activeCat,     setActiveCat]     = useState(null);
+  const [activeCat, setActiveCat] = useState(null);
   const [activeSousCat, setActiveSousCat] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const heroRef     = useRef(null);
-  const { scrollY } = useScroll();
-  const heroY       = useTransform(scrollY, [0,500], [0,-80]);
-  const heroOp      = useTransform(scrollY, [0,400], [1,0.4]);
-
-  const currentCat      = categories.find(c => c.id === activeCat);
-  const currentSousCat  = currentCat?.sousCategories.find(s => s.id === activeSousCat);
-  const currentProduits = activeSousCat ? (produits[activeSousCat] || []) : [];
+  const currentCat = categories.find((c) => c.id === activeCat);
+  const currentSousCat = currentCat?.sousCategories.find(
+    (s) => s.id === activeSousCat
+  );
+  const currentProduits = activeSousCat
+    ? produits[activeSousCat] || []
+    : [];
 
   return (
-    <div style={{ fontFamily:"'Montserrat', sans-serif", background:"#f3f3f3", minHeight:"100vh" }}>
-
-      <DivisionNav />
-
-      {/* ── HERO ── */}
-      <div ref={heroRef} style={{ position:"relative", height:280, overflow:"hidden" }}>
-        <motion.div style={{
-          position:"absolute", inset:0,
-          backgroundImage:`url('${imgHero}')`,
-          backgroundSize:"cover", backgroundPosition:"center",
-          y:heroY, opacity:heroOp, scale:1.08,
-        }} />
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(155deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.44) 60%,rgba(226,6,19,0.20) 100%)" }} />
-        <motion.div
-          style={{ position:"absolute", bottom:0, left:0, right:0, height:3, background:"#e20613", transformOrigin:"left" }}
-          initial={{ scaleX:0 }} animate={{ scaleX:1 }}
-          transition={{ duration:1.2, ease:[0.22,1,0.36,1], delay:0.5 }}
-        />
-        <div style={{ position:"relative", zIndex:2, height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:16, textAlign:"center", padding:"0 24px", paddingTop:64 }}>
-          <motion.h1
-            initial={{ opacity:0, y:38, skewY:2 }} animate={{ opacity:1, y:0, skewY:0 }}
-            transition={{ duration:0.82, ease:[0.22,1,0.36,1], delay:0.1 }}
-            style={{ margin:0, fontSize:"clamp(26px,4.5vw,48px)", fontWeight:600, letterSpacing:"-0.6px", color:"#fff", lineHeight:1.13 }}
-          >
-            Division <span style={{ color:"#e20613", fontWeight:800 }}>Industrielle</span>
-          </motion.h1>
-          <motion.div initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:0.65, ease:[0.22,1,0.36,1], delay:0.45 }}
-            style={{ width:52, height:3, background:"#e20613", borderRadius:2 }} />
-          <motion.p initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.7, duration:0.6 }}
-            style={{ margin:0, color:"rgba(255,255,255,0.65)", fontSize:13, fontWeight:500, letterSpacing:"0.06em", textTransform:"uppercase" }}>
-            Transmission · Motorisation · Roulement
-          </motion.p>
-        </div>
+    <div style={styles.page}>
+      {/* HERO BANNER */}
+      <div style={styles.hero}>
+        <img src={imgHero} alt="hero" style={styles.heroImg} />
+        <div style={styles.heroOverlay} />
+        <h1 style={styles.heroTitle}>
+          DIVISION <span style={styles.heroTitle1}>INDUSTRIELLE</span>
+        </h1>
       </div>
 
-      {/* ── BREADCRUMB ── */}
-      <div style={{ background:"#fff", borderBottom:"1px solid #e8e8e8", padding:"11px 0" }}>
-        <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", display:"flex", alignItems:"center", gap:7, fontSize:12, color:"#999" }}>
-          <Link to="/" style={{ color:"#999", textDecoration:"none" }}>Accueil</Link>
-          <span style={{ color:"#e20613" }}>›</span>
-          <span style={{ cursor:"pointer", color: activeCat ? "#999" : "#e20613", fontWeight: activeCat ? 400 : 700 }}
-            onClick={() => { setActiveCat(null); setActiveSousCat(null); }}>
+      {/* BREADCRUMB */}
+      <div style={styles.breadcrumbContainer}>
+        <div style={styles.breadcrumbBar}>
+          <span style={{ color: "#555" }}>Catalogue</span>
+          <span style={styles.breadcrumbSep}> &gt; </span>
+          <span
+            style={activeCat ? styles.breadcrumbGray : styles.breadcrumbActive}
+            onClick={() => {
+              setActiveCat(null);
+              setActiveSousCat(null);
+            }}
+          >
             Division Industrielle
           </span>
+          
           {currentCat && (
-            <>
-              <span style={{ color:"#e20613" }}>›</span>
-              <span style={{ cursor:"pointer", color: activeSousCat ? "#999" : "#e20613", fontWeight: activeSousCat ? 400 : 700 }}
-                onClick={() => setActiveSousCat(null)}>
-                {currentCat.label}
-              </span>
-            </>
+             <>
+               <span style={styles.breadcrumbSep}> &gt; </span>
+               <span
+                 style={activeSousCat ? styles.breadcrumbGray : styles.breadcrumbActive}
+                 onClick={() => {
+                   setActiveSousCat(null);
+                 }}
+               >
+                 {currentCat.label}
+               </span>
+             </>
           )}
+
           {currentSousCat && (
-            <>
-              <span style={{ color:"#e20613" }}>›</span>
-              <span style={{ color:"#e20613", fontWeight:700 }}>{currentSousCat.label}</span>
-            </>
+             <>
+               <span style={styles.breadcrumbSep}> &gt; </span>
+               <span style={styles.breadcrumbActive}>
+                 {currentSousCat.label}
+               </span>
+             </>
           )}
         </div>
       </div>
 
-      {/* ── CONTENT ── */}
-      <div style={{ maxWidth:1200, margin:"0 auto", padding:"36px 24px 64px" }}>
-        <AnimatePresence mode="wait">
+      {/* CARD GRID */}
+      <section style={styles.section}>
+        <div style={styles.grid}>
+          {/* LEVEL 0: CATEGORIES */}
+          {!activeCat &&
+            categories.map((cat) => (
+              <div
+                key={cat.id}
+                onClick={() => {
+                  setActiveCat(cat.id);
+                  setActiveSousCat(null);
+                }}
+                style={{
+                  ...styles.card,
+                  ...(hoveredCard === "c_" + cat.id ? styles.cardHovered : {}),   
+                }}
+                onMouseEnter={() => setHoveredCard("c_" + cat.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div style={styles.cardTitleWrap}>
+                  <span style={styles.cardTitle}>{cat.label}</span>
+                  <span style={styles.cardSubCount}>{cat.sousCategories?.length} familles</span>
+                </div>
+                <div style={styles.cardImgWrap}>
+                  <img
+                    src={cat.image}
+                    alt={cat.label}
+                    style={{
+                      ...styles.cardImg,
+                      ...(hoveredCard === "c_" + cat.id ? styles.cardImgHovered : {}),
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
 
-          {/* NIVEAU 0 : catégories */}
-          {!activeCat && (
-            <motion.div key="cats"
-              initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-18 }}
-              transition={{ duration:0.46, ease:[0.22,1,0.36,1] }}
-            >
-              <AnimSection style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:24 }}>
-                {categories.map((cat) => (
-                  <motion.button key={cat.id} variants={fadeUp}
-                    onClick={() => { setActiveCat(cat.id); setActiveSousCat(null); }}
-                    whileHover={{ y:-8, boxShadow:"0 28px 60px rgba(0,0,0,0.18)", transition:{ type:"spring", stiffness:260, damping:20 } }}
-                    whileTap={{ scale:0.97 }}
-                    style={{ background:"#fff", border:"1px solid #e5e5e5", borderRadius:20, overflow:"hidden", cursor:"pointer", textAlign:"left", padding:0, fontFamily:"inherit", display:"flex", flexDirection:"column", boxShadow:"0 6px 24px rgba(0,0,0,0.07)" }}
+          {/* LEVEL 1: SOUS-CATEGORIES */}
+          {activeCat && !activeSousCat && currentCat?.sousCategories?.map((sc) => (
+              <div
+                key={sc.id}
+                onClick={() => setActiveSousCat(sc.id)}
+                style={{
+                  ...styles.card,
+                  ...(hoveredCard === "s_" + sc.id ? styles.cardHovered : {}),   
+                }}
+                onMouseEnter={() => setHoveredCard("s_" + sc.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <span style={styles.cardTitle}>{sc.label}</span>
+                <div style={styles.cardImgWrap}>
+                  <img
+                    src={sc.image}
+                    alt={sc.label}
+                    style={{
+                      ...styles.cardImg,
+                      ...(hoveredCard === "s_" + sc.id ? styles.cardImgHovered : {}),
+                    }}
+                  />
+                </div>
+              </div>
+          ))}
+
+          {/* LEVEL 2: PRODUITS */}
+          {activeCat && activeSousCat && currentProduits.map((p) => (
+              <div
+                key={p.id}
+                style={{
+                  ...styles.productCard,
+                  ...(hoveredCard === "p_" + p.id ? styles.productCardHovered : {})
+                }}
+                onMouseEnter={() => setHoveredCard("p_" + p.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Badge */}
+                <div style={styles.productBadge}>
+                  {currentSousCat?.label || "Produit"}
+                </div>
+                
+                {/* Image */}
+                <div style={styles.productImgContainer}>
+                  <img src={p.image} alt={p.nom} style={styles.productImg} />
+                </div>
+
+                {/* Info */}
+                <div style={styles.productContent}>
+                  <h3 style={styles.productTitle}>{p.nom}</h3>
+                  
+                  <div style={styles.productAttributes}>
+                    <div style={styles.productAttrRow}>
+                      <span style={styles.productAttrLabel}>Référence :</span>
+                      <span style={styles.productAttrValue}>{p.ref}</span>
+                    </div>
+                    <div style={styles.productAttrRow}>
+                      <span style={styles.productAttrLabel}>Psc/carton :</span>
+                      <span style={styles.productAttrValue}>{p.psc || 1}</span>
+                    </div>
+                    <div style={styles.productAttrRow}>
+                      <span style={styles.productAttrLabel}>SIZE :</span>
+                      <span style={{...styles.productAttrValue, color: "#e20613"}}>{p.size || "-"}</span>
+                    </div>
+                  </div>
+
+                  <button 
+                    style={{
+                      ...styles.productButton,
+                      ...(hoveredCard === "p_" + p.id ? styles.productButtonHovered : {})
+                    }}
                   >
-                    <div style={{ height:220, overflow:"hidden", position:"relative" }}>
-                      <img src={cat.image} alt={cat.label}
-                        style={{ width:"100%", height:"100%", objectFit:"cover", transition:"transform 0.6s ease" }}
-                        onMouseEnter={e=>e.target.style.transform="scale(1.1)"}
-                        onMouseLeave={e=>e.target.style.transform="scale(1)"}
-                      />
-                      <div style={{ position:"absolute", inset:0, background:"linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.62) 100%)" }} />
-                      <div style={{ position:"absolute", top:0, left:0, right:0, height:5, background:"linear-gradient(90deg,#e20613,#ff4444)" }} />
-                      <div style={{ position:"absolute", top:18, right:18, background:"rgba(226,6,19,0.92)", backdropFilter:"blur(4px)", borderRadius:20, padding:"4px 12px", fontSize:11, fontWeight:800, color:"#fff", letterSpacing:"0.05em" }}>
-                        {cat.sousCategories.length} familles
-                      </div>
-                      <div style={{ position:"absolute", bottom:18, left:20, right:20 }}>
-                        <h3 style={{ margin:0, fontSize:18, fontWeight:800, color:"#fff", lineHeight:1.25, textShadow:"0 2px 8px rgba(0,0,0,0.4)" }}>{cat.label}</h3>
-                      </div>
-                    </div>
-                    <div style={{ padding:"16px 20px 18px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-                      <span style={{ fontSize:12, fontWeight:600, color:"#888" }}>
-                        {cat.sousCategories.map(s => s.label.split(" ")[0]).join(" · ")}
-                      </span>
-                      <div style={{ width:34, height:34, borderRadius:"50%", background:"#fff1f1", display:"flex", alignItems:"center", justifyContent:"center" }}>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e20613" strokeWidth="2.5"><polyline points="9,18 15,12 9,6"/></svg>
-                      </div>
-                    </div>
-                  </motion.button>
-                ))}
-              </AnimSection>
-            </motion.div>
-          )}
-
-          {/* NIVEAU 1 : sous-catégories */}
-          {activeCat && !activeSousCat && (
-            <motion.div key="souscats"
-              initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-18 }}
-              transition={{ duration:0.46, ease:[0.22,1,0.36,1] }}
-            >
-              <BackButton label="Retour aux catégories" onClick={() => { setActiveCat(null); setActiveSousCat(null); }} />
-              <div style={{ position:"relative", borderRadius:18, overflow:"hidden", marginBottom:32, height:140 }}>
-                <img src={currentCat?.image} alt={currentCat?.label} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
-                <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.22) 100%)" }} />
-                <div style={{ position:"absolute", top:0, left:0, right:0, height:5, background:"linear-gradient(90deg,#e20613,#ff4444)" }} />
-                <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", padding:"0 32px" }}>
-                  <div>
-                    <p style={{ margin:"0 0 6px", fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.55)", letterSpacing:"0.14em", textTransform:"uppercase" }}>Sous-divisions</p>
-                    <h2 style={{ margin:0, fontSize:22, fontWeight:800, color:"#fff" }}>{currentCat?.label}</h2>
-                  </div>
+                    DEMANDER UN DEVIS
+                  </button>
                 </div>
               </div>
-              <AnimSection style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))", gap:20 }}>
-                {currentCat?.sousCategories.map((sc) => (
-                  <SousCatCard key={sc.id} sc={sc} onClick={() => setActiveSousCat(sc.id)} />
-                ))}
-              </AnimSection>
-            </motion.div>
-          )}
-
-          {/* NIVEAU 2 : produits */}
-          {activeCat && activeSousCat && (
-            <motion.div key="products"
-              initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-18 }}
-              transition={{ duration:0.46, ease:[0.22,1,0.36,1] }}
-            >
-              <BackButton label={`Retour à ${currentCat?.label}`} onClick={() => setActiveSousCat(null)} />
-              <div style={{ position:"relative", borderRadius:18, overflow:"hidden", marginBottom:32, height:120 }}>
-                <img src={currentSousCat?.image || currentCat?.image} alt={currentSousCat?.label} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
-                <div style={{ position:"absolute", inset:0, background:"linear-gradient(90deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.22) 100%)" }} />
-                <div style={{ position:"absolute", top:0, left:0, right:0, height:5, background:"linear-gradient(90deg,#e20613,#ff4444)" }} />
-                <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 32px" }}>
-                  <div>
-                    <p style={{ margin:"0 0 4px", fontSize:10, fontWeight:700, color:"rgba(255,255,255,0.5)", letterSpacing:"0.14em", textTransform:"uppercase" }}>Catalogue produits</p>
-                    <h2 style={{ margin:0, fontSize:20, fontWeight:800, color:"#fff" }}>{currentSousCat?.label}</h2>
-                  </div>
-                  <span style={{ background:"rgba(255,255,255,0.15)", backdropFilter:"blur(6px)", borderRadius:20, padding:"6px 16px", fontSize:13, fontWeight:700, color:"#fff" }}>
-                    {currentProduits.length} produit{currentProduits.length > 1 ? "s" : ""}
-                  </span>
-                </div>
-              </div>
-              {currentProduits.length > 0 ? (
-                <AnimSection style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))", gap:22 }}>
-                  {currentProduits.map((p) => <ProductCard key={p.id} product={p} />)}
-                </AnimSection>
-              ) : (
-                <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }}
-                  style={{ textAlign:"center", padding:"70px 0", color:"#bbb", fontSize:14 }}>
-                  Produits à venir — contactez-nous pour plus d'informations.
-                </motion.div>
-              )}
-            </motion.div>
-          )}
-
-        </AnimatePresence>
-      </div>
-
-      {/* ── CTA BANNER ── */}
-      <div style={{ background:"linear-gradient(135deg,#c00000,#e20613,#cc0000)", padding:"48px 0", position:"relative", overflow:"hidden" }}>
-        <div style={{ position:"absolute", inset:0, opacity:0.06, backgroundImage:"repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)", backgroundSize:"24px 24px" }} />
-        <AnimSection style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:24, position:"relative", zIndex:1 }}>
-          <motion.div variants={fadeUp}>
-            <p style={{ margin:"0 0 8px", fontSize:10, fontWeight:800, letterSpacing:"0.22em", color:"rgba(255,255,255,0.6)", textTransform:"uppercase" }}>
-              Besoin d'une solution industrielle ?
-            </p>
-            <h2 style={{ margin:0, fontSize:"clamp(16px,2.2vw,24px)", fontWeight:700, color:"#fff", lineHeight:1.3 }}>
-              Notre équipe technique est disponible pour vous conseiller.
-            </h2>
-          </motion.div>
-          <motion.div variants={fadeUp} style={{ display:"flex", gap:12, flexShrink:0, flexWrap:"wrap" }}>
-            <motion.button style={{ padding:"13px 24px", background:"#fff", color:"#e20613", border:"none", borderRadius:7, fontSize:12, fontWeight:800, cursor:"pointer", fontFamily:"inherit", whiteSpace:"nowrap" }}
-              whileHover={{ y:-2, boxShadow:"0 10px 24px rgba(0,0,0,0.22)" }} whileTap={{ scale:0.97 }}>
-              +216 27 314 100
-            </motion.button>
-            <motion.button style={{ padding:"13px 24px", background:"transparent", color:"#fff", border:"2px solid rgba(255,255,255,0.7)", borderRadius:7, fontSize:12, fontWeight:800, cursor:"pointer", fontFamily:"inherit", whiteSpace:"nowrap" }}
-              whileHover={{ y:-2, background:"rgba(255,255,255,0.12)" }} whileTap={{ scale:0.97 }}>
-              Demander un devis
-            </motion.button>
-          </motion.div>
-        </AnimSection>
-      </div>
-
+          ))}
+        </div>
+        
+        {/* If no products found */}
+        {activeCat && activeSousCat && currentProduits.length === 0 && (
+          <div style={{ textAlign: "center", padding: "50px", color: "#888" }}>
+            Produits à venir — contactez-nous pour plus d'informations.
+          </div>
+        )}
+      </section>
     </div>
   );
 }
+
+const styles = {
+  page: { fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif", background: "#ffffff", minHeight: "100vh", color: "#090909" },
+  hero: { position: "relative", height: 250, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "115px" },
+  heroImg: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.9)" },
+  heroOverlay: { position: "absolute", inset: 0, zIndex: 1 },
+  heroTitle: { position: "relative", zIndex: 2, margin: 0, color: "#fff", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, textShadow: "0 2px 12px rgba(0,0,0,0.5)", padding: "0 2px", display:"inline-block" },
+  heroTitle1: { position: "relative", zIndex: 2, margin: 0, color: "#C00000", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, textShadow: "0 2px 12px rgba(0,0,0,0.5)", padding: "0 2px", display:"inline-block" },
+  breadcrumbContainer: { width: "100%", background: "#f8f8f8", borderBottom: "1px solid #eaeaea", marginBottom: "10px" },
+  breadcrumbBar: { maxWidth: 1200, margin: "0 auto", padding: "16px 24px", fontSize: 14, display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" },
+  breadcrumbGray: { color: "#555", cursor: "pointer", transition: "color 0.2s" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
+  breadcrumbActive: { color: "#c0392b", fontWeight: 600, cursor: "pointer" },
+  section: { maxWidth: 1200, margin: "0 auto", padding: "30px 20px 30px" },
+  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 35 },
+  card: { background: "#e8e8e8", border: "1px solid #d5d5d5", borderRadius: 3, display: "flex", alignItems: "center", padding: "0 0 0 20px", minHeight: 90, cursor: "pointer", transition: "box-shadow 0.25s, transform 0.2s, background 0.2s", overflow: "hidden", gap: 10 },
+  cardHovered: { background: "#fff", boxShadow: "0 3px 20px #C00000", transform: "translateY(-3px)" },
+  cardTitleWrap: { flex: 1, display: "flex", flexDirection: "column", gap: 4 },
+  cardTitle: { fontSize: 14, fontWeight: 700, color: "#1a1a1a", lineHeight: 1.35 },
+  cardSubCount: { fontSize: 12, color: "#888", fontWeight: 500 },
+  cardImgWrap: { width: 110, height: 90, flexShrink: 0, overflow: "hidden" },
+  cardImg: { width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.35s ease" },
+  cardImgHovered: { transform: "scale(1.08)" },
+  productCard: {
+    background: "#fff",
+    borderRadius: "8px",
+    overflow: "hidden",
+    boxShadow: "0 0 15px rgba(0,0,0,0.08)",
+    transition: "box-shadow 0.3s ease, transform 0.3s ease",
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    border: "2px solid #f6f6f6"
+  },
+  productCardHovered: {
+    boxShadow: "0 8px 25px rgba(226, 6, 19, 0.15)",
+    transform: "translateY(-3px)",
+    border: "2px solid #ffcccc"
+  },
+  productBadge: {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    background: "#c0392b",
+    color: "#fff",
+    padding: "4px 10px",
+    borderRadius: "15px",
+    fontSize: "12px",
+    fontWeight: "bold",
+    zIndex: 2,
+  },
+  productImgContainer: {
+    width: "100%",
+    height: "220px",
+    background: "#fdfdfd",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "20px",
+    borderBottom: "1px solid #f0f0f0"
+  },
+  productImg: {
+    maxWidth: "100%",
+    maxHeight: "100%",
+    objectFit: "contain",
+  },
+  productContent: {
+    padding: "25px",
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+    background: "#fff",
+  },
+  productTitle: {
+    fontSize: "15px",
+    fontWeight: "700",
+    color: "#111",
+    margin: "0 0 25px 0",
+    minHeight: "40px",
+    lineHeight: "1.4"
+  },
+  productAttributes: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    marginBottom: "25px"
+  },
+  productAttrRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    borderBottom: "1px dotted #ccc",
+    paddingBottom: "5px",
+    fontSize: "13px",
+    color: "#888"
+  },
+  productAttrLabel: {
+    fontWeight: "500",
+  },
+  productAttrValue: {
+    color: "#000",
+    fontWeight: "700",
+  },
+  productButton: {
+    marginTop: "auto",
+    width: "100%",
+    padding: "12px 0",
+    background: "#ffefef",
+    color: "#e74c3c",
+    border: "1px solid #e74c3c",
+    borderRadius: "0px",
+    fontSize: "14px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  },
+  productButtonHovered: {
+    background: "#e74c3c",
+    color: "#fff"
+  }
+};

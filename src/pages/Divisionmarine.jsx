@@ -1,64 +1,54 @@
-import { useState } from "react";
-
+﻿import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const categories = [
-  {
-    id: 1,
-    title: "Groupes électrogènes marin",
-    image : "grpelec.jpg",
-  },
-  {
-    id: 2,
-    title: "SAV & consommable",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=120&h=80&fit=crop",
-  }
+  { id: 1, title: "Groupes électrogènes marin", image: "grpelec.jpg" },
+  { id: 2, title: "SAV & consommable", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=120&h=80&fit=crop" }
 ];
 
-export default function DivisionAuto() {
+export default function DivisionMarine() {
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div style={styles.page}>
-     
-
-      
+      {/* HERO BANNER */}
       <div style={styles.hero}>
         <img
-      h    src="ss1.jpg"
+          src={"ss1.jpg"}
           alt="hero"
           style={styles.heroImg}
         />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
-          DIVISION      
+          DIVISION <h1 style={styles.heroTitle1}>MARINE</h1>
         </h1>
-        <h1 style={styles.heroTitle1}>  MARINE</h1>
       </div>
 
       {/* BREADCRUMB */}
-      <div style={styles.breadcrumbBar}>
-        <span style={styles.breadcrumbGray}>Catalogue</span>
-        <span style={styles.breadcrumbSep}> &gt; </span>
-        <span style={styles.breadcrumbActive}>Division Marine</span>
-        
+      <div style={styles.breadcrumbContainer}>
+        <div style={styles.breadcrumbBar}>
+          <span style={styles.breadcrumbGray}>Catalogue</span>
+          <span style={styles.breadcrumbSep}> &gt; </span>
+          <span style={styles.breadcrumbActive}>Division Marine</span>
+        </div>
       </div>
 
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+              to={"#"}
               key={cat.id}
               style={{
+                textDecoration: "none",
+                color: "inherit",
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
               }}
               onMouseEnter={() => setHoveredCard(cat.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Red diamond icon */}
-              <span style={styles.diamond}>◆</span>
               <span style={styles.cardTitle}>{cat.title}</span>
               <div style={styles.cardImgWrap}>
                 <img
@@ -70,7 +60,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -81,14 +71,10 @@ export default function DivisionAuto() {
 const styles = {
   page: {
     fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif",
-    background: "#f0f0f0",
+    background: "#ffffff",
     minHeight: "100vh",
     color: "#090909",
   },
-
-  // NAV
-  
-  // HERO
   hero: {
     position: "relative",
     height: 250,
@@ -108,7 +94,6 @@ const styles = {
   heroOverlay: {
     position: "absolute",
     inset: 0,
-    
     zIndex: 1,
   },
   heroTitle: {
@@ -116,51 +101,55 @@ const styles = {
     zIndex: 2,
     margin: 0,
     color: "#fff",
-    fontSize: "clamp(3px, 4vw, 50px)",
+    fontSize: "clamp(30px, 4vw, 50px)",
     fontWeight: 800,
     textAlign: "center",
     lineHeight: 1.25,
     textShadow: "0 2px 12px rgba(0,0,0,0.5)",
     padding: "0 2px",
+    display: "inline-block",
   },
   heroTitle1: {
     position: "relative",
     zIndex: 2,
     margin: 0,
     color: "#C00000",
-    fontSize: "clamp(5px, 5vw, 70px)",
+    fontSize: "clamp(30px, 4vw, 50px)",
     fontWeight: 800,
     textAlign: "center",
     lineHeight: 1.25,
     textShadow: "0 2px 12px rgba(0,0,0,0.5)",
     padding: "0 2px",
+    display: "inline-block",
   },
-  
-
-  // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
-
-  // GRID
   section: {
     maxWidth: 1200,
-    margin: " 100px 150px ",
-    padding: "30px 0px 30px",
+    margin: "0 auto",
+    padding: "30px 20px 30px",
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: 45,
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: 35,
   },
-
-  // CARD
   card: {
     background: "#e8e8e8",
     border: "1px solid #d5d5d5",
@@ -178,11 +167,6 @@ const styles = {
     background: "#fff",
     boxShadow: "0 3px 20px #C00000",
     transform: "translateY(-3px)",
-  },
-  diamond: {
-    color: "#c0392b",
-    fontSize: 14,
-    flexShrink: 0,
   },
   cardTitle: {
     fontSize: 14,

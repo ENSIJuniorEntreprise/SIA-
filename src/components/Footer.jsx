@@ -15,8 +15,8 @@ const Footer = () => {
             Collaborons Ensemble
           </span>
           <h2 className="mb-8 text-xl font-semibold leading-tight sm:text-2xl md:mb-10 md:text-4xl">
-            des piÃ¨ces dâ€™une qualitÃ© irrÃ©prochable, pensÃ©es <br className="hidden md:block" /> 
-            pour durer et Ã  la hauteur de ce que vous mÃ©ritez vraiment.
+            Des pièces d'une qualité irréprochable, pensées <br className="hidden md:block" /> 
+            pour durer et à la hauteur de ce que vous méritez vraiment.
           </h2>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
@@ -41,7 +41,7 @@ const Footer = () => {
               <span className="text-2xl font-bold text-[#e30613]">SIA</span>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              L'excellence industrielle tunisienne en mouvement. PrÃ©cision bicolore sans compromis.
+              L'excellence industrielle tunisienne en mouvement. Précision bicolore sans compromis.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ const Footer = () => {
           <div>
             <h4 className="text-sia-red font-bold mb-6 tracking-wider">INFORMATION</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
-              <li className="hover:text-black cursor-pointer uppercase">Ã€ propos</li>
+              <li className="hover:text-black cursor-pointer uppercase">À propos</li>
               <li className="hover:text-black cursor-pointer uppercase">Contact</li>
               <li className="hover:text-black cursor-pointer uppercase">B2B</li>
             </ul>

@@ -85,9 +85,9 @@ export default function APropos() {
   ];
   return (
     <>
-     <section className="relative w-screen h-screen overflow-hidden bg-black left-1/2 right-1/2 -ml-[50vw] +mr-[50vw]">
-       
-       <div 
+     <section className="relative w-full min-h-screen overflow-hidden bg-black">
+
+       <div
          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
          style={{ 
            backgroundImage: "url('/src/assets/bgr.jpg')", 
@@ -98,7 +98,7 @@ export default function APropos() {
        </div>
        
        
-       <div className="relative z-10 h-full w-full flex flex-col justify-center  px-4 transform translate-x-20">
+       <div className="relative z-10 h-full min-h-screen w-full flex flex-col justify-center px-4 pt-32 pb-16 transform translate-x-20">
         <div className="flex items-center gap-4 mb-6">
           <div className="w-12 h-[2px] bg-red-600"></div>
           <span className="text-sia-red font-bold tracking-[0.2em] text-sm">DEPUIS 1994</span>
