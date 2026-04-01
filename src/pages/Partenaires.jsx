@@ -102,7 +102,7 @@ const BRAND_URLS = {
   IMP:                "https://www.imp-group.com",
   "R&A":              null,
   FARE:               "https://www.fare.es",
-  SIARECROD:          null,
+  SIARECROD:          "https://www.sia-am.com",
   SNT:                null,
   MISFAT:             null,
   // ── Moteur
