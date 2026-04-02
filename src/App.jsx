@@ -16,6 +16,13 @@ import DivisionIndustrielle from './pages/DivisionIndustrielle'
 import Divisionmarine from './pages/Divisionmarine'
 import TravauxPublic from './pages/travauxpublic'
 import Moteur from './pages/moteur'
+import AdmissionEchappement from './pages/moteur/admissionéchappement'
+import Culasse from './pages/moteur/culasse'
+import DeMarrage from './pages/moteur/Démarrage'
+import Distribution from './pages/moteur/Distribution'
+import Embrayage from './pages/moteur/Embrayage'
+import Injection from './pages/moteur/Injection'
+import Refroidissement from './pages/moteur/Refroidissement'
 import Lubrification from './pages/lubrification'
 import MoteurTravaux from './pages/moteur-et_groupe-electrogene'
 import Lubrifiant from './pages/lubrifiant-moteur' 
@@ -71,6 +78,13 @@ export default function App() {
           <Route path="/divisions/piece-de-rechange/climatisation" element={<Climatisation />} />
           <Route path="/divisions/piece-de-rechange/freinage" element={<Freinage />} />
           <Route path="/divisions/piece-de-rechange/moteur/lubrification" element={<Lubrification />} />
+          <Route path="/divisions/piece-de-rechange/moteur/injection-carburant" element={<Injection />} />
+          <Route path="/divisions/piece-de-rechange/moteur/demarrage" element={<DeMarrage />} />
+          <Route path="/divisions/piece-de-rechange/moteur/refroidissement" element={<Refroidissement />} />
+          <Route path="/divisions/piece-de-rechange/moteur/distribution" element={<Distribution />} />
+          <Route path="/divisions/piece-de-rechange/moteur/embrayage" element={<Embrayage />} />
+          <Route path="/divisions/piece-de-rechange/moteur/admission-echappement" element={<AdmissionEchappement />} />
+          <Route path="/divisions/piece-de-rechange/moteur/culasse" element={<Culasse />} />
           <Route path="/divisions/travaux-publics" element={<TravauxPublic />} />
           <Route path="/divisions/travaux-publics/moteur-et-groupe-electrogene" element={<MoteurTravaux />} />
           <Route path="/divisions/travaux-publics/lubrifiant-moteur" element={<Lubrifiant />} />

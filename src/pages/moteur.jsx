@@ -15,12 +15,12 @@ const categories = [
   },
   {
     id: 3,
-    title: "DÃ©marrage",
+    title: "Démarrage",
     image: "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=120&h=80&fit=crop",
   },
   {
     id: 4,
-    title: "Refroidissement ",
+    title: "Refroidissement",
     image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=120&h=80&fit=crop",
   },
   {
@@ -30,12 +30,12 @@ const categories = [
   },
   {
     id: 6,
-    title: "Embrayage ",
+    title: "Embrayage",
     image: "https://images.unsplash.com/photo-1504222490345-c075b7ffe39d?w=120&h=80&fit=crop",
   },
   {
     id: 7,
-    title: "Admission/Ã‰chappement",
+    title: "Admission/Échappement",
     image: "fi.png",
   },
   {
@@ -84,7 +84,7 @@ export default function DivisionAuto() {
         <div style={styles.grid}>
           {categories.map((cat) => (
             <Link
-              to={cat.id === 1 ? "/divisions/piece-de-rechange/moteur/lubrification" : "#"}
+              to={`/divisions/piece-de-rechange/moteur/${cat.title.toLowerCase().replace(/[\/\s]+/g, "-").replace(/[éêè]/g, "e")}`}
               key={cat.id}
               style={{
                 textDecoration: "none",
