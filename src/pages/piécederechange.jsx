@@ -31,7 +31,8 @@ export default function DivisionAuto() {
         />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange <h1 style={styles.heroTitle1}>Automobile</h1>
+          <span>Division Pièces de Rechange </span>
+          <span style={styles.heroTitle1}>Automobile</span>
         </h1>
       </div>
 
@@ -94,7 +95,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
