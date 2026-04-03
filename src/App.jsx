@@ -44,9 +44,10 @@ export default function App() {
   const isMarquesPage = location.pathname === '/marques'
   const isContactPage = location.pathname === '/contact'
   const isAProposPage = location.pathname === '/a-propos'
+  const isB2bPage = location.pathname === '/b2b'
 
   let mainClasses = "flex-grow";
-  if (isHomePage || isServicesPage || isPartenairesPage || isMarquesPage || isContactPage || isAProposPage) {
+  if (isHomePage || isServicesPage || isPartenairesPage || isMarquesPage || isContactPage || isAProposPage || isB2bPage) {
     mainClasses = "flex-grow";
   } else if (isDivisionsPage) {
     mainClasses = "flex-grow pt-24 sm:pt-28";

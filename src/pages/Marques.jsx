@@ -43,7 +43,7 @@ export default function Marques() {
                       </div>
               </section>
               
-              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
+              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row relative z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
                           <div className='flex-1 bg-white px-4 py-6 md:py-8 justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}} >
                               <div className=' text-center '>
                                     <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>
@@ -139,3 +139,4 @@ export default function Marques() {
                </section>
             </div>)
 }
+

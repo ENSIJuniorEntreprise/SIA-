@@ -99,12 +99,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileDivisionsOpen, setMobileDivisionsOpen] = useState(false)
   const location = useLocation()
-  const isHomePage = location.pathname === '/'
-  const isPartenairesPage = location.pathname === '/partenaires'
-  const isContactPage = location.pathname.startsWith('/contact')
-  const isAProposPage = location.pathname === '/a-propos'
-  const isTransparentTheme = isHomePage || isPartenairesPage || isContactPage || isAProposPage
-  const useLightTheme = !isTransparentTheme || isScrolled
+  const useLightTheme = isScrolled
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)

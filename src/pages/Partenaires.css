@@ -36,9 +36,10 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  width: min(1280px, calc(100% - 48px));
-  margin: 0 auto;
+.partners-page .container {
+  width: min(1000px, calc(100% - 48px)) !important;
+  margin: 0 auto !important;
+  padding: 0 16px;
 }
 
 
@@ -637,11 +638,8 @@ body {
 }
 
 @media (max-width: 600px) {
-  .container,
+  .partners-page .container,
   .navbar,
-  .hero-content { width: min(100% - 28px, 1280px); }
-
-  .navbar__btn           { width: 100%; text-align: center; }
-  .main-section-title    { font-size: 28px; }
+  .hero-content { width: calc(100% - 32px) !important; padding: 0 16px !important; margin-left: auto !important; margin-right: auto !important; }
   .hero-title            { letter-spacing: -1px; }
 }
