@@ -24,7 +24,7 @@ export default function EspacePro() {
  
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url('B2B.jpg')",
+          backgroundImage: `url(${B2BImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
         }} />

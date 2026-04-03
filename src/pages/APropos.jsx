@@ -35,12 +35,12 @@ export default function APropos() {
   const content = {
     identite: {
       title: "Une identité forgée par l'excellence",
-      text: "Depuis 1994, SIA (Sfaxienne Industrielle et Automobile) s'impose comme le partenaire de confiance pour les solutions industrielles. Notre héritage est celui d'une rigueur technique inégalée.",
+      text: "Depuis 1994, SIA s'impose comme le partenaire de confiance pour les solutions industrielles. Notre héritage est celui d'une rigueur technique inégalée.",
       tags: ["Histoire", "Expertise", "Confiance"],
       image: "/src/assets/mission.jpg" 
     },
     vision: {
-      title: "SIA (Sfaxienne Industrielle et Automobile) l'expérience industrielle qui dure",
+      title: "SIA l'expérience industrielle qui dure",
       text: "Nous refusons la médiocrité. Nous voyons un monde où chaque interaction compte. Notre but n'est pas de suivre les tendances, mais de les dicter. L'excellence n'est pas une option, c'est notre point de départ.",
       tags: ["Innovation", "Leadership", "Futur"],
       image: "/src/assets/mission.jpg" 
@@ -98,56 +98,66 @@ export default function APropos() {
        </div>
        
        
-       <div className="relative z-10 h-full min-h-screen w-full flex flex-col justify-center px-4 pt-32 pb-16 transform translate-x-20">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-12 h-[2px] bg-red-600"></div>
-          <span className="text-sia-red font-bold tracking-[0.2em] text-sm">DEPUIS 1994</span>
+       <div className="relative z-10 h-[100dvh] w-full flex flex-col justify-center px-6 md:px-20 pt-32 pb-16">
+        <div className="flex items-center gap-4 mb-6 md:mb-8">
+          <div className="w-8 md:w-12 h-[2px] bg-red-600"></div>
+          <span className="text-sia-red font-bold tracking-[0.2em] text-xs md:text-sm">DEPUIS 1994</span>
         </div>
          <div className="max-w-5xl">
-           <h1 className="text-white text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-6">
+           <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-6">
              L’ART DE<br />
              <span className="text-sia-red-claire">L’INDUSTRIE.</span>
            </h1>
  
-           <p className="max-w-xl text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
-             Plus qu'un distributeur, nous sommes le moteur
+           <p className="max-w-xl text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed">
+             Plus qu'un distributeur SIA Sfaxienne Industrielle et Automobile, nous sommes le moteur
              de votre performance industrielle. Expertise,
              rigueur et innovation au service de la Tunisie.
-           </p>
+           </p> 
  
-           <div className="flex flex-wrap gap-4">
-             <button className="bg-sia-red-claire text-white px-10 py-4 font-bold uppercase hover:bg-white  hover:text-sia-red-claire transition-all">
+           <div className="flex flex-col sm:flex-row gap-4 relative z-10">
+             <button className="bg-sia-red-claire text-white w-full sm:w-auto px-8 md:px-10 py-4 font-bold uppercase hover:bg-white hover:text-sia-red-claire transition-all text-sm md:text-base text-center">
                NOTRE EXPERTISE
              </button>
-             <Link to="/Division" className="border-2 border-white text-white px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all">
+             <Link to="/Division" className="border-2 border-white text-white w-full sm:w-auto px-8 md:px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all text-sm md:text-base text-center">
                VOIR LE CATALOGUE
              </Link>
+           </div>
+         </div>
+
+         {/* Bloc du Siège Social intégré dans la 1ère section */}
+         <div className="mt-8 md:mt-0 md:absolute md:bottom-10 md:right-10 z-20 flex items-stretch">
+           <div className="bg-sia-red-claire p-6 md:p-8 shadow-2xl">
+             <p className="text-xs uppercase tracking-widest opacity-80 mb-1 text-white">Siège Social</p>
+             <p className="text-xl md:text-3xl font-bold text-white">Sfax, Tunisie</p>
            </div>
          </div>
        </div>
        
      </section>
-     <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+     <section className="py-16 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* En-tête de la section */}
-        <div className="text-center mb-20">
-          <h4 className="text-sia-red-claire font-bold tracking-[0.3em] text-sm uppercase mb-3">
+        <div className="text-center mb-12 md:mb-20">
+          <h4 className="text-sia-red-claire font-bold tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm uppercase mb-2 md:mb-3">
             L'ADN SIA
           </h4>
-          <h2 className="text-4xl md:text-5xl font-black uppercase text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-slate-900 tracking-tight">
             Nos Valeurs
           </h2>
         </div>
 
         {/* Grille des valeurs avec bordures fines */}
-        <div className="grid grid-cols-1 md:grid-cols-4 border-y border-gray-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-gray-200">
           {valeurs.map((item, index) => (
             <div 
               key={item.id}
-              className={`relative p-12 group overflow-hidden transition-all duration-300 hover:bg-gray-50
-                ${index !== 0 ? 'md:border-l border-gray-200' : ''}
-                ${index !== 0 ? 'border-t md:border-t-0 border-gray-200' : ''}`}
+              className={`relative p-8 md:p-12 group overflow-hidden transition-all duration-300 hover:bg-gray-50
+                ${index % 2 !== 0 ? 'sm:border-l border-gray-200' : ''}
+                ${index > 1 ? 'sm:border-t lg:border-t-0 border-gray-200' : ''}
+                ${index !== 0 && index < 2 ? 'border-t sm:border-t-0 border-gray-200' : ''}
+                ${index > 0 ? 'lg:border-l border-gray-200' : ''}`}
             >
               {/* Icône Fantôme en arrière-plan */}
               <div className="absolute top-0 right-0 transition-transform duration-500 group-hover:scale-110 group-hover:-translate-x-2 group-hover:translate-y-2">
@@ -177,16 +187,16 @@ export default function APropos() {
 
       </div>
     </section>
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Barre d'onglets (Tabs) */}
-        <div className="flex mb-0">
+        <div className="flex flex-wrap mb-0 border-b border-gray-200">
           {Object.keys(content).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-8 py-4 text-sm font-bold uppercase tracking-wider border-t border-l border-r border-gray-200 transition-all duration-300 ${
+              className={`flex-1 min-w-[120px] px-4 md:px-8 py-3 md:py-4 text-xs md:text-sm font-bold uppercase tracking-wider border-t border-l border-r border-gray-200 transition-all duration-300 ${
                 activeTab === tab 
                 ? 'bg-sia-red-claire text-white border-red-600' 
                 : 'bg-white text-slate-800 hover:bg-gray-50 border-gray-200'
@@ -201,28 +211,28 @@ export default function APropos() {
         <div className="border border-sia-red relative overflow-hidden flex flex-col md:flex-row min-h-[450px]">
           
           {/* Texte (Côté gauche) */}
-          <div className="w-full md:w-1/2 p-10 md:p-16 z-10 flex flex-col justify-center bg-white">
-            <h2 className="text-3xl md:text-4xl font-black text-sia-red-claire leading-tight mb-6 uppercase">
+          <div className="w-full md:w-1/2 p-6 sm:p-10 md:p-16 z-10 flex flex-col justify-center bg-white relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-sia-red-claire leading-tight mb-4 md:mb-6 uppercase">
               {content[activeTab].title}
             </h2>
             
-            <div className="w-16 h-1.5 bg-black mb-8"></div>
+            <div className="w-12 md:w-16 h-1 md:h-1.5 bg-black mb-6 md:mb-8"></div>
             
-            <p className="text-black text-lg leading-relaxed mb-10 font-medium">
+            <p className="text-black text-base md:text-lg leading-relaxed mb-8 md:mb-10 font-medium">
               {content[activeTab].text}
             </p>
 
             {/* Tags et Bouton */}
-            <div className="flex flex-wrap items-center justify-between gap-6">
-              <div className="flex gap-6">
+            <div className="flex flex-col gap-8 mt-auto">
+              <div className="flex flex-wrap gap-3 md:gap-6">
                 {content[activeTab].tags.map(tag => (
-                  <span key={tag} className="text-sia-red-claire md:text-2xl">{tag}</span>
+                  <span key={tag} className="text-sia-red-claire font-bold text-sm md:text-xl">{tag}</span>
                 ))}
               </div>
               
-              <button className="bg-black text-white px-6 py-3 font-bold uppercase text-xs absolute bottom-9 right-9 z-20 flex items-centerabsolute bottom-4 right-4 tracking-widest hover:bg-sia-red-claire transition-colors">
+              <Link to="/Division" className="bg-black text-white px-5 py-3 font-bold uppercase text-xs sm:text-sm tracking-widest hover:bg-sia-red-claire transition-colors w-full sm:w-max text-center z-20">
                 Decouvrir nos solutions
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -239,15 +249,15 @@ export default function APropos() {
         </div>
       </div>
     </section>
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* En-tête */}
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-black">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-12 gap-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black">
             Notre Univers
           </h2>
-          <button className="bg-sia-red-claire text-white px-6 py-2 font-bold uppercase text-sm hover:bg-black transition-all">
+          <button className="bg-sia-red-claire text-white px-6 py-3 md:py-2 font-bold uppercase text-xs md:text-sm hover:bg-black transition-all w-full sm:w-auto text-center">
             visite guidée
           </button>
         </div>
@@ -296,15 +306,15 @@ export default function APropos() {
         </div>
       </div>
     </section>
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-16 md:py-24 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* En-tête */}
-        <div className="text-center mb-16">
-          <h4 className="text-sia-red-claire font-bold tracking-[0.5em] text-xs uppercase mb-3">
+        <div className="text-center mb-10 md:mb-16">
+          <h4 className="text-sia-red-claire font-bold tracking-[0.3em] md:tracking-[0.5em] text-xs uppercase mb-2 md:mb-3">
             Support & Info
           </h4>
-          <h2 className="text-5xl font-black text-black uppercase">
+          <h2 className="text-4xl md:text-5xl font-black text-black uppercase">
             FAQ
           </h2>
         </div>
