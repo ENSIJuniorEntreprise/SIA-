@@ -87,7 +87,7 @@ export default function Contact() {
       <div className="absolute inset-0 bg-black/75 z-0" />
 
       {/* CONTENU PRINCIPAL */}
-      <div className="relative z-10 w-full max-w-[90%] xl:max-w-[95%] 2xl:max-w-[1400px] mx-auto pt-40 sm:pt-48 pb-24 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-[90%] md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto pt-40 sm:pt-48 pb-24 flex flex-col items-center">
         
         {/* TITRE HEADER */}
         <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-12 md:mb-16 text-center tracking-wider">

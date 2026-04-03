@@ -35,12 +35,12 @@ export default function APropos() {
   const content = {
     identite: {
       title: "Une identité forgée par l'excellence",
-      text: "Depuis 1994, SIA (Sfaxienne Industrielle) s'impose comme le partenaire de confiance pour les solutions industrielles. Notre héritage est celui d'une rigueur technique inégalée.",
+      text: "Depuis 1994, SIA (Sfaxienne Industrielle et Automobile) s'impose comme le partenaire de confiance pour les solutions industrielles. Notre héritage est celui d'une rigueur technique inégalée.",
       tags: ["Histoire", "Expertise", "Confiance"],
       image: "/src/assets/mission.jpg" 
     },
     vision: {
-      title: "SIA (Sfaxienne Industrielle) l'expérience industrielle qui dure",
+      title: "SIA (Sfaxienne Industrielle et Automobile) l'expérience industrielle qui dure",
       text: "Nous refusons la médiocrité. Nous voyons un monde où chaque interaction compte. Notre but n'est pas de suivre les tendances, mais de les dicter. L'excellence n'est pas une option, c'est notre point de départ.",
       tags: ["Innovation", "Leadership", "Futur"],
       image: "/src/assets/mission.jpg" 
@@ -125,11 +125,7 @@ export default function APropos() {
            </div>
          </div>
        </div>
-       <div className="mt-8 md:mt-0 md:absolute md:bottom-10 md:right-10 z-20 flex items-stretch">
-        <div className="bg-sia-red-claire p-6 shadow-2xl">
-          <p className="text-xs uppercase tracking-widest opacity-80 mb-1 text-white">Siège Social</p>
-          <p className="text-2xl md:text-3xl font-bold text-white">Sfax, Tunisie</p>
-        </div></div>
+       
      </section>
      <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">

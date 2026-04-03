@@ -1,4 +1,5 @@
 import { useState } from "react";
+import B2BImg from "../assets/B2B.png";
  
 const ChevronRight = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="white">
@@ -67,11 +68,11 @@ export default function EspacePro() {
  
           
           <p style={{
-            fontSize: "13.5px",
+            fontSize: "22px",
             fontWeight: 400,
             color: "rgba(255,255,255,0.82)",
             lineHeight: 1.8,
-            maxWidth: 420,
+            maxWidth: 800,
             marginBottom: 34,
             letterSpacing: "0.2px",
           }}>
@@ -83,17 +84,17 @@ export default function EspacePro() {
  
           {/* CTA Button */}
           <a
-            href="#"
+            href="/"
             onMouseEnter={() => setBtnHover(true)}
             onMouseLeave={() => setBtnHover(false)}
-            onClick={(e) => e.preventDefault()}
+            
             style={{
               display: "inline-block",
               background: btnHover ? "#c01215" : "#e8161a",
               color: "white",
-              padding: "13px 38px",
+              padding: "18px 50px",
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: "12px",
+              fontSize: "18px",
               fontWeight: 700,
               letterSpacing: "1.5px",
               textTransform: "uppercase",
