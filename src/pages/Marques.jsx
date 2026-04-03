@@ -43,7 +43,7 @@ export default function Marques() {
                       </div>
               </section>
               
-              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row relative z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
+              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
                           <div className='flex-1 bg-white px-4 py-6 md:py-8 justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}} >
                               <div className=' text-center '>
                                     <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>
@@ -95,24 +95,25 @@ export default function Marques() {
                          style={{ animation: `fadeInRight 0.6s ease-out ${index * 0.15}s both` }}>
                           
                       {/* L'image de la marque à droite */}
-                      <div className='absolute left-[20%] md:left-[30%] right-0 h-full overflow-hidden rounded-md shadow-md bg-white' style={{border: '1px solid #f3f4f6'}}>
-                        {/* On décale l'image vers la droite pour que l'encadré blanc ne la cache pas */}
-                        <div className='ml-[40%] md:ml-[35%] w-[60%] md:w-[65%] h-full p-4 md:p-6 flex items-center justify-center'>
-                          <img
-                            src={m.brandImages}
-                            alt={m.name}
-                            className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-105'
-                          />
+                      <div className='absolute left-[20%] md:left-[25%] right-0 h-full overflow-hidden rounded-md shadow-md bg-white' style={{border: '1px solid #f3f4f6'}}>
+                        <div className='absolute right-0 top-0 bottom-0 w-[45%] sm:w-[50%] md:w-[55%] p-4 sm:p-6 md:p-8 flex items-center justify-center overflow-hidden'>
+                          <div className={`w-full h-full flex items-center justify-center ${m.name === 'AUDI' ? 'scale-[1.8]' : ''}`}>
+                            <img
+                              src={m.brandImages}
+                              alt={m.name}
+                              className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.15]'
+                            />
+                          </div>
                         </div>
                       </div>
 
                       {/* L'encadré blanc à gauche */}
-                      <div className='absolute top-1/2 -translate-y-1/2 left-0 h-[80%] w-[65%] md:w-[45%] bg-white shadow-xl flex items-center justify-between px-6 z-10 transition-all duration-300 rounded-sm' 
+<div className='absolute top-1/2 -translate-y-1/2 left-0 h-[80%] w-[58%] md:w-[45%] bg-white shadow-xl flex items-center justify-between px-3 md:px-6 z-10 transition-all duration-300 rounded-sm'
                            style={{border: '2px solid #C00000'}}>
-                        <div className='text-left flex-1'>
-                          <p className='font-extrabold text-xl md:text-3xl uppercase text-gray-900 tracking-wide' style={{fontFamily:'Montserrat'}}>{m.name}</p>
-                          <p className='text-xs md:text-sm text-gray-500 font-bold mt-1 uppercase tracking-widest' style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
-                          <p className='text-xs md:text-sm text-gray-400 mt-1 lowercase' style={{fontFamily:'Montserrat'}}>origine {m.origine}</p>
+                        <div className='text-left flex-1 min-w-0'>
+                          <p className='font-extrabold text-[15px] sm:text-lg md:text-3xl uppercase text-gray-900 tracking-wide truncate' style={{fontFamily:'Montserrat'}} title={m.name}>{m.name}</p>
+                          <p className='text-[10px] sm:text-xs md:text-sm text-gray-500 font-bold mt-1 uppercase tracking-widest truncate' style={{fontFamily:'Montserrat'}}>{m.categorie}</p>
+                          <p className='text-[10px] sm:text-xs md:text-sm text-gray-400 mt-1 lowercase truncate' style={{fontFamily:'Montserrat'}}>origine {m.origine}</p>
                         </div>
                         
                         {/* La flèche */}
@@ -139,4 +140,5 @@ export default function Marques() {
                </section>
             </div>)
 }
+
 

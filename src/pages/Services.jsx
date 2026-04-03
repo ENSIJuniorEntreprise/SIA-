@@ -174,12 +174,12 @@ export default function Services() {
                <div className='mx-auto mb-1 flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10 md:h-12 md:w-12'style={{ backgroundColor: '#C00000',marginTop: '0',}}>
                  <MdOutlineWork className='text-white text-xs sm:text-sm md:text-xl'/>
            </div>
-            <p className='font-bold text-sm sm:text-base md:text-2xl'style={{fontFamily:'Montserrat',color:'#C00000'}}>XX ans</p>
+            <p className='font-bold text-sm sm:text-base md:text-2xl'style={{fontFamily:'Montserrat',color:'#C00000'}}>+50 ans</p>
             <p className="text-xs "style={{fontFamily:'Montserrat',color:'#C00000'}}>expérience</p>
           </div>
       </div>
     </section>
-    <section className='px-1 pb-16 pt-20 sm:px-2 sm:pt-24 md:px-4 md:pt-24 lg:px-6' >
+      <section className='px-1 pb-16 pt-20 sm:px-2 sm:pt-24 md:px-4 md:pt-24 lg:px-6 mx-auto w-full max-w-[95%] md:max-w-5xl lg:max-w-6xl xl:max-w-[1300px]' >
       <div className='flex items-center gap-3 mb-8 md:mb-10'>
         <div className='w-2 h-7' style={{ backgroundColor: '#C00000', borderRadius:'4px' }}></div>
         <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800'style={{fontFamily:'Montserrat',}}>Nous offrons</h2>
@@ -236,8 +236,7 @@ export default function Services() {
           </div>
       </div>
     </section>
-    <section className='px-4 sm:px-8 md:px-12 lg:px-16 py-12 md:py-20' style={{ backgroundColor: '#f9fafb' }}>
-      <div className='text-center mb-10 md:mb-16'>
+    <section className='px-4 sm:px-8 md:px-12 lg:px-16 py-12 md:py-20' style={{ backgroundColor: '#f9fafb' }}>        <div className="mx-auto w-full max-w-[90%] md:max-w-4xl lg:max-w-5xl">      <div className='text-center mb-10 md:mb-16'>
         <h2 className='text-2xl sm:text-3xl lg:text-7xl font-extrabold'style={{ fontFamily: 'Montserrat' }} >Ce qui nous <span style={{ color: '#C00000' }}>distingue </span></h2>
         <p className='text-gray-500 mt-1 font-bold text-sm md:text-xl' style={{ fontFamily: 'Montserrat' }}>
           Nous offrons des services de haute qualité
@@ -294,6 +293,7 @@ export default function Services() {
 
        </div>
          ))}
+        </div>
         </div>
     </section>
 
