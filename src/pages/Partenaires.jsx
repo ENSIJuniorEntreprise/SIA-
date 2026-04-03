@@ -365,12 +365,13 @@ export default function App() {
   const handleCat   = useCallback((id) => setActiveCategory((c) => (c === id ? null : id)), []);
 
   return (
-    <div className="partners-page">
-      <motion.header className="partners-hero"
+    <div className="bg-gray-100 min-h-screen overflow-x-hidden">
+      <motion.header 
+        className="relative w-full pt-44 md:pt-52 pb-32 md:pb-40 bg-gray-900 bg-center bg-cover z-0"
         style={{ backgroundImage: `url("${HERO_BG_IMAGE}")`, y: reduced ? 0 : heroY }}
       >
-        <div className="hero-overlay" />
-        <motion.div id="hero" className="hero-content"
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-red-600/20" />
+        <motion.div id="hero" className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-8 text-center flex flex-col items-center"
           variants={heroContainerVariants} initial="hidden" animate="visible"
         >
           <motion.h1 className="hero-title" aria-label="NOS PARTENAIRES">
@@ -388,8 +389,8 @@ export default function App() {
         </motion.div>
       </motion.header>
 
-      <AnimatedSection className="stats-section">
-        <div className="container">
+      <AnimatedSection className="relative z-20 -mt-24 md:-mt-32">
+        <div className="w-full max-w-5xl mx-auto px-6 md:px-8">
           <motion.div className="stats-grid" variants={sectionVariants}>
             {stats.map((s) => <StatCard key={s.unit} item={s} reduced={reduced} />)}
           </motion.div>
@@ -397,7 +398,7 @@ export default function App() {
       </AnimatedSection>
 
       <AnimatedSection id="categories" className="categories-section">
-        <div className="container">
+        <div className="w-full max-w-5xl mx-auto px-6 md:px-8">
           <motion.div className="section-header" variants={fadeUpVariants}>
             <span className="section-eyebrow">Explorez notre réseau</span>
             <h2 className="main-section-title">Nos Catégories</h2>
@@ -438,7 +439,7 @@ export default function App() {
         </div>
       </AnimatedSection>
 
-      <div className="container">
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-8">
         <AnimatePresence mode="wait">
           {activeCategory && (
             <BrandGrid key={activeCategory} categoryId={activeCategory}
@@ -449,7 +450,7 @@ export default function App() {
       </div>
 
       <AnimatedSection className="partner-cta-top">
-        <div className="container partner-cta-top__inner">
+        <div className="w-full max-w-5xl mx-auto px-6 md:px-8 partner-cta-top__inner">
           <motion.span className="cta-eyebrow" variants={fadeUpVariants}>Opportunité exclusive</motion.span>
           <motion.h2 variants={fadeUpVariants}>DEVENIR PARTENAIRE ?</motion.h2>
           <motion.p variants={fadeUpVariants}>
