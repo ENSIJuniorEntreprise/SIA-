@@ -1,63 +1,40 @@
-import { useState } from "react";
-
-const heroImage = "main.png";
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
 const products = [
-  {
-    id: 1,
-    name: "support-boite-vitesse",
-    reference: "  2706142",
-    image :"/sia/Transmission/boite de vitesse/support-boite-vitesse ref 2706142.jpg",
-    tag: "boite de vitesse",
-  },
-  {
-    id: 2,
-    name: "tete-cardan-701498103a-vw-transporteur-t4   ",
-    reference: " 16-1024",
-    image :"/sia/Transmission/boite de vitesse/tete-cardan-701498103a-vw-transporteur-t4 réf 16-1024.jpg",
-    tag: "boite de vitesse",
-  },
-  {
-    id: 3,
-    name: "tige-boite-vitesse-golf-4  ",
-    reference: " 330692",
-    image :"/sia/Transmission/boite de vitesse/tige-boite-vitesse-golf-4 ref 3691 MC.jpg",
-    tag: "boite de vitesse",
-  },
 ];
 
-const filterDivision = [
-  "Division Pièces de Rechange Automobile",
-  "Division Industrielle",
-  "Division Marine",
-  "Division Travaux Publics",
-];
+
+
+const filterDivision = ["Division Pièces de Rechange Automobile", "Division Industrielle", "Division Marine", "Division Travaux Publics"];
 const filterSousDivision1 = ["Moteur", "Suspension", "Freinage", "Filtration"];
-const filterSousDivision2 = ["boite de vitesse", "cardans", "support moteur" ];
+const filterSousDivision2 = ["Lubrification", "Pistons", "Courroies", "Échappement"];
+
 const Breadcrumb = () => (
-  <nav style={styles.breadcrumb}>
-    <span style={styles.breadLink}>catalogue</span>
-    <span style={styles.breadSep}> &gt; </span>
-    <span style={styles.breadLink}>Division Pièces de Rechange Automobile</span>
-    <span style={styles.breadSep}> &gt; </span>
-    <span style={styles.breadLink}>Transmission</span>
-    <span style={styles.breadSep}> &gt; </span>
-    <span style={styles.breadActive}>boite de vitesse </span>
+  <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">catalogue</a>
+    <span className="text-gray-400 text-base"> &gt; </span>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
+    <span className="text-gray-400 text-base"> &gt; </span>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Moteur</a>
+    <span className="text-gray-400 text-base"> &gt; </span>
+    <span className="text-[#c0141c] font-semibold">Boitedevitesse</span>
   </nav>
 );
 
-const FilterPanel = ({ filters, setFilters, onFilter, onReset }) => {
-  const handleSelect = (key, val) =>
+const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters }) => {
+  const handleSelect = (key, val) => {
     setFilters((prev) => ({ ...prev, [key]: val }));
+  };
 
   return (
-    <aside style={styles.filterPanel}>
-      <h3 style={styles.filterTitle}>Chercher par</h3>
+    <aside className={`w-full lg:w-64 flex-shrink-0 bg-white rounded-lg p-5 shadow-[0_2px_12px_rgba(0,0,0,0.07)] lg:sticky lg:top-5 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
+      <h3 className="font-['Raleway'] text-sm font-bold text-[#1a1a2e] mb-4 tracking-wide">Chercher par</h3>
 
-      <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un Division</p>
+      <div className="mb-4">
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Division</p>
         <select
-          style={styles.select}
+          className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.division}
           onChange={(e) => handleSelect("division", e.target.value)}
         >
@@ -68,10 +45,10 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset }) => {
         </select>
       </div>
 
-      <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un Sous-Division 1</p>
+      <div className="mb-4">
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Sous-Division 1</p>
         <select
-          style={styles.select}
+          className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.sousDivision1}
           onChange={(e) => handleSelect("sousDivision1", e.target.value)}
         >
@@ -82,10 +59,10 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset }) => {
         </select>
       </div>
 
-      <div style={styles.filterSection}>
-        <p style={styles.filterLabel}>Sélectionner un Sous-Division 2</p>
+      <div className="mb-4">
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Sous-Division 2</p>
         <select
-          style={styles.select}
+          className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.sousDivision2}
           onChange={(e) => handleSelect("sousDivision2", e.target.value)}
         >
@@ -96,118 +73,148 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset }) => {
         </select>
       </div>
 
-      <button style={styles.btnFilter} onClick={onFilter}>Filtrer</button>
-      <button style={styles.btnReset} onClick={onReset}>réinitialiser</button>
+      <button 
+        className="w-full bg-[#c0141c] text-white border-none rounded-md py-2 text-sm font-bold cursor-pointer mb-2 tracking-wide hover:bg-red-800 transition-colors"
+        onClick={onFilter}
+      >
+        Filtrer
+      </button>
+      <button 
+        className="w-full bg-transparent text-[#c0141c] border border-[#c0141c] rounded-md py-1.5 text-sm font-semibold cursor-pointer tracking-wide hover:bg-red-50 transition-colors"
+        onClick={onReset}
+      >
+        réinitialiser
+      </button>
     </aside>
   );
 };
 
 const ProductCard = ({ product, index }) => {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <div
-      style={{
-        ...styles.card,
-        ...(hovered ? styles.cardHover : {}),
-        animationDelay: `${index * 60}ms`,
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="group bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.07)] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(192,20,28,0.3)] animate-[fadeUp_0.4s_ease_both]"
+      style={{ animationDelay: `${index * 60}ms` }}
     >
-      <div style={styles.cardImgWrap}>
-        {/* Photos gardées telles quelles — chemins locaux du projet */}
-        <img src={product.image} alt={product.name} style={styles.cardImg} />
-        {product.tag && <span style={styles.cardTag}>{product.tag}</span>}
+      <div className="relative bg-[#fafafa] flex justify-center items-center h-48 sm:h-40 border-b border-gray-100 p-4">
+        <img src={product.image} alt={product.name} className="max-h-full max-w-[80%] object-contain group-hover:scale-105 transition-transform duration-300" />
+        <span className="absolute top-2 right-2 bg-[#c0141c] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide z-10 shadow-sm">
+          {product.tag}
+        </span>
       </div>
-      <div style={styles.cardBody}>
-        <p style={styles.cardName}>{product.name}</p>
-        <div style={styles.cardMeta}>
-          <span style={styles.metaLabel}>Référence :</span>
-          <span style={styles.metaVal}>{product.reference}</span>
+      <div className="p-4 pt-3 flex-1 flex flex-col">
+        <p className="text-sm font-bold text-[#1a1a2e] mb-3 leading-tight min-h-[38px] line-clamp-2">{product.name}</p>
+        
+        <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">Référence :</span>
+          <span className="font-semibold text-[#1a1a2e]">{product.reference}</span>
         </div>
-       
-       
+        <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">Psc/carton :</span>
+          <span className="font-semibold text-[#1a1a2e]">{product.pscCarton}</span>
+        </div>
+        <div className="flex justify-between text-xs text-gray-600 mb-4 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">SIZE :</span>
+          <span className="font-semibold text-[#c0141c]">{product.size}</span>
+        </div>
+
+        <button className="mt-auto mx-1 bg-transparent text-[#E10600] border border-[#E10600] py-2 text-sm font-semibold tracking-wide cursor-pointer transition-all duration-300 hover:bg-[#E10600] hover:text-white hover:shadow-md">
+          DEMANDER UN DEVIS
+        </button>
       </div>
-      <button
-        style={{
-          ...styles.btnDevis,
-          ...(hovered ? styles.btnDevisHover : {}),
-        }}
-      >
-        DEMANDER UN DEVIS
-      </button>
     </div>
   );
 };
 
-export default function MarinePage() {
-  const [filters, setFilters] = useState({
-    division: "",
-    sousDivision1: "",
-    sousDivision2: "",
-  });
-  const [activeFilters, setActiveFilters] = useState({
-    division: "",
-    sousDivision1: "",
-    sousDivision2: "",
-  });
+export default function boitedevitessePage() {
+  const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+  const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
-  const handleFilter = () => setActiveFilters({ ...filters });
+  const handleFilter = () => {
+    setActiveFilters({ ...filters });
+    setShowMobileFilters(false);
+  };
+  
   const handleReset = () => {
-    const empty = { division: "", sousDivision1: "", sousDivision2: "" };
+    const empty = { division: "", sousDivision1: "", sousDivision2: "" };       
     setFilters(empty);
     setActiveFilters(empty);
+    setShowMobileFilters(false);
   };
 
   const filtered = products.filter((p) => {
-    const okDivision =
-      !activeFilters.division || p.name.includes(activeFilters.division);
-    const okSousDiv1 =
-      !activeFilters.sousDivision1 ||
-      p.name.includes(activeFilters.sousDivision1);
-    const okSousDiv2 =
-      !activeFilters.sousDivision2 || p.tag === activeFilters.sousDivision2;
+    const okDivision = !activeFilters.division || p.name.includes(activeFilters.division);
+    const okSousDiv1 = !activeFilters.sousDivision1 || p.name.includes(activeFilters.sousDivision1);
+    const okSousDiv2 = !activeFilters.sousDivision2 || p.name.includes(activeFilters.sousDivision2);
+    // Add additional category check based on tags or properties logic if needed
     return okDivision && okSousDiv1 && okSousDiv2;
   });
 
   return (
-    <div style={styles.page}>
+    <div className="font-['Source_Sans_3'] bg-white min-h-screen text-gray-900 pb-16">
       {/* Hero Banner */}
-      <div style={styles.hero}>
-        <div style={styles.heroOverlay} />
-        <div style={styles.heroContent}>
-          {/* ✅ Titre sur UNE SEULE ligne, taille augmentée */}
-          <h1 style={styles.heroTitle}>
-            Division piéces de rechange <div style={styles.heroTitleAccent}>Automobile</div>
+      <div className="relative h-[200px] sm:h-[250px] overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44]">
+        <div 
+          className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }} 
+        />
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4">
+          <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
+            Division Pièces de Rechange
+            <br />
+            <span className="text-[#C00000]">Automobile</span>
           </h1>
         </div>
       </div>
 
-      <div style={styles.breadcrumbContainer}>
-        <div style={styles.breadcrumbInner}>
+      <div className="w-full bg-[#f8f8f8] border-b border-gray-200 mb-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Breadcrumb />
         </div>
       </div>
 
-      <div style={styles.container}>
-        <div style={styles.layout}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Mobile Filter Toggle */}
+        <div className="lg:hidden mb-4">
+          <button 
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 rounded-lg flex justify-between items-center shadow-sm font-semibold hover:bg-gray-50 transition-colors"
+          >
+            <span className="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#c0141c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+              Filtrer les produits
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 transition-transform ${showMobileFilters ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
           <FilterPanel
             filters={filters}
             setFilters={setFilters}
             onFilter={handleFilter}
             onReset={handleReset}
+            showMobileFilters={showMobileFilters}
           />
 
-          <main style={styles.main}>
+          <main className="flex-1 w-full">
             {filtered.length === 0 ? (
-              <p style={{ color: "#888", fontSize: 14, padding: "20px 0" }}>
-                Aucun produit ne correspond aux filtres sélectionnés.
-              </p>
+              <div className="bg-gray-50 rounded-xl p-10 text-center text-gray-500 border border-gray-100 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg font-medium text-gray-700">Aucun produit trouvé</p>
+                <p className="text-sm mt-1 mb-4">Essayez d'ajuster vos critères de filtrage.</p>
+                <button onClick={handleReset} className="text-[#c0141c] hover:underline font-semibold text-sm">Réinitialiser les filtres</button>
+              </div>
             ) : (
-              <div style={styles.grid}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                 {filtered.map((p, i) => (
-                  <ProductCard key={p.id} product={p} index={i} />
+                  <ProductCard key={`${p.id}-${i}`} product={p} index={i} />      
                 ))}
               </div>
             )}
@@ -216,9 +223,7 @@ export default function MarinePage() {
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Source+Sans+3:wght@400;500;600&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Source Sans 3', sans-serif; background: #ffffff; }
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap');
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -227,211 +232,3 @@ export default function MarinePage() {
     </div>
   );
 }
-
-const RED = "#c0141c";
-const DARK = "#1a1a2e";
-
-const styles = {
-  page: {
-    fontFamily: "'Source Sans 3', sans-serif",
-    background: "#ffffff",
-    minHeight: "100vh",
-  },
-
-  hero: {
-    position: "relative",
-    height: 260,
-    overflow: "hidden",
-    background: `linear-gradient(135deg, ${DARK} 0%, #2d2d44 100%)`,
-  },
-  heroOverlay: {
-    position: "absolute",
-    inset: 0,
-    backgroundImage: `url(${heroImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    opacity: 0.75,
-  },
-  heroContent: {
-    position: "relative",
-    zIndex: 1,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  // ✅ Une seule ligne, taille max 72px (était 50px), whiteSpace nowrap
-  heroTitle: {
-    fontFamily: "'Raleway', sans-serif",
-    color: "#fff",
-    fontSize: "clamp(38px, 6vw, 72px)",
-    fontWeight: 900,
-    textAlign: "center",
-    lineHeight: 1.1,
-    letterSpacing: "-1px",
-    whiteSpace: "nowrap",
-  },
-  heroTitleAccent: {
-    color: "#C00000",
-  },
-
-  breadcrumbContainer: {
-    width: "100%",
-    background: "#f8f8f8",
-    borderBottom: "1px solid #eaeaea",
-    marginBottom: 24,
-  },
-  breadcrumbInner: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  container: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  layout: {
-    display: "flex",
-    gap: 24,
-    alignItems: "flex-start",
-    paddingBottom: 48,
-  },
-
-  breadcrumb: {
-    padding: "16px 0",
-    fontSize: 14,
-    color: "#888",
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 8,
-    alignItems: "center",
-  },
-  breadLink: { color: "#555", cursor: "pointer" },
-  breadSep: { color: "#aaa", fontSize: 16 },
-  breadActive: { color: RED, fontWeight: 600 },
-
-  filterPanel: {
-    width: 200,
-    flexShrink: 0,
-    background: "#fff",
-    borderRadius: 10,
-    padding: "20px 16px",
-    boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
-    position: "sticky",
-    top: 20,
-  },
-  filterTitle: {
-    fontFamily: "'Raleway', sans-serif",
-    fontSize: 14,
-    fontWeight: 700,
-    color: DARK,
-    marginBottom: 16,
-  },
-  filterSection: { marginBottom: 16 },
-  filterLabel: {
-    fontSize: 11,
-    fontWeight: 600,
-    color: "#999",
-    textTransform: "uppercase",
-    letterSpacing: "0.5px",
-    marginBottom: 6,
-  },
-  select: {
-    width: "100%",
-    padding: "7px 10px",
-    fontSize: 12,
-    color: "#444",
-    border: "1.5px solid #e0e0e0",
-    borderRadius: 6,
-    background: "#fff",
-    cursor: "pointer",
-    outline: "none",
-  },
-  btnFilter: {
-    width: "100%",
-    background: RED,
-    color: "#fff",
-    border: "none",
-    borderRadius: 6,
-    padding: "9px 0",
-    fontSize: 13,
-    fontWeight: 700,
-    cursor: "pointer",
-    marginBottom: 8,
-  },
-  btnReset: {
-    width: "100%",
-    background: "transparent",
-    color: RED,
-    border: `1.5px solid ${RED}`,
-    borderRadius: 6,
-    padding: "8px 0",
-    fontSize: 13,
-    fontWeight: 600,
-    cursor: "pointer",
-  },
-
-  main: { flex: 1 },
-  grid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 },
-
-  card: {
-    background: "#fff",
-    borderRadius: 10,
-    overflow: "hidden",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-    display: "flex",
-    flexDirection: "column",
-    transition: "transform .2s, box-shadow .2s",
-    animation: "fadeUp 0.4s ease both",
-  },
-  cardHover: { boxShadow: "0 8px 20px rgba(192,20,28,0.35)" },
-  cardImgWrap: {
-    position: "relative",
-    background: "#fafafa",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: 160,
-    borderBottom: "1px solid #f0f0f0",
-  },
-  cardImg: { maxHeight: 130, maxWidth: "80%", objectFit: "contain" },
-  cardTag: {
-    position: "absolute",
-    top: 8,
-    right: 8,
-    background: RED,
-    color: "#fff",
-    fontSize: 10,
-    fontWeight: 700,
-    padding: "2px 7px",
-    borderRadius: 20,
-  },
-  cardBody: { padding: "12px 14px 8px", flex: 1 },
-  cardName: {
-    fontSize: 13,
-    fontWeight: 700,
-    color: DARK,
-    marginBottom: 10,
-    lineHeight: 1.35,
-    minHeight: 36,
-  },
-  cardMeta: {
-    display: "flex",
-    justifyContent: "space-between",
-    fontSize: 12,
-    color: "#555",
-    marginBottom: 4,
-    borderBottom: "1px dashed #f0f0f0",
-    paddingBottom: 4,
-  },
-  metaLabel: { color: "#888", fontWeight: 500 },
-  metaVal: { fontWeight: 600, color: DARK },
-  sizeVal: { color: RED },
-  btnDevis: {
-    margin: "10px 14px 14px",
-    background: "transparent",
-    color: "#E10600",
-    border: "1px solid #E10600",
-    borderRadius: 0,
-    padding: "9px 0",
-    fontSize: 14,
-    fontWeight: 500,
-    letterSpacing: "0.6px",
-    cursor: "pointer",
-    transition: "all 0.3s",
-  },
-  btnDevisHover: { background: "#E10600", color: "#fff" },
-};

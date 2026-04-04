@@ -119,10 +119,11 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
+    paddingTop: 80,
   },
   heroImg: {
     position: "absolute",
@@ -162,7 +163,7 @@ const styles = {
   cardsSection: {
     maxWidth: 1300,
     margin: "0 auto",
-    padding: "55px 24px 0px",
+    padding: "55px 24px 150px", // Increased bottom padding to add space before the "bloc rouge"
   },
   cardsGrid: {
     display: "grid",

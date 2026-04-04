@@ -2,16 +2,26 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
+import imgMoteur from "../assets/piecesderechang/moteurr.png";
+import imgElec from "../assets/piecesderechang/elect.png";
+import imgFiltration from "../assets/piecesderechang/Filtra.png";
+import imgSuspension from "../assets/piecesderechang/susp.png";
+import imgTransmission from "../assets/piecesderechang/trans.png";
+import imgCarrosserie from "../assets/piecesderechang/carosseri.png";
+import imgClim from "../assets/piecesderechang/clim.png";
+import imgConsommables from "../assets/piecesderechang/consom.png";
+import imgFreinage from "../assets/piecesderechang/frein.png";
+
 const categories = [
-  { id: 1, title: "MOTEUR", image: 'https://images.unsplash.com/photo-1486262715619-670810a044ce?w=600&q=80', link: "/divisions/piece-de-rechange/moteur" },
-  { id: 2, title: "Électricité/ Électronique", image: 'https://images.unsplash.com/photo-1620288627228-8f6459141029?w=600&q=80', link: "/divisions/piece-de-rechange/electricite" },
-  { id: 3, title: "Filtration", image: 'https://images.unsplash.com/photo-1598285514930-b3bd311ebf4c?w=600&q=80', link: "/divisions/piece-de-rechange/filtration" },
-  { id: 4, title: "Suspension/ Direction", image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80', link: "/divisions/piece-de-rechange/suspension" },
-  { id: 5, title: "Transmission", image: 'https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=600&q=80', link: "/divisions/piece-de-rechange/transmission" },
-  { id: 6, title: "Carosserie", image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0be2?w=600&q=80', link: "/divisions/piece-de-rechange/carosserie" },
-  { id: 7, title: "Climatisation/ Chauffage", image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=600&q=80', link: "/divisions/piece-de-rechange/climatisation" },
-  { id: 8, title: "Consommables et divers", image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80', link: "/divisions/piece-de-rechange/consommables" },
-  { id: 9, title: "Freinage", image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80', link: "/divisions/piece-de-rechange/freinage" },
+  { id: 1, title: "MOTEUR", image: imgMoteur, link: "/divisions/piece-de-rechange/moteur" },
+  { id: 2, title: "Électricité/ Électronique", image: imgElec, link: "/divisions/piece-de-rechange/electricite" },
+  { id: 3, title: "Filtration", image: imgFiltration, link: "/divisions/piece-de-rechange/filtration" },
+  { id: 4, title: "Suspension/ Direction", image: imgSuspension, link: "/divisions/piece-de-rechange/suspension" },
+  { id: 5, title: "Transmission", image: imgTransmission, link: "/divisions/piece-de-rechange/transmission" },
+  { id: 6, title: "Carosserie", image: imgCarrosserie, link: "/divisions/piece-de-rechange/carosserie" },
+  { id: 7, title: "Climatisation/ Chauffage", image: imgClim, link: "/divisions/piece-de-rechange/climatisation" },
+  { id: 8, title: "Consommables et divers", image: imgConsommables, link: "/divisions/piece-de-rechange/consommables" },
+  { id: 9, title: "Freinage", image: imgFreinage, link: "/divisions/piece-de-rechange/freinage" },
 ];
 
 export default function DivisionAuto() {
@@ -170,7 +180,7 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: 35,
   },
 

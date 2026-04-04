@@ -144,14 +144,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID

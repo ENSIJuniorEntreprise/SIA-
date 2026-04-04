@@ -306,16 +306,23 @@ const styles = {
   heroTitle1: { fontFamily: "'Raleway', sans-serif", color: "#C00000", fontSize: "clamp(90px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
 
   // Layout
-  breadcrumbContainer: { width: "100%", background: "#f8f8f8", borderBottom: "1px solid #eaeaea", marginBottom: 24 },
+      breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: 24,
+  },
   breadcrumbInner: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  container: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  layout: { display: "flex", gap: 24, alignItems: "flex-start", paddingBottom: 48 },
+  breadcrumb: {
+    padding: "16px 0",
+    fontSize: 14,
+    color: "#888",
+  },
+  breadLink: { color: "#888", textDecoration: "none" },
+  breadSep: { margin: "0 8px", color: "#ccc" },
+  breadActive: { color: "#C00000", fontWeight: "600" },
 
-  // Breadcrumb
-  breadcrumb: { padding: "16px 0", fontSize: 14, color: "#888", display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" },
-  breadLink: { color: "#555", cursor: "pointer", textDecoration: "none" },
-  breadSep: { color: "#aaa", fontSize: 16 },
-  breadActive: { color: RED, fontWeight: 600 },
+
 
   // Sidebar
   filterPanel: { width: 200, flexShrink: 0, background: "#fff", borderRadius: 10, padding: "20px 16px", boxShadow: "0 2px 12px rgba(0,0,0,0.07)", position: "sticky", top: 20 },

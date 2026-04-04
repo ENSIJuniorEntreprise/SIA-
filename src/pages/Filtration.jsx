@@ -1,26 +1,31 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import imgHuile from "../assets/filtration/huile.png";
+import imgAir from "../assets/filtration/air.png";
+import imgCarburant from "../assets/filtration/carburant.png";
+import imgHabitacle from "../assets/filtration/habi.png";
 
 
 const categories = [
   {
     id: 1,
-    title: "Filtre à huile",
-    image : "",
+    title: "Filtre a huile",
+    image: imgHuile,
   },
   {
     id: 2,
-    title: "Filtre à air",
-    image :"",
+    title: "Filtre a air",
+    image: imgAir,
   },
   {
     id: 3,
     title: "Filtre carburant",
-    image :"",
+    image: imgCarburant,
   },
   {
     id: 4,
     title: "Filtre Habitacle",
-    image :"",
+    image: imgHabitacle,
   }
   
 ];
@@ -42,7 +47,7 @@ export default function DivisionAuto() {
         />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
+          Division Pieces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
         </h1>
         
       </div>
@@ -51,7 +56,7 @@ export default function DivisionAuto() {
         <div style={styles.breadcrumbBar}>
           <span style={styles.breadcrumbGray}>Catalogue</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbGray}>Division Pièces de Rechange Automobile</span>
+          <span style={styles.breadcrumbGray}>Division Pieces de Rechange Automobile</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
           <span style={styles.breadcrumbActive}>Filtration</span>
         </div>
@@ -103,7 +108,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -150,14 +156,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID

@@ -1,26 +1,31 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import imgRoule from "../assets/suspen/roule.png";
+import imgTriang from "../assets/suspen/triang.png";
+import imgJantes from "../assets/suspen/jantes.png";
+import imgEmbray from "../assets/suspen/embray.png";
 
 
 const categories = [
   {
     id: 1,
     title: "Boulements",
-    image : "",
+    image: imgRoule,
   },
   {
     id: 2,
     title: "Triangles",
-    image :"",
+    image: imgTriang,
   },
   {
     id: 3,
     title: "Jantes/Roue",
-    image :"",
+    image: imgJantes,
   },
   {
     id: 4,
     title: "Embrayage",
-    image :"",
+    image: imgEmbray,
   }
   
 ];
@@ -103,7 +108,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -150,14 +156,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID

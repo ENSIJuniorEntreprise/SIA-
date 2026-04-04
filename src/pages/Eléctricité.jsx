@@ -1,26 +1,32 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
+import imgCapteurs from "../assets/elect/capteurs.png";
+import imgGestionMoteur from "../assets/elect/gestmot.png";
+import imgCharge from "../assets/elect/charge.png";
+import imgHabitacle from "../assets/elect/habitacle.png";
 
 const categories = [
   {
     id: 1,
     title: "Capteurs",
-    image : "",
+    image : imgCapteurs,
   },
   {
     id: 2,
     title: "Gestion moteur",
-    image :"",
+    image : imgGestionMoteur,
   },
   {
     id: 3,
     title: "Charge",
-    image :"",
+    image : imgCharge,
   },
   {
     id: 4,
     title: "Habitacle",
-    image :"",
+    image : imgHabitacle,
   }
   
 ];
@@ -36,13 +42,13 @@ export default function DivisionAuto() {
       {/* HERO BANNER */}
       <div style={styles.hero}>
         <img
-          src="main.png"
+          src={heroImage}
           alt="hero"
           style={styles.heroImg}
         />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
+          Division Pièces de Rechange <span style={styles.heroTitle1}>Automobile</span>   
         </h1>
         
       </div>
@@ -60,10 +66,17 @@ export default function DivisionAuto() {
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
-          {categories.map((cat) => (
-            <div
+          {categories.map((cat) => {
+            const isClickable = cat.title !== "Habitacle";
+            const CardWrapper = isClickable ? Link : "div";
+            const navProps = isClickable ? { to: `/divisions/piece-de-rechange/electricite/${cat.title.toLowerCase().replace(/[\/\s]+/g, "-").replace(/[éêè]/g, "e")}` } : {};
+            return (
+            <CardWrapper
+              {...navProps}
               key={cat.id}
               style={{
+                textDecoration: "none",
+                color: "inherit",
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
               }}
@@ -83,8 +96,8 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
-          ))}
+            </CardWrapper>
+          );})}
         </div>
       </section>
     </div>
@@ -104,7 +117,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -151,14 +165,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID
@@ -169,7 +192,7 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr) ",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: 45,
   },
 

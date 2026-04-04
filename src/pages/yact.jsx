@@ -50,11 +50,11 @@ const filterSousDivision2 = ["Yact", "bateau de peche", "travaux maritimes"];
 const Breadcrumb = () => (
   <nav style={styles.breadcrumb}>
     <span style={styles.breadLink}>catalogue</span>
-    <span style={styles.breadSep}>&gt;</span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadLink}>Division Marine</span>
-    <span style={styles.breadSep}>&gt;</span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadLink}>Groupes électrogènes marin</span>
-    <span style={styles.breadSep}>&gt;</span>
+    <span style={styles.breadSep}> &gt; </span>
     <span style={styles.breadActive}>Yact</span>
   </nav>
 );
@@ -300,33 +300,23 @@ const styles = {
     color: "#C00000",
   },
 
-  breadcrumbContainer: {
+      breadcrumbContainer: {
     width: "100%",
     background: "#f8f8f8",
     borderBottom: "1px solid #eaeaea",
     marginBottom: 24,
   },
   breadcrumbInner: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  container: { maxWidth: 1140, margin: "0 auto", padding: "0 20px" },
-  layout: {
-    display: "flex",
-    gap: 24,
-    alignItems: "flex-start",
-    paddingBottom: 48,
-  },
-
   breadcrumb: {
     padding: "16px 0",
     fontSize: 14,
     color: "#888",
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 8,
-    alignItems: "center",
   },
-  breadLink: { color: "#555", cursor: "pointer" },
-  breadSep: { color: "#aaa", fontSize: 16 },
-  breadActive: { color: RED, fontWeight: 600 },
+  breadLink: { color: "#888", textDecoration: "none" },
+  breadSep: { margin: "0 8px", color: "#ccc" },
+  breadActive: { color: "#C00000", fontWeight: "600" },
+
+
 
   filterPanel: {
     width: 200,

@@ -1,36 +1,43 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import imgPlaq from "../assets/freinage/plaqu.png";
+import imgDisques from "../assets/freinage/disques.png";
+import imgEtriers from "../assets/freinage/etrier.png";
+import imgHydraulique from "../assets/freinage/hydroli.png";
+import imgRessorts from "../assets/freinage/ressorts.png";
+import imgRotules from "../assets/freinage/rotule.png";
 
 
 const categories = [
     {
     id: 1,
     title: "Plaquettes",
-    image : "",
+    image: imgPlaq,
   },
   {
     id: 1,
     title: "Disques",
-    image : "",
+    image: imgDisques,
   },
   {
     id: 2,
     title: "Etriers",
-    image :"",
+    image: imgEtriers,
   },
   {
     id: 3,
     title: "Hydraulique",
-    image :"",
+    image: imgHydraulique,
   },
   {
     id: 4,
     title: "Ressorts",
-    image :"",
+    image: imgRessorts,
   },
   {
     id: 5,
     title: "Rotules",
-    image :"",
+    image: imgRotules,
   }
 ];
 
@@ -112,7 +119,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -159,14 +167,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID

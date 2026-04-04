@@ -1,26 +1,31 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import imgCompresseur from "../assets/climat/compresseur.png";
+import imgCondenseur from "../assets/climat/condensateur.png";
+import imgVentilation from "../assets/climat/ventilation.png";
+import imgEvaporateur from "../assets/climat/evaporateur.png";
 
 
 const categories = [
   {
     id: 1,
     title: "Condenseur",
-    image : "",
+    image: imgCondenseur,
   },
   {
     id: 2,
     title: "Compresseur",
-    image :"",
+    image: imgCompresseur,
   },
   {
     id: 3,
     title: "Evaporateur",
-    image :"",
+    image: imgEvaporateur,
   },
   {
     id: 4,
     title: "Ventillation",
-    image :"",
+    image: imgVentilation,
   }
   
 ];
@@ -103,7 +108,8 @@ const styles = {
   // HERO
   hero: {
     position: "relative",
-    height: 250,
+    height: 380,
+      paddingTop: 80,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -150,14 +156,23 @@ const styles = {
   
 
   // BREADCRUMB
+  breadcrumbContainer: {
+    width: "100%",
+    background: "#f8f8f8",
+    borderBottom: "1px solid #eaeaea",
+    marginBottom: "10px",
+  },
   breadcrumbBar: {
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "12px 24px",
-    fontSize: 13,
+    padding: "16px 24px",
+    fontSize: 14,
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
   },
-  breadcrumbGray: { color: "#888" },
-  breadcrumbSep: { color: "#aaa", margin: "0 4px" },
+  breadcrumbGray: { color: "#555" },
+  breadcrumbSep: { color: "#aaa", fontSize: 16 },
   breadcrumbActive: { color: "#c0392b", fontWeight: 600 },
 
   // GRID
