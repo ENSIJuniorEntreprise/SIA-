@@ -187,13 +187,13 @@ const styles = {
   // GRID
   section: {
     maxWidth: 1200,
-    margin: " 50px 150px ",
-    padding: "30px 0px 30px",
+    margin: "0 auto",
+    padding: "30px 20px 30px",
   },
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: 45,
+    gap: 35,
   },
 
   // CARD
