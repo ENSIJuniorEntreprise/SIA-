@@ -498,7 +498,8 @@ const styles = {
   hero: { position: "relative", height: 250, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "115px" },
   heroImg: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.9)" },
   heroOverlay: { position: "absolute", inset: 0, zIndex: 1 },
-  heroTitle: { position: "relative", zIndex: 2, margin: 0, color: "#fff", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, textShadow: "0 2px 12px rgba(0,0,0,0.5)", padding: "0 2px", display:"inline-block" },
+  heroTitle: {
+    paddingTop: "60px", position: "relative", zIndex: 2, margin: 0, color: "#fff", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, textShadow: "0 2px 12px rgba(0,0,0,0.5)", padding: "0 2px", display:"inline-block" },
   heroTitle1: { position: "relative", zIndex: 2, margin: 0, color: "#C00000", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, textShadow: "0 2px 12px rgba(0,0,0,0.5)", padding: "0 2px", display:"inline-block" },
   breadcrumbContainer: { width: "100%", background: "#f8f8f8", borderBottom: "1px solid #eaeaea", marginBottom: "10px" },
   breadcrumbBar: { maxWidth: 1200, margin: "0 auto", padding: "16px 24px", fontSize: 14, display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" },

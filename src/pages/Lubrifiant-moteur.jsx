@@ -268,7 +268,8 @@ const styles = {
   hero: { position: "relative", height: 500, overflow: "hidden", background: `linear-gradient(135deg, ${DARK} 0%, #2d2d44 100%)` },
   heroOverlay: { position: "absolute", inset: 0, background: `url(${Lubrification}) center/cover no-repeat`, opacity: 0.9 },
   heroContent: { position: "relative", zIndex: 1, height: "100%", display: "flex", alignItems: "center", justifyContent: "center" },
-  heroTitle: { fontFamily: "'Raleway', sans-serif", color: "#fff", fontSize: "clamp(90px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
+  heroTitle: {
+    paddingTop: "60px", fontFamily: "'Raleway', sans-serif", color: "#fff", fontSize: "clamp(90px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
   heroTitle1: { fontFamily: "'Raleway', sans-serif", color: "#C00000", fontSize: "clamp(90px, 4vw, 50px)", fontWeight: 800, textAlign: "center", lineHeight: 1.25, letterSpacing: "-0.5px" },
 
   // Layout

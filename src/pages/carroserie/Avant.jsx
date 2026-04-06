@@ -20,7 +20,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Moteur</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Carrosserie</a>
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Avant</span>
   </nav>
@@ -162,7 +162,7 @@ export default function AvantPage() {
           className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }} 
         />
-        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
           <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
             Division Pièces de Rechange
             <br />

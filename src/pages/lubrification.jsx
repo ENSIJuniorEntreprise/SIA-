@@ -237,7 +237,7 @@ export default function LubrificationPage() {
           className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }} 
         />
-        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
           <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
             Division Pièces de Rechange
             <br />

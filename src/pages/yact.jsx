@@ -287,6 +287,7 @@ const styles = {
   },
   // ✅ Une seule ligne, taille max 72px (était 50px), whiteSpace nowrap
   heroTitle: {
+    paddingTop: "60px",
     fontFamily: "'Raleway', sans-serif",
     color: "#fff",
     fontSize: "clamp(38px, 6vw, 72px)",
