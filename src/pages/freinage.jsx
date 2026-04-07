@@ -1,44 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import imgPlaq from "../assets/freinage/plaqu.png";
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 import imgDisques from "../assets/freinage/disques.png";
 import imgEtriers from "../assets/freinage/etrier.png";
 import imgHydraulique from "../assets/freinage/hydroli.png";
+import imgPlaquettes from "../assets/freinage/plaqu.png";
 import imgRessorts from "../assets/freinage/ressorts.png";
 import imgRotules from "../assets/freinage/rotule.png";
 
-
 const categories = [
-    {
-    id: 1,
-    title: "Plaquettes",
-    image: imgPlaq,
-  },
-  {
-    id: 1,
-    title: "Disques",
-    image: imgDisques,
-  },
-  {
-    id: 2,
-    title: "Etriers",
-    image: imgEtriers,
-  },
-  {
-    id: 3,
-    title: "Hydraulique",
-    image: imgHydraulique,
-  },
-  {
-    id: 4,
-    title: "Ressorts",
-    image: imgRessorts,
-  },
-  {
-    id: 5,
-    title: "Rotules",
-    image: imgRotules,
-  }
+  { id: 1, title: "Disques", image: imgDisques, link: "/divisions/piece-de-rechange/freinage/disques" },
+  { id: 2, title: "Etriers", image: imgEtriers, link: "/divisions/piece-de-rechange/freinage/etriers" },
+  { id: 3, title: "Hydraulique", image: imgHydraulique, link: "/divisions/piece-de-rechange/freinage/hydraulique" },
+  { id: 4, title: "Plaquettes", image: imgPlaquettes, link: "/divisions/piece-de-rechange/freinage/plaquettes" },
+  { id: 5, title: "Ressorts", image: imgRessorts, link: "/divisions/piece-de-rechange/freinage/ressort" },
+  { id: 6, title: "Rotules", image: imgRotules, link: "/divisions/piece-de-rechange/freinage/rotules" },
 ];
 
 export default function DivisionAuto() {
@@ -49,29 +25,35 @@ export default function DivisionAuto() {
     <div style={styles.page}>
      
 
+      
       {/* HERO BANNER */}
-      <div style={styles.hero}>
-        <img
-          src="main.png"
-          alt="hero"
-          style={styles.heroImg}
+      <div className="relative h-[200px] sm:h-[250px] overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44]">
+        <div 
+          className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }} 
         />
-        <div style={styles.heroOverlay} />
-        <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
-        </h1>
-        
-      </div>
-      {/* BREADCRUMB */}
-     < div style={styles.breadcrumbContainer}>
-        <div style={styles.breadcrumbBar}>
-          <span style={styles.breadcrumbGray}>Catalogue</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbGray}>Division Pièces de Rechange Automobile</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbActive}>Freinage</span>
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
+          <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
+            Division Pièces de Rechange
+            <br />
+            <span className="text-[#C00000]">Automobile</span>
+          </h1>
         </div>
       </div>
+
+      {/* BREADCRUMB */}
+      <div className="w-full bg-[#f8f8f8] border-b border-gray-200 mb-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
+            <Link to="/" className="text-gray-600 hover:text-red-700 transition">catalogue</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <Link to="/divisions/piece-de-rechange" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <span className="text-[#c0141c] font-semibold">Freinage</span>
+          </nav>
+        </div>
+      </div>
+
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>

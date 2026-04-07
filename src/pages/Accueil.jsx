@@ -17,7 +17,7 @@ const services = [
   {
     id: "01.",
     title: "GARANTIE QUALITÉ",
-    description: "Nous sélectionnons des produits fiables auprÃ¨s de fabricants reconnus. Notre gamme comprend différentes solutions afin de proposer le meilleur équilibre entre qualité, performance et prix adapté au marché tunisien.",
+    description: "Nous sélectionnons des produits fiables auprès de fabricants reconnus. Notre gamme comprend différentes solutions afin de proposer le meilleur équilibre entre qualité, performance et prix adapté au marché tunisien.",
     image:"src/assets/tech.jpg",
     isRed: false
   },
@@ -31,7 +31,7 @@ const services = [
   {
     id: "03.",
     title: "SUPPORT TECHNIQUE",
-    description: "Une équipe technico-commerciale qualifiée est à votre écoute pour vous orienter dans l'identification et la sélection des piÃ¨ces adaptées à vos besoins.",
+    description: "Une équipe technico-commerciale qualifiée est à votre écoute pour vous orienter dans l'identification et la sélection des pièces adaptées à vos besoins.",
     image:"src/assets/interv.jpg",
     isRed: false
   },
@@ -45,7 +45,7 @@ const services = [
   {
     id: "05.",
     title: "SAV PROFESSIONNEL",
-    description: "Notre service technique intervient pour la préparation et la jonction des bandes transporteuses ainsi que des courroies plates. Nous assurons aussi l'installation, la mise en service et la réparation des groupes électrogÃ¨nes Kohler.",
+    description: "Notre service technique intervient pour la préparation et la jonction des bandes transporteuses ainsi que des courroies plates. Nous assurons aussi l'installation, la mise en service et la réparation des groupes électrogènes Kohler.",
     image:"src/assets/profi.jpg",
     isRed: false
   },
@@ -61,7 +61,7 @@ const services = [
 const divisions = [
   {
     title: "DIVISION PIÈCES DE RECHANGE AUTOMOBILE",
-    description: "Large gamme de piÃ¨ces de rechange pour tous véhicules.",
+    description: "Large gamme de pièces de rechange pour tous véhicules.",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800", 
     link: "/divisions/piece-de-rechange"
   },
@@ -73,13 +73,13 @@ const divisions = [
   },
   {
   title: "DIVISION TRAVAUX PUBLICS",
-    description:"Matériels de chantier et piÃ¨ces pour engins de génie civil.",
+    description:"Matériels de chantier et pièces pour engins de génie civil.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800", 
     link: "/divisions/travaux-publics"
   },
   {
   title: "DIVISION MARINE",
-    description:"Équipements et piÃ¨ces pour la motorisation et la sécurité maritime.",
+    description:"Équipements et pièces pour la motorisation et la sécurité maritime.",
     image: "https://images.unsplash.com/photo-1524522173746-f628baad3644?q=80&w=800", 
     link: "/divisions/marine"
   }];
@@ -198,7 +198,7 @@ export default function Accueil() {
             
             <div className="text-gray-600 space-y-4 text-sm leading-relaxed mb-10">
               <p>
-                La Sfaxienne Industrielle Automobile (SIA Ben Djemaa & Cie) est un distributeur de référence basé à Tunis et Sfax, en Tunisie. Depuis plus de cinq décennies, nous accompagnons les professionnels dans leurs besoins en piÃ¨ces de rechange et équipements techniques.
+                La Sfaxienne Industrielle Automobile (SIA Ben Djemaa & Cie) est un distributeur de référence basé à Tunis et Sfax, en Tunisie. Depuis plus de cinq décennies, nous accompagnons les professionnels dans leurs besoins en pièces de rechange et équipements techniques.
               </p>
               <p>
                 Notre savoir-faire s'étend sur quatre secteurs stratégiques: l'automobile, l'industrie, les travaux publics et le maritime. Grâce à un réseau de partenaires internationaux rigoureusement sélectionnés,nous garantissons qualité, disponibilité et réactivité.

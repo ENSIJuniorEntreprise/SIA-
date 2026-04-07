@@ -1,34 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import imgCompresseur from "../assets/climat/compresseur.png";
-import imgCondenseur from "../assets/climat/condensateur.png";
-import imgVentilation from "../assets/climat/ventilation.png";
-import imgEvaporateur from "../assets/climat/evaporateur.png";
-
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
+import imgCat0 from "../assets/climat/compresseur.png";
+import imgCat1 from "../assets/climat/condensateur.png";
+import imgCat2 from "../assets/climat/ventilation.png";
+import imgCat3 from "../assets/climat/ventilation.png";
+import imgCat4 from "../assets/climat/evaporateur.png";
 
 const categories = [
-  {
-    id: 1,
-    title: "Condenseur",
-    image: imgCondenseur,
-  },
-  {
-    id: 2,
-    title: "Compresseur",
-    image: imgCompresseur,
-  },
-  {
-    id: 3,
-    title: "Evaporateur",
-    image: imgEvaporateur,
-  },
-  {
-    id: 4,
-    title: "Ventillation",
-    image: imgVentilation,
-  }
-  
+  { id: 1, title: "Compresseur", image: imgCat0, link: "/divisions/piece-de-rechange/climatisation/compresseur" },
+  { id: 2, title: "condenseur", image: imgCat1, link: "/divisions/piece-de-rechange/climatisation/condenseur" },
+  { id: 3, title: "ventillation copy", image: imgCat2, link: "/divisions/piece-de-rechange/climatisation/ventillation-copy" },
+  { id: 4, title: "ventillation", image: imgCat3, link: "/divisions/piece-de-rechange/climatisation/ventillation" },
+  { id: 5, title: "évaporateur", image: imgCat4, link: "/divisions/piece-de-rechange/climatisation/evaporateur" },
 ];
+
 
 export default function DivisionAuto() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -38,29 +24,35 @@ export default function DivisionAuto() {
     <div style={styles.page}>
      
 
+      
       {/* HERO BANNER */}
-      <div style={styles.hero}>
-        <img
-          src="main.png"
-          alt="hero"
-          style={styles.heroImg}
+      <div className="relative h-[200px] sm:h-[250px] overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44]">
+        <div 
+          className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }} 
         />
-        <div style={styles.heroOverlay} />
-        <h1 style={styles.heroTitle}>
-          Division Pièces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
-        </h1>
-        
-      </div>
-      {/* BREADCRUMB */}
-     < div style={styles.breadcrumbContainer}>
-        <div style={styles.breadcrumbBar}>
-          <span style={styles.breadcrumbGray}>Catalogue</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbGray}>Division Pièces de Rechange Automobile</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbActive}>Climatisation/Chauffage</span>
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
+          <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
+            Division Pièces de Rechange
+            <br />
+            <span className="text-[#C00000]">Automobile</span>
+          </h1>
         </div>
       </div>
+
+      {/* BREADCRUMB */}
+      <div className="w-full bg-[#f8f8f8] border-b border-gray-200 mb-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
+            <Link to="/" className="text-gray-600 hover:text-red-700 transition">catalogue</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <Link to="/divisions/piece-de-rechange" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <span className="text-[#c0141c] font-semibold">Climatisation / Chauffage</span>
+          </nav>
+        </div>
+      </div>
+
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>

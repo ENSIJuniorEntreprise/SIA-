@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile ref  TE 616.jpg";
-import img1 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile ref 1680682480.jpg";
-import img2 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile-opel ref TE616.jpg";
-import img3 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile-symbol-clio-express-kangoo ref Z424.jpg";
+
 const products = [
-  { id: 1, name: "filtre-a-huile ref  TE 616", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "filtre-a-huile ref 1680682480", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "filtre-a-huile-opel ref TE616", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 4, name: "filtre-a-huile-symbol-clio-express-kangoo ref Z424", image: img3, reference: "REF-"+3, pscCarton: 1, size: "N/A", tag: "Piece" },
 ];
+
 
 
 
@@ -24,9 +18,9 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Filtration</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Freinage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Filtre a huile</span>
+    <span className="text-[#c0141c] font-semibold">Etriers</span>
   </nav>
 );
 
@@ -131,7 +125,7 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-export default function filtreahuilePage() {
+export default function DisquesPage() {
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [showMobileFilters, setShowMobileFilters] = useState(false);

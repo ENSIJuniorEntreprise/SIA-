@@ -4,11 +4,13 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Suspension Direction/Embrayage/kit-d-embrayage-partner-expert-3-16-hdi-08 ref 1611269280.jpg";
 import img1 from "../../assets/sia/Suspension Direction/Embrayage/kit-d-embrayage-skoda-fabia-12-polo-12 ref 008190000.jpg";
 import img2 from "../../assets/sia/Suspension Direction/Embrayage/kit-embrayage-826785-kia-rio-15-crdi ref 006240800.jpg";
+
 const products = [
-  { id: 1, name: "kit-d-embrayage-partner-expert-3-16-hdi-08 ref 1611269280", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "kit-d-embrayage-skoda-fabia-12-polo-12 ref 008190000", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "kit-embrayage-826785-kia-rio-15-crdi ref 006240800", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "kit-d-embrayage-partner-expert-3-16-hdi-08 ref 1611269280", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 2, name: "kit-d-embrayage-skoda-fabia-12-polo-12 ref 008190000", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 3, name: "kit-embrayage-826785-kia-rio-15-crdi ref 006240800", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
 ];
+
 
 
 
@@ -101,11 +103,9 @@ const ProductCard = ({ product, index }) => {
       className="group bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.07)] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(192,20,28,0.3)] animate-[fadeUp_0.4s_ease_both]"
       style={{ animationDelay: `${index * 60}ms` }}
     >
-      <div className="relative bg-[#fafafa] flex justify-center items-center h-48 sm:h-40 border-b border-gray-100 p-4">
-        <img src={product.image} alt={product.name} className="max-h-full max-w-[80%] object-contain group-hover:scale-105 transition-transform duration-300" />
-        <span className="absolute top-2 right-2 bg-[#c0141c] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide z-10 shadow-sm">
-          {product.tag}
-        </span>
+      <div className="relative bg-[#fafafa] flex justify-center items-center h-64 sm:h-56 border-b border-gray-100 p-4">
+        <img src={product.image} alt={product.name} className="max-h-full max-w-[100%] object-contain group-hover:scale-105 transition-transform duration-300" />
+        
       </div>
       <div className="p-4 pt-3 flex-1 flex flex-col">
         <p className="text-sm font-bold text-[#1a1a2e] mb-3 leading-tight min-h-[38px] line-clamp-2">{product.name}</p>

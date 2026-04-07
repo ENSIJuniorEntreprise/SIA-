@@ -40,16 +40,16 @@ import Transmission from './pages/Transmission'
 
 import ArrirePage from './pages/carroserie/Arriére';
 import AvantPage from './pages/carroserie/Avant';
-import intrieurextPage from './pages/carroserie/intérieurext';
+import InterieurextPage from './pages/carroserie/intérieurext';
 import latralPage from './pages/carroserie/latéral';
 import CompresseurPage from './pages/climchauf/Compresseur';
 import condenseurPage from './pages/climchauf/condenseur';
 import ventillationcopyPage from './pages/climchauf/ventillation copy';
 import vaporateurPage from './pages/climchauf/évaporateur';
-import filtreaairPage from './pages/filtration/filtre a air';
-import filtreacarburantPage from './pages/filtration/filtre a carburant';
-import filtreahuilePage from './pages/filtration/filtre a huile';
-import filtrehabitaclePage from './pages/filtration/filtre habitacle';
+import FiltreaairPage from './pages/filtration/filtre a air';
+import FiltreacarburantPage from './pages/filtration/filtre a carburant';
+import FiltreahuilePage from './pages/filtration/filtre a huile';
+import FiltrehabitaclePage from './pages/filtration/filtre habitacle';
 import DisquesPage from './pages/freinage/Disques';
 import plaquettesPage from './pages/freinage/plaquettes';
 import RessortPage from './pages/freinage/Ressort';
@@ -125,17 +125,17 @@ export default function App() {
           <Route path="/marques" element={<Marques />} />
                   <Route path="/divisions/piece-de-rechange/carosserie/arriere" element={<ArrirePage />} />
           <Route path="/divisions/piece-de-rechange/carosserie/avant" element={<AvantPage />} />
-          <Route path="/divisions/piece-de-rechange/carosserie/interieurext" element={<intrieurextPage />} />
+          <Route path="/divisions/piece-de-rechange/carosserie/interieurext" element={<InterieurextPage />} />
           <Route path="/divisions/piece-de-rechange/carosserie/lateral" element={<latralPage />} />
           <Route path="/divisions/piece-de-rechange/climatisation/compresseur" element={<CompresseurPage />} />
           <Route path="/divisions/piece-de-rechange/climatisation/condenseur" element={<condenseurPage />} />
           <Route path="/divisions/piece-de-rechange/climatisation/ventillation-copy" element={<ventillationcopyPage />} />
           <Route path="/divisions/piece-de-rechange/climatisation/ventillation" element={<ventillationPage />} />
           <Route path="/divisions/piece-de-rechange/climatisation/evaporateur" element={<vaporateurPage />} />
-          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-air" element={<filtreaairPage />} />
-          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-carburant" element={<filtreacarburantPage />} />
-          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-huile" element={<filtreahuilePage />} />
-          <Route path="/divisions/piece-de-rechange/filtration/filtre-habitacle" element={<filtrehabitaclePage />} />
+          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-air" element={<FiltreaairPage />} />
+          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-carburant" element={<FiltreacarburantPage />} />
+          <Route path="/divisions/piece-de-rechange/filtration/filtre-a-huile" element={<FiltreahuilePage />} />
+          <Route path="/divisions/piece-de-rechange/filtration/filtre-habitacle" element={<FiltrehabitaclePage />} />
           <Route path="/divisions/piece-de-rechange/freinage/disques" element={<DisquesPage />} />
           <Route path="/divisions/piece-de-rechange/freinage/plaquettes" element={<plaquettesPage />} />
           <Route path="/divisions/piece-de-rechange/freinage/ressort" element={<RessortPage />} />

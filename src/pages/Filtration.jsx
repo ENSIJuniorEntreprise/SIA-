@@ -4,6 +4,7 @@ import imgHuile from "../assets/filtration/huile.png";
 import imgAir from "../assets/filtration/air.png";
 import imgCarburant from "../assets/filtration/carburant.png";
 import imgHabitacle from "../assets/filtration/habi.png";
+import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
 
 const categories = [
@@ -11,21 +12,25 @@ const categories = [
     id: 1,
     title: "Filtre a huile",
     image: imgHuile,
+    link: "/divisions/piece-de-rechange/filtration/filtre-a-huile"
   },
   {
     id: 2,
     title: "Filtre a air",
     image: imgAir,
+    link: "/divisions/piece-de-rechange/filtration/filtre-a-air"
   },
   {
     id: 3,
-    title: "Filtre carburant",
+    title: 'Filtre a carburant',
     image: imgCarburant,
+    link: "/divisions/piece-de-rechange/filtration/filtre-a-carburant"
   },
   {
     id: 4,
     title: "Filtre Habitacle",
     image: imgHabitacle,
+    link: "/divisions/piece-de-rechange/filtration/filtre-habitacle"
   }
   
 ];
@@ -38,36 +43,43 @@ export default function DivisionAuto() {
     <div style={styles.page}>
      
 
+      
       {/* HERO BANNER */}
-      <div style={styles.hero}>
-        <img
-          src="main.png"
-          alt="hero"
-          style={styles.heroImg}
+      <div className="relative h-[200px] sm:h-[250px] overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44]">
+        <div 
+          className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }} 
         />
-        <div style={styles.heroOverlay} />
-        <h1 style={styles.heroTitle}>
-          Division Pieces de Rechange   <h1 style={styles.heroTitle1}>  Automobile</h1>   
-        </h1>
-        
-      </div>
-      {/* BREADCRUMB */}
-     < div style={styles.breadcrumbContainer}>
-        <div style={styles.breadcrumbBar}>
-          <span style={styles.breadcrumbGray}>Catalogue</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbGray}>Division Pieces de Rechange Automobile</span>
-          <span style={styles.breadcrumbSep}> &gt; </span>
-          <span style={styles.breadcrumbActive}>Filtration</span>
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
+          <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
+            Division Pièces de Rechange
+            <br />
+            <span className="text-[#C00000]">Automobile</span>
+          </h1>
         </div>
       </div>
+
+      {/* BREADCRUMB */}
+      <div className="w-full bg-[#f8f8f8] border-b border-gray-200 mb-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
+            <Link to="/" className="text-gray-600 hover:text-red-700 transition">catalogue</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <Link to="/divisions/piece-de-rechange" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</Link>
+            <span className="text-gray-400 text-base"> &gt; </span>
+            <span className="text-[#c0141c] font-semibold">Filtration</span>
+          </nav>
+        </div>
+      </div>
+
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+              to={cat.link}
               key={cat.id}
-              style={{
+              style={{ textDecoration: "none", color: "inherit", 
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
               }}
@@ -87,7 +99,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
