@@ -7,10 +7,6 @@ import img1 from "../../assets/sia/climatisation chauffage/ventillation/ref 1580
 
 
 const products = [
-<<<<<<< HEAD
-  { id: 1, name: "", image: img0, reference: "078063N", pscCarton: 1, size: "N/A", tag: "" },
-  { id: 2, name: "", image: img1, reference: "158035N", pscCarton: 1, size: "N/A", tag: "" },
-=======
   {
     id: 1,
     name: "Ventillation ref 078063N",
@@ -33,7 +29,6 @@ const products = [
     sousDivision1: "",
     sousDivision2: "",
   },
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
 ];
 
 const filterDivision = ["Division Pièces de Rechange Automobile", "Division Industrielle", "Division Marine", "Division Travaux Publics"];
@@ -46,11 +41,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <Link to="/divisions/piece-de-rechange" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</Link>
     <span className="text-gray-400 text-base"> &gt; </span>
-<<<<<<< HEAD
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
-=======
     <Link to="/divisions/piece-de-rechange/climatisation" className="text-gray-600 hover:text-red-700 transition">Climatisation / Chauffage</Link>
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Ventilation</span>
   </nav>

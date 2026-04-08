@@ -42,30 +42,7 @@ import Suspension from './pages/suspension'
 import Transmission from './pages/Transmission'
 import Yact from './pages/yact'
 
-<<<<<<< HEAD
-import ArrirePage from './pages/carroserie/Arriére';
-import AvantPage from './pages/carroserie/Avant';
-import InterieurextPage from './pages/carroserie/intérieurext';
-import latralPage from './pages/carroserie/latéral';
-import CompresseurPage from './pages/climchauf/Compresseur';
-import condenseurPage from './pages/climchauf/condenseur';
-import vaporateurPage from './pages/climchauf/évaporateur';
-import FiltreaairPage from './pages/filtration/filtre a air';
-import FiltreacarburantPage from './pages/filtration/filtre a carburant';
-import FiltreahuilePage from './pages/filtration/filtre a huile';
-import FiltrehabitaclePage from './pages/filtration/filtre habitacle';
-import DisquesPage from './pages/freinage/Disques';
-import plaquettesPage from './pages/freinage/plaquettes';
-import RessortPage from './pages/freinage/Ressort';
-import boulementsPage from './pages/suspenssion/boulements';
-import EmbrayagePage from './pages/suspenssion/Embrayage';
-import janterouePage from './pages/suspenssion/jante roue';
-import TrianglesPage from './pages/suspenssion/Triangles';
-import boitedevitessePage from './pages/transmission/boitedevitesse';
-import cardansPage from './pages/transmission/cardans';
-import gestionmoteurPage from './pages/transmission/support-moteur';
-=======
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
+
 
 // Carrosserie sub-pages
 import ArrirePage from './pages/carroserie/Arriére'
@@ -103,7 +80,7 @@ import TrianglesPage from './pages/suspenssion/Triangles'
 // Transmission sub-pages
 import BoitedevitessePage from './pages/transmission/boitedevitesse'
 import CardansPage from './pages/transmission/cardans'
-import GestionmoteurTransPage from './pages/transmission/gestion moteur'
+import GestionmoteurTransPage from './pages/transmission/support-moteur'
 
 export default function App() {
   const location = useLocation()
@@ -205,23 +182,12 @@ export default function App() {
           <Route path="/divisions/piece-de-rechange/suspension/embrayage" element={<EmbrayagePage />} />
           <Route path="/divisions/piece-de-rechange/suspension/jante-roue" element={<JanterouePage />} />
           <Route path="/divisions/piece-de-rechange/suspension/triangles" element={<TrianglesPage />} />
-<<<<<<< HEAD
-          <Route path="/divisions/piece-de-rechange/transmission/boitedevitesse" element={<boitedevitessePage />} />
-          <Route path="/divisions/piece-de-rechange/transmission/cardans" element={<cardansPage />} />
-          <Route path="/divisions/piece-de-rechange/transmission/support-moteur" element={<gestionmoteurPage />} />
-          <Route path="/divisions/piece-de-rechange/freinage/etriers" element={<EtriersPage />} />
-  <Route path="/divisions/piece-de-rechange/freinage/hydraulique" element={<HydrauliquePage />} />
-  <Route path="/divisions/piece-de-rechange/freinage/rotules" element={<RotulesPage />} />
-</Routes>
-=======
-
           {/* Transmission */}
           <Route path="/divisions/piece-de-rechange/transmission" element={<Transmission />} />
           <Route path="/divisions/piece-de-rechange/transmission/boitedevitesse" element={<BoitedevitessePage />} />
           <Route path="/divisions/piece-de-rechange/transmission/cardans" element={<CardansPage />} />
           <Route path="/divisions/piece-de-rechange/transmission/gestion-moteur" element={<GestionmoteurTransPage />} />
         </Routes>
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
       </main>
       <SocialSidebar />
       <Footer />

@@ -57,14 +57,10 @@ export default function DivisionAuto() {
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
-<<<<<<< HEAD
-          {categories.map((cat) => ( <Link to={cat.link || "#"} key={cat.id} style={{textDecoration:"none"}}> <div
-=======
           {categories.map((cat) => (
             <Link
             to={cat.link}
               key={cat.id}
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
               style={{
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
@@ -85,14 +81,10 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-<<<<<<< HEAD
-            </div> </Link>))} </div> </section>
-=======
             </Link>
           ))}
         </div>
       </section>
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
     </div>
   );
 }

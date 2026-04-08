@@ -27,11 +27,6 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
   );
 };
 
-<<<<<<< HEAD
-export default function EtriersPage() {
-  const [filters, setFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
-  const [activeFilters, setActiveFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
-=======
 const ProductCard = ({ product, index }) => {
   return (
     <div
@@ -66,10 +61,9 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-export default function DisquesPage() {
+export default function EtriersPage() {
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const handleFilter = () => { setActiveFilters({ ...filters }); setShowMobileFilters(false); };

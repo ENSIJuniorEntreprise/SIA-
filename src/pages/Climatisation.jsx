@@ -48,15 +48,11 @@ export default function DivisionAuto() {
 
       <section style={styles.section}>
         <div style={styles.grid}>
-<<<<<<< HEAD
-          {categories.map((cat) => ( <Link to={cat.link || "#"} key={cat.id} style={{textDecoration:"none"}}> <div
-=======
           {categories.map((cat) => (
             <Link
               to={cat.link}
               onClick={() => console.log("Navigating to:", cat.link)}
               key={cat.id}
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
               style={{
                 textDecoration: "none",
                 color: "inherit",
@@ -78,14 +74,10 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-<<<<<<< HEAD
-            </div> </Link>))} </div> </section>
-=======
             </Link>
           ))}
         </div>
       </section>
->>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
     </div>
   );
 }
