@@ -55,7 +55,8 @@ export default function DivisionAuto() {
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+            to={cat.link}
               key={cat.id}
               style={{
                 ...styles.card,
@@ -77,7 +78,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

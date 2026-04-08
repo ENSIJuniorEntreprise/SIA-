@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
 
 const products = [
+  { id: 1, name: "jante roue ref 2254021", image: "...", reference: "REF-0", pscCarton: 1, size: "N/A", tag: "jante" },
 ];
 
 
@@ -102,7 +103,7 @@ const ProductCard = ({ product, index }) => {
         
       </div>
       <div className="p-4 pt-3 flex-1 flex flex-col">
-        <p className="text-sm font-bold text-[#1a1a2e] mb-3 leading-tight min-h-[38px] line-clamp-2">{product.name}</p>
+       
         
         <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
           <span className="text-gray-500 font-medium">Référence :</span>

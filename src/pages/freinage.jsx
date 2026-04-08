@@ -14,7 +14,7 @@ const categories = [
   { id: 3, title: "Hydraulique", image: imgHydraulique, link: "/divisions/piece-de-rechange/freinage/hydraulique" },
   { id: 4, title: "Plaquettes", image: imgPlaquettes, link: "/divisions/piece-de-rechange/freinage/plaquettes" },
   { id: 5, title: "Ressorts", image: imgRessorts, link: "/divisions/piece-de-rechange/freinage/ressort" },
-  { id: 6, title: "Rotules", image: imgRotules, link: "/divisions/piece-de-rechange/freinage/rotules" },
+  { id: 6, title: "Rotules", image: imgRotules, link: "/divisions/piece-de-rechange/freinage/rotule" },
 ];
 
 export default function DivisionAuto() {
@@ -58,7 +58,8 @@ export default function DivisionAuto() {
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+            to={cat.link}
               key={cat.id}
               style={{
                 ...styles.card,
@@ -80,7 +81,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

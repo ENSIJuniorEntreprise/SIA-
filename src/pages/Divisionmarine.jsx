@@ -1,9 +1,12 @@
 ﻿import { useState } from "react";
 import { Link } from "react-router-dom";
+import im1 from "../assets/marine/grp elec.jpg";
+import im2 from "../assets/image/SAV professionnel.jpg";
+import cover from "../assets/marine/cover.jpg";
 
 const categories = [
-  { id: 1, title: "Groupes électrogènes marin", image: "grpelec.jpg" },
-  { id: 2, title: "SAV & consommable", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=120&h=80&fit=crop" }
+  { id: 1, title: "Groupes électrogènes marin", image: im1 },
+  { id: 2, title: "SAV & consommable", image: im2 }
 ];
 
 export default function DivisionMarine() {
@@ -14,7 +17,7 @@ export default function DivisionMarine() {
       {/* HERO BANNER */}
       <div style={styles.hero}>
         <img
-          src={"ss1.jpg"}
+          src={cover}
           alt="hero"
           style={styles.heroImg}
         />
@@ -38,7 +41,9 @@ export default function DivisionMarine() {
         <div style={styles.grid}>
           {categories.map((cat) => (
             <Link
-              to={"#"}
+              to={cat.id === 1 ? "/divisions/Divisionmarine/yact" :
+                cat.id === 2 ? "/divisions/travaux-publics/lubrifiant-moteur" :
+                "#"}
               key={cat.id}
               style={{
                 textDecoration: "none",

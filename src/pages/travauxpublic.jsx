@@ -4,7 +4,7 @@ import Cover from "../assets/image/cover-travaux-public.jpg";
 import moteur from "../assets/image/moteur.jpg";
 import Lubrification from "../assets/image/lubrification.jpg";
 import souder from "../assets/image/souder.jpg";
-
+import { useNavigate } from 'react-router-dom'
 const categories = [
   { id: 1, title: "Moteurs et groupes electrogenes", image: moteur },
   { id: 2, title: "Lubrification", image: Lubrification },
@@ -13,7 +13,7 @@ const categories = [
 
 export default function TravauxPublics() {
   const [hoveredCard, setHoveredCard] = useState(null);
-
+const navigate = useNavigate();
   return (
     <div style={styles.page}>
       {/* HERO BANNER */}
@@ -32,7 +32,7 @@ export default function TravauxPublics() {
       {/* BREADCRUMB */}
       <div style={styles.breadcrumbContainer}>
         <div style={styles.breadcrumbBar}>
-          <span style={styles.breadcrumbGray}>Catalogue</span>
+          <span  onClick={() => navigate('/divisions')}  href="#" className="text-gray-600 hover:text-red-700 transition">Catalogue</span>
           <span style={styles.breadcrumbSep}> &gt; </span>
           <span style={styles.breadcrumbActive}>Division Travaux Publics</span>
         </div>

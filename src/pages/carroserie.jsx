@@ -7,10 +7,10 @@ import imgCat2 from "../assets/carosseri/intext.png";
 import imgCat3 from "../assets/carosseri/lterale.png";
 
 const categories = [
-  { id: 1, title: "Arriére", image: imgCat0, link: "/divisions/piece-de-rechange/carosserie/arriere" },
-  { id: 2, title: "Avant", image: imgCat1, link: "/divisions/piece-de-rechange/carosserie/avant" },
-  { id: 3, title: "interieurext", image: imgCat2, link: "/divisions/piece-de-rechange/carosserie/interieurext" },
-  { id: 4, title: "latéral", image: imgCat3, link: "/divisions/piece-de-rechange/carosserie/lateral" },
+  { id: 1, title: "Arriére", image: imgCat0, link: "/divisions/piece-de-rechange/carrosserie/arriere" },
+  { id: 2, title: "Avant", image: imgCat1, link: "/divisions/piece-de-rechange/carrosserie/avant" },
+  { id: 3, title: "interieurext", image: imgCat2, link: "/divisions/piece-de-rechange/carrosserie/interieurext" },
+  { id: 4, title: "latéral", image: imgCat3, link: "/divisions/piece-de-rechange/carrosserie/lateral" },
 ];
 
 
@@ -55,7 +55,8 @@ export default function DivisionAuto() {
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
+            <Link
+            to={cat.link}
               key={cat.id}
               style={{
                 ...styles.card,
@@ -77,7 +78,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
