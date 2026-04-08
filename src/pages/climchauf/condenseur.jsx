@@ -5,10 +5,12 @@ import img0 from "../../assets/sia/climatisation chauffage/condenseur/condenseur
 import img1 from "../../assets/sia/climatisation chauffage/condenseur/condenseur-clim-megane-3 ref 35938.jpg";
 import img2 from "../../assets/sia/climatisation chauffage/condenseur/radiateur-climatiseur-clio4-symbol-2-3 ref 350212.jpg";
 
+
+
 const products = [
-  { id: 1, name: "condenseur-clim-fiesta-6 ref 814297", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "condenseur-clim-megane-3 ref 35938", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "radiateur-climatiseur-clio4-symbol-2-3 ref 350212", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Condenseur Clim Fiesta 6", image: img0, reference: "814297", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Condenseur Clim Megane 3", image: img1, reference: "35938", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Radiateur Climatiseur Clio4 Symbol 2 3", image: img2, reference: "350212", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -24,7 +26,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Condenseur</span>
   </nav>

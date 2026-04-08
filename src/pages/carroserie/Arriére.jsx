@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/Carosserie/Arriére/amortisseur-mal-arriere-gh-h1 réf 817704H010L.jpg";
-import img1 from "../../assets/sia/Carosserie/Arriére/nc-train-arriere-p206-plastic réf 4952.jpg";
-import img2 from "../../assets/sia/Carosserie/Arriére/soupape-echappement-p301-207 réf 32116.jpg";
+import img0 from "../../assets/sia/Carosserie/Arriere/amortisseur-mal-arriere-gh-h1 ref 817704H010L.jpg";
+import img1 from "../../assets/sia/Carosserie/Arriere/nc-train-arriere-p206-plastic ref 4952.jpg";
+import img2 from "../../assets/sia/Carosserie/Arriere/soupape-echappement-p301-207 ref 32116.jpg";
+
+
 
 const products = [
-  { id: 1, name: "amortisseur-mal-arriere-gh-h1 réf 817704H010L", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "nc-train-arriere-p206-plastic réf 4952", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "soupape-echappement-p301-207 réf 32116", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Amortisseur Mal Arriere Gh H1", image: img0, reference: "817704H010L", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Nc Train Arriere P206 Plastic", image: img1, reference: "4952", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Soupape Echappement P301 207", image: img2, reference: "32116", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -26,7 +28,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Carrosserie</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Arriére</span>
+    <span className="text-[#c0141c] font-semibold">Arrière</span>
   </nav>
 );
 

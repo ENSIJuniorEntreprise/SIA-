@@ -5,10 +5,12 @@ import img0 from "../../assets/sia/Transmission/cardans/cardan-droit-boxer-nm-hd
 import img1 from "../../assets/sia/Transmission/cardans/tete-cardan-hyundai-grand-i10-i20-49500b9000 ref 15-1932.jpg";
 import img2 from "../../assets/sia/Transmission/cardans/tige-vitesse-206-19d-hdi ref 04420.jpg";
 
+
+
 const products = [
-  { id: 1, name: "cardan-droit-boxer-nm-hdi-120cv ref T29170", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "tete-cardan-hyundai-grand-i10-i20-49500b9000 ref 15-1932", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "tige-vitesse-206-19d-hdi ref 04420", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Cardan Droit Boxer Nm Hdi 120cv", image: img0, reference: "T29170", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Tete Cardan Hyundai Grand I10 I20 49500b9000", image: img1, reference: "15-1932", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Tige Vitesse 206 19d Hdi", image: img2, reference: "04420", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

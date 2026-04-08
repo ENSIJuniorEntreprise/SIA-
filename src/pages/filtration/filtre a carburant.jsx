@@ -4,10 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Filtration/filtre a carburant/carterefiltre ref  1K0127434B ORI.jpg";
 import img1 from "../../assets/sia/Filtration/filtre a carburant/filcarbpeug-citroen20hdi ref 4265.jpg";
 import img2 from "../../assets/sia/Filtration/filtre a carburant/filtre-a-gasoil-volkswagen-golf-polo-transporter ref 4113-M.jpg";
+
 const products = [
-  { id: 1, name: "carterefiltre ref  1K0127434B ORI", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "filcarbpeug-citroen20hdi ref 4265", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "filtre-a-gasoil-volkswagen-golf-polo-transporter ref 4113-M", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Carte", image: img0, reference: "ILTRE REF  1K0127434B ORI", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Filcarbpeug Citroen20hdi", image: img1, reference: "4265", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Filtre A Gasoil Volkswagen Golf Polo Transporter", image: img2, reference: "4113-M", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

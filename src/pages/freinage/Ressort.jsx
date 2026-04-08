@@ -5,10 +5,12 @@ import img0 from "../../assets/sia/Freinage/ressort/ressort-a-boudain-av-polo- 7
 import img1 from "../../assets/sia/Freinage/ressort/ressort-assists ref 214898.jpg";
 import img2 from "../../assets/sia/Freinage/ressort/ressort-bedrayage ref 214837.jpg";
 
+
+
 const products = [
-  { id: 1, name: "ressort-a-boudain-av-polo- 7 ref ZCA3991A", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "ressort-assists ref 214898", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "ressort-bedrayage ref 214837", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Ressort A Boudain Av Polo  7", image: img0, reference: "ZCA3991A", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Ressort Assists", image: img1, reference: "214898", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Ressort Bedrayage", image: img2, reference: "214837", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

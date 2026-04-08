@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/EléctricitéÉlectronique/capteurs/mano-de-huile-mazda-hyundai-suzuki-mitsubishi ref 330009.jpg";
-import img1 from "../../assets/sia/EléctricitéÉlectronique/capteurs/mano-de-temperature-opel- ref 330117.jpg";
-import img2 from "../../assets/sia/EléctricitéÉlectronique/capteurs/mano-de-temperature-renault-et-nissan ref 330692.jpg";
+import img0 from "../../assets/sia/ElectriciteElectronique/capteurs/mano-de-huile-mazda-hyundai-suzuki-mitsubishi ref 330009.jpg";
+import img1 from "../../assets/sia/ElectriciteElectronique/capteurs/mano-de-temperature-opel- ref 330117.jpg";
+import img2 from "../../assets/sia/ElectriciteElectronique/capteurs/mano-de-temperature-renault-et-nissan ref 330692.jpg";
+
 const products = [
-  { id: 1, name: "mano-de-huile-mazda-hyundai-suzuki-mitsubishi ref 330009", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "mano-de-temperature-opel- ref 330117", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "mano-de-temperature-renault-et-nissan ref 330692", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Mano De Huile Mazda Hyundai Suzuki Mitsubishi", image: img0, reference: "330009", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Mano De Temperature Opel", image: img1, reference: "330117", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Mano De Temperature Renault Et Nissan", image: img2, reference: "330692", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

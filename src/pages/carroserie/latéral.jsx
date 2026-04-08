@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/Carosserie/Latéral/feu-clign-lateral-d-symbol-1 réf 8200602765.jpg";
-import img1 from "../../assets/sia/Carosserie/Latéral/feu-clign-lateral-orange-clio-1-2 réf 7700822136.jpg";
-import img2 from "../../assets/sia/Carosserie/Latéral/poigne-partner réf 9101P8.jpg";
+import img0 from "../../assets/sia/Carosserie/Lateral/feu-clign-lateral-d-symbol-1 ref 8200602765.jpg";
+import img1 from "../../assets/sia/Carosserie/Lateral/feu-clign-lateral-orange-clio-1-2 ref 7700822136.jpg";
+import img2 from "../../assets/sia/Carosserie/Lateral/poigne-partner ref 9101P8.jpg";
+
+
 
 const products = [
-  { id: 1, name: "feu-clign-lateral-d-symbol-1 réf 8200602765", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "feu-clign-lateral-orange-clio-1-2 réf 7700822136", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "poigne-partner réf 9101P8", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Feu Clign Lateral D Symbol 1", image: img0, reference: "8200602765", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Feu Clign Lateral Orange Clio 1 2", image: img1, reference: "7700822136", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Poigne Partner", image: img2, reference: "9101P8", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

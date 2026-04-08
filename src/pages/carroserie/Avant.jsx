@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/Carosserie/Avant/p-bou-linea-avd réf FIA15LI001.jpg";
-import img1 from "../../assets/sia/Carosserie/Avant/vitre-vole réf 8744HV.jpg";
+import img0 from "../../assets/sia/Carosserie/Avant/p-bou-linea-avd ref FIA15LI001.jpg";
+import img1 from "../../assets/sia/Carosserie/Avant/vitre-vole ref 8744HV.jpg";
+
+
 
 const products = [
-  { id: 1, name: "p-bou-linea-avd réf FIA15LI001", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "vitre-vole réf 8744HV", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "P Bou Linea Avd", image: img0, reference: "FIA15LI001", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Vitre Vole", image: img1, reference: "8744HV", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Refroidissement/radiateur chauffage 812169 r clio réf 53382.jpg";
-import img1 from "../../assets/sia/MOTEUR/Refroidissement/radiateur p expert3 16hdi  réf 53861.jpg";
-import img2 from "../../assets/sia/MOTEUR/Refroidissement/refroidisseur C3 C4 308 réf  1574E0.jpg";
+import img0 from "../../assets/sia/MOTEUR/Refroidissement/radiateur chauffage 812169 r clio ref 53382.jpg";
+import img1 from "../../assets/sia/MOTEUR/Refroidissement/radiateur p expert3 16hdi  ref 53861.jpg";
+import img2 from "../../assets/sia/MOTEUR/Refroidissement/refroidisseur C3 C4 308 ref  1574E0.jpg";
+
 const products = [
-  { id: 1, name: "radiateur chauffage 812169 r clio réf 53382", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "radiateur p expert3 16hdi  réf 53861", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "refroidisseur C3 C4 308 réf  1574E0", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Radiateur Chauffage 812169 R Clio", image: img0, reference: "53382", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Radiateur P Expert3 16hdi", image: img1, reference: "53861", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "", image: img2, reference: "ROIDISSEUR C3 C4 308 RÉF  1574E0", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

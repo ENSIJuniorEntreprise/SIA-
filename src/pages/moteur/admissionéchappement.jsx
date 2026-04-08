@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/admission échappement/soupape-d-admission réf V039530.jpg";
-import img1 from "../../assets/sia/MOTEUR/admission échappement/soupape-d-emission-036109611k réf V990224.jpg";
-import img2 from "../../assets/sia/MOTEUR/admission échappement/sup-echappement-306-expert réf  2753.jpg";
+import heroImage from "../../assets/image/different-car-accessories-composition.jpg";import img0 from "../../assets/sia/MOTEUR/admission echappement/soupape-d-admission ref V039530.jpg";
+import img1 from "../../assets/sia/MOTEUR/admission echappement/soupape-d-emission-036109611k ref V990224.jpg";
+import img2 from "../../assets/sia/MOTEUR/admission echappement/sup-echappement-306-expert ref  2753.jpg";
+
+
+
+
+
 const products = [
-  { id: 1, name: "soupape-d-admission réf V039530", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A" },
-  { id: 2, name: "soupape-d-emission-036109611k réf V990224", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A" },
-  { id: 3, name: "sup-echappement-306-expert réf  2753", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A" },
+  { id: 1, name: "Soupape D Admission", image: img0, reference: "V039530", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Soupape D Emission 036109611k", image: img1, reference: "V990224", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Sup Echappement 306 Expert", image: img2, reference: "2753", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

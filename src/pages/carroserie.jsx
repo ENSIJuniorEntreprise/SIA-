@@ -55,29 +55,30 @@ export default function DivisionAuto() {
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
-            <div
-              key={cat.id}
-              style={{
-                ...styles.card,
-                ...(hoveredCard === cat.id ? styles.cardHovered : {}),
-              }}
-              onMouseEnter={() => setHoveredCard(cat.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              {/* Red diamond icon */}
-              <span style={styles.diamond}>◆</span>
-              <span style={styles.cardTitle}>{cat.title}</span>
-              <div style={styles.cardImgWrap}>
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  style={{
-                    ...styles.cardImg,
-                    ...(hoveredCard === cat.id ? styles.cardImgHovered : {}),
-                  }}
-                />
+            <Link to={cat.link || "#"} key={cat.id} style={{ textDecoration: 'none' }}>
+              <div
+                style={{
+                  ...styles.card,
+                  ...(hoveredCard === cat.id ? styles.cardHovered : {}),
+                }}
+                onMouseEnter={() => setHoveredCard(cat.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Red diamond icon */}
+                <span style={styles.diamond}>◆</span>
+                <span style={styles.cardTitle}>{cat.title}</span>
+                <div style={styles.cardImgWrap}>
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    style={{
+                      ...styles.cardImg,
+                      ...(hoveredCard === cat.id ? styles.cardImgHovered : {}),
+                    }}
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

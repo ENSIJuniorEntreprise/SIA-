@@ -4,10 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Filtration/filtre a air/filtre-a-air-106-205-partner-1 ref BA2248.jpg";
 import img1 from "../../assets/sia/Filtration/filtre a air/filtre-a-air-nemo-14-hdi ref  BA2210.jpg";
 import img2 from "../../assets/sia/Filtration/filtre a air/filtrea-air-grande-punto ref BA2181.jpg";
+
 const products = [
-  { id: 1, name: "filtre-a-air-106-205-partner-1 ref BA2248", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "filtre-a-air-nemo-14-hdi ref  BA2210", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "filtrea-air-grande-punto ref BA2181", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Filtre A Air 106 205 Partner 1", image: img0, reference: "BA2248", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Filtre A Air Nemo 14 Hdi", image: img1, reference: "BA2210", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Filtrea Air Grande Punto", image: img2, reference: "BA2181", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

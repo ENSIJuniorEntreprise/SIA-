@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -53,9 +54,7 @@ export default function DivisionAuto() {
       {/* CATEGORIES GRID */}
       <section style={styles.section}>
         <div style={styles.grid}>
-          {categories.map((cat) => (
-            <div
-              key={cat.id}
+          {categories.map((cat) => ( <Link to={cat.link || "#"} key={cat.id} style={{textDecoration:"none"}}> <div
               style={{
                 ...styles.card,
                 ...(hoveredCard === cat.id ? styles.cardHovered : {}),
@@ -76,10 +75,7 @@ export default function DivisionAuto() {
                   }}
                 />
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            </div> </Link>))} </div> </section>
     </div>
   );
 }

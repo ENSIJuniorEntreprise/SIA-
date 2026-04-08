@@ -1,3 +1,6 @@
+import RotulesPage from './pages/freinage/rotules';
+import HydrauliquePage from './pages/freinage/hydraulique';
+import EtriersPage from './pages/freinage/etriers';
 ﻿import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -44,7 +47,6 @@ import InterieurextPage from './pages/carroserie/intérieurext';
 import latralPage from './pages/carroserie/latéral';
 import CompresseurPage from './pages/climchauf/Compresseur';
 import condenseurPage from './pages/climchauf/condenseur';
-import ventillationcopyPage from './pages/climchauf/ventillation copy';
 import vaporateurPage from './pages/climchauf/évaporateur';
 import FiltreaairPage from './pages/filtration/filtre a air';
 import FiltreacarburantPage from './pages/filtration/filtre a carburant';
@@ -59,7 +61,7 @@ import janterouePage from './pages/suspenssion/jante roue';
 import TrianglesPage from './pages/suspenssion/Triangles';
 import boitedevitessePage from './pages/transmission/boitedevitesse';
 import cardansPage from './pages/transmission/cardans';
-import gestionmoteurPage from './pages/transmission/gestion moteur';
+import gestionmoteurPage from './pages/transmission/support-moteur';
 
 import ventillationPage from './pages/climchauf/ventillation';
 import admissionchappementPage from './pages/moteur/admissionéchappement';
@@ -147,8 +149,11 @@ export default function App() {
           <Route path="/divisions/piece-de-rechange/suspension/triangles" element={<TrianglesPage />} />
           <Route path="/divisions/piece-de-rechange/transmission/boitedevitesse" element={<boitedevitessePage />} />
           <Route path="/divisions/piece-de-rechange/transmission/cardans" element={<cardansPage />} />
-          <Route path="/divisions/piece-de-rechange/transmission/gestion-moteur" element={<gestionmoteurPage />} />
-        </Routes>
+          <Route path="/divisions/piece-de-rechange/transmission/support-moteur" element={<gestionmoteurPage />} />
+          <Route path="/divisions/piece-de-rechange/freinage/etriers" element={<EtriersPage />} />
+  <Route path="/divisions/piece-de-rechange/freinage/hydraulique" element={<HydrauliquePage />} />
+  <Route path="/divisions/piece-de-rechange/freinage/rotules" element={<RotulesPage />} />
+</Routes>
       </main>
       <SocialSidebar />
       <Footer />

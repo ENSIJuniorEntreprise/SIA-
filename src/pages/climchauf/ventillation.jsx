@@ -4,7 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/climatisation chauffage/ventillation/ref 078063N.webp";
 import img1 from "../../assets/sia/climatisation chauffage/ventillation/ref 158035N.webp";
 
+
+
 const products = [
+  { id: 1, name: "", image: img0, reference: "078063N", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "", image: img1, reference: "158035N", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -20,9 +24,9 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Ventillation</span>
+    <span className="text-[#c0141c] font-semibold">Ventilation</span>
   </nav>
 );
 

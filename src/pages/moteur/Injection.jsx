@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Injection carburant/injecteur aveo classique réf 96800843L.jpg";
-import img1 from "../../assets/sia/MOTEUR/Injection carburant/injecteur essence réf  IPM002 MAGN.jpg";
-import img2 from "../../assets/sia/MOTEUR/Injection carburant/Nez injecteur BOSCH pour RENAULT, référence DLLA150P326..jpg";
+import img0 from "../../assets/sia/MOTEUR/Injection carburant/injecteur aveo classique ref 96800843L.jpg";
+import img1 from "../../assets/sia/MOTEUR/Injection carburant/injecteur essence ref  IPM002 MAGN.jpg";
+import img2 from "../../assets/sia/MOTEUR/Injection carburant/Nez injecteur BOSCH pour RENAULT, reference DLLA150P326..jpg";
+
 const products = [
-  { id: 1, name: "injecteur aveo classique réf 96800843L", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "injecteur essence réf  IPM002 MAGN", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "Nez injecteur BOSCH pour RENAULT, référence DLLA150P326.", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Injecteur Aveo Classique", image: img0, reference: "96800843L", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Injecteur Essence", image: img1, reference: "IPM002 MAGN", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Nez Injecteur BOSCH Pour RENAULT,", image: img2, reference: "ÉRENCE DLLA150P326.", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

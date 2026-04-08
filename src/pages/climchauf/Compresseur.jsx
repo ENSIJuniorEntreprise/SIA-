@@ -5,10 +5,12 @@ import img0 from "../../assets/sia/climatisation chauffage/compresseur/compresse
 import img1 from "../../assets/sia/climatisation chauffage/compresseur/roulement-compresseur ref ACB35X52X20.jpg";
 import img2 from "../../assets/sia/climatisation chauffage/compresseur/roulement-compresseur ref ACB35x52x22.jpg";
 
+
+
 const products = [
-  { id: 1, name: "compresseur-clim-a3 ref 699357", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "roulement-compresseur ref ACB35X52X20", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "roulement-compresseur ref ACB35x52x22", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Compresseur Clim A3", image: img0, reference: "699357", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Roulement Compresseur", image: img1, reference: "ACB35X52X20", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Roulement Compresseur", image: img2, reference: "ACB35X52X22", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -24,7 +26,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Compresseur</span>
   </nav>

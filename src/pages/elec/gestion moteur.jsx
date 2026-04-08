@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/EléctricitéÉlectronique/gestion moteur/bobine-allum-clio-2 ref 245104.jpg";
-import img1 from "../../assets/sia/EléctricitéÉlectronique/gestion moteur/bobine-r21-renault ref 245079.jpg";
-import img2 from "../../assets/sia/EléctricitéÉlectronique/gestion moteur/regulateur-alternateur-fiat-ford ref 130507.jpg";
+import img0 from "../../assets/sia/ElectriciteElectronique/gestion moteur/bobine-allum-clio-2 ref 245104.jpg";
+import img1 from "../../assets/sia/ElectriciteElectronique/gestion moteur/bobine-r21-renault ref 245079.jpg";
+import img2 from "../../assets/sia/ElectriciteElectronique/gestion moteur/regulateur-alternateur-fiat-ford ref 130507.jpg";
+
 const products = [
-  { id: 1, name: "bobine-allum-clio-2 ref 245104", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "bobine-r21-renault ref 245079", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "regulateur-alternateur-fiat-ford ref 130507", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Bobine Allum Clio 2", image: img0, reference: "245104", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Bobine R21 Renault", image: img1, reference: "245079", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Regulateur Alternateur Fiat Ford", image: img2, reference: "130507", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

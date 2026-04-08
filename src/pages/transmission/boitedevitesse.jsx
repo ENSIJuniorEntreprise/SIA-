@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
 import img0 from "../../assets/sia/Transmission/boite de vitesse/support-boite-vitesse ref 2706142.jpg";
-import img1 from "../../assets/sia/Transmission/boite de vitesse/tete-cardan-701498103a-vw-transporteur-t4 réf 16-1024.jpg";
+import img1 from "../../assets/sia/Transmission/boite de vitesse/tete-cardan-701498103a-vw-transporteur-t4 ref 16-1024.jpg";
 import img2 from "../../assets/sia/Transmission/boite de vitesse/tige-boite-vitesse-golf-4 ref 3691 MC.jpg";
 
+
+
 const products = [
-  { id: 1, name: "support-boite-vitesse ref 2706142", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "tete-cardan-701498103a-vw-transporteur-t4 réf 16-1024", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "tige-boite-vitesse-golf-4 ref 3691 MC", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Support Boite Vitesse", image: img0, reference: "2706142", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Tete Cardan 701498103a Vw Transporteur T4", image: img1, reference: "16-1024", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Tige Boite Vitesse Golf 4", image: img2, reference: "3691 MC", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -26,7 +28,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Transmission</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Boitedevitesse</span>
+    <span className="text-[#c0141c] font-semibold">Boîte de Vitesse</span>
   </nav>
 );
 

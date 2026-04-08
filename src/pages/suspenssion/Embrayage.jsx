@@ -5,10 +5,11 @@ import img0 from "../../assets/sia/Suspension Direction/Embrayage/kit-d-embrayag
 import img1 from "../../assets/sia/Suspension Direction/Embrayage/kit-d-embrayage-skoda-fabia-12-polo-12 ref 008190000.jpg";
 import img2 from "../../assets/sia/Suspension Direction/Embrayage/kit-embrayage-826785-kia-rio-15-crdi ref 006240800.jpg";
 
+
 const products = [
-  { id: 1, name: "kit-d-embrayage-partner-expert-3-16-hdi-08 ref 1611269280", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "kit-d-embrayage-skoda-fabia-12-polo-12 ref 008190000", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "kit-embrayage-826785-kia-rio-15-crdi ref 006240800", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Kit D Embrayage Partner Expert 3 16 Hdi 08", image: img0, reference: "1611269280", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Kit D Embrayage Skoda Fabia 12 Polo 12", image: img1, reference: "008190000", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Kit Embrayage 826785 Kia Rio 15 Crdi", image: img2, reference: "006240800", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

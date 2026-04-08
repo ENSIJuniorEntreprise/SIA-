@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/EléctricitéÉlectronique/charge/capteur-de-vilebrequin-polo ref550221A.jpg";
-import img1 from "../../assets/sia/EléctricitéÉlectronique/charge/mano-temperature-citroen-cx- ref 330171.jpg";
-import img2 from "../../assets/sia/EléctricitéÉlectronique/charge/mano-temperature-peugeot-205-309 ref 330167.jpg";
+import img0 from "../../assets/sia/ElectriciteElectronique/charge/capteur-de-vilebrequin-polo ref550221A.jpg";
+import img1 from "../../assets/sia/ElectriciteElectronique/charge/mano-temperature-citroen-cx- ref 330171.jpg";
+import img2 from "../../assets/sia/ElectriciteElectronique/charge/mano-temperature-peugeot-205-309 ref 330167.jpg";
+
 const products = [
-  { id: 1, name: "capteur-de-vilebrequin-polo ref550221A", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "mano-temperature-citroen-cx- ref 330171", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "mano-temperature-peugeot-205-309 ref 330167", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Capteur De Vilebrequin Polo", image: img0, reference: "550221A", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Mano Temperature Citroen Cx", image: img1, reference: "330171", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Mano Temperature Peugeot 205 309", image: img2, reference: "330167", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

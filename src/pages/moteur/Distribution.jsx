@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Distribution/courroie-distribution-127dents-chevrolet réf 1987949403.jpg";
-import img1 from "../../assets/sia/MOTEUR/Distribution/courroie-distribution-141d réf 1987949188.jpg";
-import img2 from "../../assets/sia/MOTEUR/Distribution/kit-de-distribution-130d58d-volkswagen-14 réf 1987949190.jpg";
+import img0 from "../../assets/sia/MOTEUR/Distribution/courroie-distribution-127dents-chevrolet ref 1987949403.jpg";
+import img1 from "../../assets/sia/MOTEUR/Distribution/courroie-distribution-141d ref 1987949188.jpg";
+import img2 from "../../assets/sia/MOTEUR/Distribution/kit-de-distribution-130d58d-volkswagen-14 ref 1987949190.jpg";
+
 const products = [
-  { id: 1, name: "courroie-distribution-127dents-chevrolet réf 1987949403", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "courroie-distribution-141d réf 1987949188", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "kit-de-distribution-130d58d-volkswagen-14 réf 1987949190", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Courroie Distribution 127dents Chevrolet", image: img0, reference: "1987949403", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Courroie Distribution 141d", image: img1, reference: "1987949188", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Kit De Distribution 130d58d Volkswagen 14", image: img2, reference: "1987949190", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

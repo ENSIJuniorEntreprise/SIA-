@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/climatisation chauffage/évaporateur/evaporateur climatisation ref 818201.webp";
-import img1 from "../../assets/sia/climatisation chauffage/évaporateur/evaporateur ref 560087.webp";
-import img2 from "../../assets/sia/climatisation chauffage/évaporateur/ref 715295.webp";
+import img0 from "../../assets/sia/climatisation chauffage/evaporateur/evaporateur climatisation ref 818201.webp";
+import img1 from "../../assets/sia/climatisation chauffage/evaporateur/evaporateur ref 560087.webp";
+import img2 from "../../assets/sia/climatisation chauffage/evaporateur/ref 715295.webp";
+
+
 
 const products = [
+  { id: 1, name: "Evaporateur Climatisation", image: img0, reference: "818201", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Evaporateur", image: img1, reference: "560087", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "", image: img2, reference: "715295", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -21,7 +26,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Évaporateur</span>
   </nav>

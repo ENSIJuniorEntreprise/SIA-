@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-c3-11-berlingo-11-206-206-11 réf 074391.jpg";
-import img1 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-d75-3t réf 100410.jpg";
-import img2 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-polo-6-12 réf CH0519.jpg";
+import img0 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-c3-11-berlingo-11-206-206-11 ref 074391.jpg";
+import img1 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-d75-3t ref 100410.jpg";
+import img2 from "../../assets/sia/MOTEUR/Culasse/joint-de-culasse-polo-6-12 ref CH0519.jpg";
+
 const products = [
-  { id: 1, name: "joint-de-culasse-c3-11-berlingo-11-206-206-11 réf 074391", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "joint-de-culasse-d75-3t réf 100410", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "joint-de-culasse-polo-6-12 réf CH0519", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Joint De Culasse C3 11 Berlingo 11 206 206 11", image: img0, reference: "074391", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Joint De Culasse D75 3t", image: img1, reference: "100410", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Joint De Culasse Polo 6 12", image: img2, reference: "CH0519", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

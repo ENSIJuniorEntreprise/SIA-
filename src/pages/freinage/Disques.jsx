@@ -5,10 +5,12 @@ import img0 from "../../assets/sia/Freinage/disques/disque-de-frein-golf-2 ref A
 import img1 from "../../assets/sia/Freinage/disques/disques-de-frein-av-escort-fiesta-89- ref F1111V.jpg";
 import img2 from "../../assets/sia/Freinage/disques/disques-frein-av-a494-97 ref A1491V.jpg";
 
+
+
 const products = [
-  { id: 1, name: "disque-de-frein-golf-2 ref A1011P", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "disques-de-frein-av-escort-fiesta-89- ref F1111V", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "disques-frein-av-a494-97 ref A1491V", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Disque De Frein Golf 2", image: img0, reference: "A1011P", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Disques De Frein Av Escort Fiesta 89", image: img1, reference: "F1111V", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Disques Frein Av A494 97", image: img2, reference: "A1491V", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

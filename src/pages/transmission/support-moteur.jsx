@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/climatisation chauffage/ventillation/ref 078063N.webp";
-import img1 from "../../assets/sia/climatisation chauffage/ventillation/ref 158035N.webp";
+import img0 from "../../assets/sia/Transmission/support moteur/support-moteur-406-95-04 ref 4006.jpg";
+import img1 from "../../assets/sia/Transmission/support moteur/support-moteur-av-berl-part-16hdi ref 2700025.jpg";
+import img2 from "../../assets/sia/Transmission/support moteur/support-moteur-partner-tepee ref 2700038.jpg";
+
+
 
 const products = [
+  { id: 1, name: "Support Moteur 406 95 04", image: img0, reference: "4006", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Support Moteur Av Berl Part 16hdi", image: img1, reference: "2700025", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Support Moteur Partner Tepee", image: img2, reference: "2700038", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -20,9 +26,9 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Transmission</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Ventillation copy</span>
+    <span className="text-[#c0141c] font-semibold">Support Moteur</span>
   </nav>
 );
 
@@ -127,7 +133,7 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-export default function ventillationcopyPage() {
+export default function gestionmoteurPage() {
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [showMobileFilters, setShowMobileFilters] = useState(false);

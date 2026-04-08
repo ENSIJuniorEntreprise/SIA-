@@ -4,9 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Carosserie/Interieur et exterieur/joint-diametre-int3 ref 0348R4.jpg";
 import img1 from "../../assets/sia/Carosserie/Interieur et exterieur/kit-soufflet-cardan-berlingo-308 ref 0228.jpg";
 
+
+
 const products = [
-  { id: 1, name: "joint-diametre-int3 ref 0348R4", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "kit-soufflet-cardan-berlingo-308 ref 0228", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Joint Diametre Int3", image: img0, reference: "0348R4", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Kit Soufflet Cardan Berlingo 308", image: img1, reference: "0228", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -24,7 +26,7 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Carrosserie</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">interieurext</span>
+    <span className="text-[#c0141c] font-semibold">Intérieur et Extérieur</span>
   </nav>
 );
 

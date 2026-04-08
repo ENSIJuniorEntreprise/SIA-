@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Démarrage/porte-char139822 ref BHM7131.jpg";
-import img1 from "../../assets/sia/MOTEUR/Démarrage/varta-l1-b20 réf VARTA B20.jpg";
+import img0 from "../../assets/sia/MOTEUR/Demarrage/porte-char139822 ref BHM7131.jpg";
+import img1 from "../../assets/sia/MOTEUR/Demarrage/varta-l1-b20 ref VARTA B20.jpg";
+
 const products = [
-  { id: 1, name: "porte-char139822 ref BHM7131", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "varta-l1-b20 réf VARTA B20", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Porte Char139822", image: img0, reference: "BHM7131", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Varta L1 B20", image: img1, reference: "VARTA B20", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

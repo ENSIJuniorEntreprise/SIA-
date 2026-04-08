@@ -5,11 +5,12 @@ import img0 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile ref 
 import img1 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile ref 1680682480.jpg";
 import img2 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile-opel ref TE616.jpg";
 import img3 from "../../assets/sia/Filtration/Filtre a huile/filtre-a-huile-symbol-clio-express-kangoo ref Z424.jpg";
+
 const products = [
-  { id: 1, name: "filtre-a-huile ref  TE 616", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "filtre-a-huile ref 1680682480", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "filtre-a-huile-opel ref TE616", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 4, name: "filtre-a-huile-symbol-clio-express-kangoo ref Z424", image: img3, reference: "REF-"+3, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Filtre A Huile", image: img0, reference: "TE 616", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Filtre A Huile", image: img1, reference: "1680682480", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Filtre A Huile Opel", image: img2, reference: "TE616", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 4, name: "Filtre A Huile Symbol Clio Express Kangoo", image: img3, reference: "Z424", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

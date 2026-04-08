@@ -5,10 +5,11 @@ import img0 from "../../assets/sia/Suspension Direction/triangles/silent-bloc-tr
 import img1 from "../../assets/sia/Suspension Direction/triangles/silent-bloc-triangle-vw-golf-4-polo-7-gm ref 9001542.jpg";
 import img2 from "../../assets/sia/Suspension Direction/triangles/soupape-echappement-p301-207 ref 32116.jpg";
 
+
 const products = [
-  { id: 1, name: "silent-bloc-triangle-susp-pm ref 2254021", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "silent-bloc-triangle-vw-golf-4-polo-7-gm ref 9001542", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "soupape-echappement-p301-207 ref 32116", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Silent Bloc Triangle Susp Pm", image: img0, reference: "2254021", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Silent Bloc Triangle Vw Golf 4 Polo 7 Gm", image: img1, reference: "9001542", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Soupape Echappement P301 207", image: img2, reference: "32116", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

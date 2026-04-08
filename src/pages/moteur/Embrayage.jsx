@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/MOTEUR/Embrayage/kit d'embrayage symbol réf 826554.jpg";
-import img1 from "../../assets/sia/MOTEUR/Embrayage/kit-d-embrayage-3p-301-berlingo-b9-16-hdi-08 réf 1611273080.jpg";
-import img2 from "../../assets/sia/MOTEUR/Embrayage/kit-d-embrayage-partner-expert-3-16-hdi-08 Réf 826314.jpg";
+import img0 from "../../assets/sia/MOTEUR/Embrayage/kit d'embrayage symbol ref 826554.jpg";
+import img1 from "../../assets/sia/MOTEUR/Embrayage/kit-d-embrayage-3p-301-berlingo-b9-16-hdi-08 ref 1611273080.jpg";
+import img2 from "../../assets/sia/MOTEUR/Embrayage/kit-d-embrayage-partner-expert-3-16-hdi-08 Ref 826314.jpg";
+
+
 const products = [
-  { id: 1, name: "kit d'embrayage symbol réf 826554", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "kit-d-embrayage-3p-301-berlingo-b9-16-hdi-08 réf 1611273080", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "kit-d-embrayage-partner-expert-3-16-hdi-08 Réf 826314", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Kit D'Embrayage Symbol", image: img0, reference: "826554", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Kit D Embrayage 3p 301 Berlingo B9 16 Hdi 08", image: img1, reference: "1611273080", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Kit D Embrayage Partner Expert 3 16 Hdi 08", image: img2, reference: "826314", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

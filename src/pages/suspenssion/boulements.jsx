@@ -5,10 +5,11 @@ import img0 from "../../assets/sia/Suspension Direction/boulements/rotule-de-dir
 import img1 from "../../assets/sia/Suspension Direction/boulements/rotule-direction-lh-mazda-bt50-ford-tek ref 111368L.jpg";
 import img2 from "../../assets/sia/Suspension Direction/boulements/silent-bloc-bras-suspension-fiat-fiesta-2008 ref 06623.jpg";
 
+
 const products = [
-  { id: 1, name: "rotule-de-direction-citroen-c5-nm ref 3817_95", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "rotule-direction-lh-mazda-bt50-ford-tek ref 111368L", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "silent-bloc-bras-suspension-fiat-fiesta-2008 ref 06623", image: img2, reference: "REF-2", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Rotule De Direction Citroen C5 Nm", image: img0, reference: "3817_95", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Rotule Direction Lh Mazda Bt50 Ford Tek", image: img1, reference: "111368L", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Silent Bloc Bras Suspension Fiat Fiesta 2008", image: img2, reference: "06623", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

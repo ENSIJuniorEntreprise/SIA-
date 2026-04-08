@@ -4,9 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Freinage/plaquettes/plaquettes-de-frein-av-tivoli-16 ref 2210980.jpg";
 import img1 from "../../assets/sia/Freinage/plaquettes/plaquettes-de-frein-expert ref 182297.jpg";
 
+
+
 const products = [
-  { id: 1, name: "plaquettes-de-frein-av-tivoli-16 ref 2210980", image: img0, reference: "REF-0", pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "plaquettes-de-frein-expert ref 182297", image: img1, reference: "REF-1", pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Plaquettes De Frein Av Tivoli 16", image: img0, reference: "2210980", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Plaquettes De Frein Expert", image: img1, reference: "182297", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 

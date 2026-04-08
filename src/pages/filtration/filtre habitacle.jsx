@@ -4,10 +4,11 @@ import heroImage from "../../assets/image/different-car-accessories-composition.
 import img0 from "../../assets/sia/Filtration/filtre habitcale/filtre-d-habitacle-peugeot-407 ref HB169C.jpg";
 import img1 from "../../assets/sia/Filtration/filtre habitcale/filtre-habitacle- ref HB215.jpg";
 import img2 from "../../assets/sia/Filtration/filtre habitcale/filtre-habitacle-peugeot-508 ref HB232C.jpg";
+
 const products = [
-  { id: 1, name: "filtre-d-habitacle-peugeot-407 ref HB169C", image: img0, reference: "REF-"+0, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 2, name: "filtre-habitacle- ref HB215", image: img1, reference: "REF-"+1, pscCarton: 1, size: "N/A", tag: "Piece" },
-  { id: 3, name: "filtre-habitacle-peugeot-508 ref HB232C", image: img2, reference: "REF-"+2, pscCarton: 1, size: "N/A", tag: "Piece" },
+  { id: 1, name: "Filtre D Habitacle Peugeot 407", image: img0, reference: "HB169C", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 2, name: "Filtre Habitacle", image: img1, reference: "HB215", pscCarton: 1, size: "N/A", tag: "" },
+  { id: 3, name: "Filtre Habitacle Peugeot 508", image: img2, reference: "HB232C", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
