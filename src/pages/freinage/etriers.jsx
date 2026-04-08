@@ -27,9 +27,49 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
   );
 };
 
+<<<<<<< HEAD
 export default function EtriersPage() {
   const [filters, setFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
   const [activeFilters, setActiveFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
+=======
+const ProductCard = ({ product, index }) => {
+  return (
+    <div
+      className="group bg-white rounded-lg overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.07)] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_15px_rgba(192,20,28,0.3)] animate-[fadeUp_0.4s_ease_both]"
+      style={{ animationDelay: `${index * 60}ms` }}
+    >
+      <div className="relative bg-[#fafafa] flex justify-center items-center h-64 sm:h-56 border-b border-gray-100 p-4">
+        <img src={product.image} alt={product.name} className="max-h-full max-w-[100%] object-contain group-hover:scale-105 transition-transform duration-300" />
+        
+      </div>
+      <div className="p-4 pt-3 flex-1 flex flex-col">
+
+        
+        <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">Référence :</span>
+          <span className="font-semibold text-[#1a1a2e]">{product.reference}</span>
+        </div>
+        <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">Psc/carton :</span>
+          <span className="font-semibold text-[#1a1a2e]">{product.pscCarton}</span>
+        </div>
+        <div className="flex justify-between text-xs text-gray-600 mb-4 border-b border-dashed border-gray-100 pb-1">
+          <span className="text-gray-500 font-medium">SIZE :</span>
+          <span className="font-semibold text-[#c0141c]">{product.size}</span>
+        </div>
+
+        <button className="mt-auto mx-1 bg-transparent text-[#E10600] border border-[#E10600] py-2 text-sm font-semibold tracking-wide cursor-pointer transition-all duration-300 hover:bg-[#E10600] hover:text-white hover:shadow-md">
+          DEMANDER UN DEVIS
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default function DisquesPage() {
+  const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+  const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+>>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const handleFilter = () => { setActiveFilters({ ...filters }); setShowMobileFilters(false); };

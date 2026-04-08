@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../assets/image/different-car-accessories-composition.jpg";
-
 import imgCapteurs from "../assets/elect/capteurs.png";
 import imgGestionMoteur from "../assets/elect/gestmot.png";
 import imgCharge from "../assets/elect/charge.png";

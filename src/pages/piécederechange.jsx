@@ -18,7 +18,7 @@ const categories = [
   { id: 3, title: "Filtration", image: imgFiltration, link: "/divisions/piece-de-rechange/filtration" },
   { id: 4, title: "Suspension/ Direction", image: imgSuspension, link: "/divisions/piece-de-rechange/suspension" },
   { id: 5, title: "Transmission", image: imgTransmission, link: "/divisions/piece-de-rechange/transmission" },
-  { id: 6, title: "Carosserie", image: imgCarrosserie, link: "/divisions/piece-de-rechange/carosserie" },
+  { id: 6, title: "Carosserie", image: imgCarrosserie, link: "/divisions/piece-de-rechange/carrosserie" },
   { id: 7, title: "Climatisation/ Chauffage", image: imgClim, link: "/divisions/piece-de-rechange/climatisation" },
   { id: 8, title: "Consommables et divers", image: imgConsommables, link: "/divisions/piece-de-rechange/consommables" },
   { id: 9, title: "Freinage", image: imgFreinage, link: "/divisions/piece-de-rechange/freinage" },

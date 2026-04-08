@@ -7,12 +7,34 @@ import img1 from "../../assets/sia/climatisation chauffage/ventillation/ref 1580
 
 
 const products = [
+<<<<<<< HEAD
   { id: 1, name: "", image: img0, reference: "078063N", pscCarton: 1, size: "N/A", tag: "" },
   { id: 2, name: "", image: img1, reference: "158035N", pscCarton: 1, size: "N/A", tag: "" },
+=======
+  {
+    id: 1,
+    name: "Ventillation ref 078063N",
+    image: img0,
+    reference: "078063N",
+    pscCarton: "-",
+    size: "-",
+    division: "Division Pièces de Rechange Automobile",
+    sousDivision1: "",
+    sousDivision2: "",
+  },
+  {
+    id: 2,
+    name: "Ventillation ref 158035N",
+    image: img1,
+    reference: "158035N",
+    pscCarton: "-",
+    size: "-",
+    division: "Division Pièces de Rechange Automobile",
+    sousDivision1: "",
+    sousDivision2: "",
+  },
+>>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
 ];
-
-
-
 
 const filterDivision = ["Division Pièces de Rechange Automobile", "Division Industrielle", "Division Marine", "Division Travaux Publics"];
 const filterSousDivision1 = ["Moteur", "Suspension", "Freinage", "Filtration"];
@@ -20,11 +42,15 @@ const filterSousDivision2 = ["Lubrification", "Pistons", "Courroies", "Échappem
 
 const Breadcrumb = () => (
   <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">catalogue</a>
+    <Link to="/" className="text-gray-600 hover:text-red-700 transition">catalogue</Link>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
+    <Link to="/divisions/piece-de-rechange" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</Link>
     <span className="text-gray-400 text-base"> &gt; </span>
+<<<<<<< HEAD
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation Chauffage</a>
+=======
+    <Link to="/divisions/piece-de-rechange/climatisation" className="text-gray-600 hover:text-red-700 transition">Climatisation / Chauffage</Link>
+>>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
     <span className="text-gray-400 text-base"> &gt; </span>
     <span className="text-[#c0141c] font-semibold">Ventilation</span>
   </nav>
@@ -81,13 +107,13 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
         </select>
       </div>
 
-      <button 
+      <button
         className="w-full bg-[#c0141c] text-white border-none rounded-md py-2 text-sm font-bold cursor-pointer mb-2 tracking-wide hover:bg-red-800 transition-colors"
         onClick={onFilter}
       >
         Filtrer
       </button>
-      <button 
+      <button
         className="w-full bg-transparent text-[#c0141c] border border-[#c0141c] rounded-md py-1.5 text-sm font-semibold cursor-pointer tracking-wide hover:bg-red-50 transition-colors"
         onClick={onReset}
       >
@@ -105,11 +131,10 @@ const ProductCard = ({ product, index }) => {
     >
       <div className="relative bg-[#fafafa] flex justify-center items-center h-64 sm:h-56 border-b border-gray-100 p-4">
         <img src={product.image} alt={product.name} className="max-h-full max-w-[100%] object-contain group-hover:scale-105 transition-transform duration-300" />
-        
       </div>
       <div className="p-4 pt-3 flex-1 flex flex-col">
-        <p className="text-sm font-bold text-[#1a1a2e] mb-3 leading-tight min-h-[38px] line-clamp-2">{product.name}</p>
         
+
         <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
           <span className="text-gray-500 font-medium">Référence :</span>
           <span className="font-semibold text-[#1a1a2e]">{product.reference}</span>
@@ -131,7 +156,7 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-export default function ventillationPage() {
+export default function VentillationPage() {
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -140,29 +165,27 @@ export default function ventillationPage() {
     setActiveFilters({ ...filters });
     setShowMobileFilters(false);
   };
-  
+
   const handleReset = () => {
-    const empty = { division: "", sousDivision1: "", sousDivision2: "" };       
+    const empty = { division: "", sousDivision1: "", sousDivision2: "" };
     setFilters(empty);
     setActiveFilters(empty);
     setShowMobileFilters(false);
   };
 
   const filtered = products.filter((p) => {
-    const okDivision = !activeFilters.division || p.name.includes(activeFilters.division);
-    const okSousDiv1 = !activeFilters.sousDivision1 || p.name.includes(activeFilters.sousDivision1);
-    const okSousDiv2 = !activeFilters.sousDivision2 || p.name.includes(activeFilters.sousDivision2);
-    // Add additional category check based on tags or properties logic if needed
+    const okDivision = !activeFilters.division || p.division === activeFilters.division;
+    const okSousDiv1 = !activeFilters.sousDivision1 || p.sousDivision1 === activeFilters.sousDivision1;
+    const okSousDiv2 = !activeFilters.sousDivision2 || p.sousDivision2 === activeFilters.sousDivision2;
     return okDivision && okSousDiv1 && okSousDiv2;
   });
 
   return (
     <div className="font-['Source_Sans_3'] bg-white min-h-screen text-gray-900 pb-16">
-      {/* Hero Banner */}
       <div className="relative h-[200px] sm:h-[250px] overflow-hidden bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44]">
-        <div 
+        <div
           className="absolute inset-0 opacity-90 mix-blend-overlay bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }} 
+          style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 pt-16">
           <h1 className="font-['Raleway'] text-white text-3xl sm:text-4xl md:text-5xl font-extrabold text-center leading-tight tracking-tight drop-shadow-md">
@@ -180,9 +203,8 @@ export default function ventillationPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Mobile Filter Toggle */}
         <div className="lg:hidden mb-4">
-          <button 
+          <button
             onClick={() => setShowMobileFilters(!showMobileFilters)}
             className="w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 rounded-lg flex justify-between items-center shadow-sm font-semibold hover:bg-gray-50 transition-colors"
           >
@@ -220,7 +242,7 @@ export default function ventillationPage() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                 {filtered.map((p, i) => (
-                  <ProductCard key={`${p.id}-${i}`} product={p} index={i} />      
+                  <ProductCard key={`${p.id}-${i}`} product={p} index={i} />
                 ))}
               </div>
             )}

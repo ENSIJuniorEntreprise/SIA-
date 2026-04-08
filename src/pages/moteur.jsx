@@ -12,7 +12,7 @@ import imgAdmission from "../assets/moteur/admis.png";
 
 const categories = [
   { id: 1, title: "Lubrification", image: imgLubrification },
-  { id: 2, title: "Injection/Carburant", image: imgInjection },
+  { id: 2, title: "Injection", image: imgInjection },
   { id: 3, title: "Démarrage", image: imgDemarrage },
   { id: 4, title: "Refroidissement", image: imgRefroidissement },
   { id: 5, title: "Distribution", image: imgDistribution },

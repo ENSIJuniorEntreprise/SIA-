@@ -7,10 +7,10 @@ import imgCat2 from "../assets/carosseri/intext.png";
 import imgCat3 from "../assets/carosseri/lterale.png";
 
 const categories = [
-  { id: 1, title: "Arriére", image: imgCat0, link: "/divisions/piece-de-rechange/carosserie/arriere" },
-  { id: 2, title: "Avant", image: imgCat1, link: "/divisions/piece-de-rechange/carosserie/avant" },
-  { id: 3, title: "interieurext", image: imgCat2, link: "/divisions/piece-de-rechange/carosserie/interieurext" },
-  { id: 4, title: "latéral", image: imgCat3, link: "/divisions/piece-de-rechange/carosserie/lateral" },
+  { id: 1, title: "Arriére", image: imgCat0, link: "/divisions/piece-de-rechange/carrosserie/arriere" },
+  { id: 2, title: "Avant", image: imgCat1, link: "/divisions/piece-de-rechange/carrosserie/avant" },
+  { id: 3, title: "interieurext", image: imgCat2, link: "/divisions/piece-de-rechange/carrosserie/interieurext" },
+  { id: 4, title: "latéral", image: imgCat3, link: "/divisions/piece-de-rechange/carrosserie/lateral" },
 ];
 
 
@@ -55,6 +55,7 @@ export default function DivisionAuto() {
       <section style={styles.section}>
         <div style={styles.grid}>
           {categories.map((cat) => (
+<<<<<<< HEAD
             <Link to={cat.link || "#"} key={cat.id} style={{ textDecoration: 'none' }}>
               <div
                 style={{
@@ -77,6 +78,30 @@ export default function DivisionAuto() {
                     }}
                   />
                 </div>
+=======
+            <Link
+            to={cat.link}
+              key={cat.id}
+              style={{
+                ...styles.card,
+                ...(hoveredCard === cat.id ? styles.cardHovered : {}),
+              }}
+              onMouseEnter={() => setHoveredCard(cat.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* Red diamond icon */}
+              <span style={styles.diamond}>◆</span>
+              <span style={styles.cardTitle}>{cat.title}</span>
+              <div style={styles.cardImgWrap}>
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  style={{
+                    ...styles.cardImg,
+                    ...(hoveredCard === cat.id ? styles.cardImgHovered : {}),
+                  }}
+                />
+>>>>>>> 021dd87cbd8ca05544abafa83c110437c011ddbe
               </div>
             </Link>
           ))}

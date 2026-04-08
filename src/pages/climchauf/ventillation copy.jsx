@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/image/different-car-accessories-composition.jpg";
-import img0 from "../../assets/sia/Carosserie/Arriere/amortisseur-mal-arriere-gh-h1 ref 817704H010L.jpg";
-import img1 from "../../assets/sia/Carosserie/Arriere/nc-train-arriere-p206-plastic ref 4952.jpg";
-import img2 from "../../assets/sia/Carosserie/Arriere/soupape-echappement-p301-207 ref 32116.jpg";
-
-
+import img0 from "../../assets/sia/climatisation chauffage/ventillation/ref 078063N.webp";
+import img1 from "../../assets/sia/climatisation chauffage/ventillation/ref 158035N.webp";
 
 const products = [
-  { id: 1, name: "Amortisseur Mal Arriere Gh H1", image: img0, reference: "817704H010L", pscCarton: 1, size: "N/A", tag: "" },
-  { id: 2, name: "Nc Train Arriere P206 Plastic", image: img1, reference: "4952", pscCarton: 1, size: "N/A", tag: "" },
-  { id: 3, name: "Soupape Echappement P301 207", image: img2, reference: "32116", pscCarton: 1, size: "N/A", tag: "" },
 ];
 
 
@@ -26,9 +20,9 @@ const Breadcrumb = () => (
     <span className="text-gray-400 text-base"> &gt; </span>
     <a href="#" className="text-gray-600 hover:text-red-700 transition">Division Pièces de Rechange Automobile</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <a href="#" className="text-gray-600 hover:text-red-700 transition">Carrosserie</a>
+    <a href="#" className="text-gray-600 hover:text-red-700 transition">Climatisation/Chauffage</a>
     <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Arrière</span>
+    <span className="text-[#c0141c] font-semibold">Ventillation copy</span>
   </nav>
 );
 
@@ -110,7 +104,7 @@ const ProductCard = ({ product, index }) => {
         
       </div>
       <div className="p-4 pt-3 flex-1 flex flex-col">
-        
+
         
         <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
           <span className="text-gray-500 font-medium">Référence :</span>
@@ -133,7 +127,7 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-export default function ArrirePage() {
+export default function ventillationcopyPage() {
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [showMobileFilters, setShowMobileFilters] = useState(false);
