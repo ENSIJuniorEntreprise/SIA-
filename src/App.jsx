@@ -77,6 +77,9 @@ import EmbrayagePage from './pages/suspenssion/Embrayage'
 import JanterouePage from './pages/suspenssion/jante roue'
 import TrianglesPage from './pages/suspenssion/Triangles'
 
+// Admin Dashboard
+import AdminDashboard from './pages/AdminDashboard'
+
 // Transmission sub-pages
 import BoitedevitessePage from './pages/transmission/boitedevitesse'
 import CardansPage from './pages/transmission/cardans'
@@ -106,6 +109,7 @@ export default function App() {
         <Routes>
           {/* Top-level pages */}
           <Route path="/" element={<Accueil />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/partenaires" element={<Partenaires />} />
           <Route path="/contact" element={<Contact />} />
