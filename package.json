@@ -6,12 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite previzew"
+    "preview": "vite previzew",
+    "server": "node server.js",
+    "dev:all": "start npm run server & npm run dev"
   },
   "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "framer-motion": "^12.38.0",
     "jsdom": "^29.0.1",
     "lucide-react": "^1.7.0",
+    "multer": "^2.1.1",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",

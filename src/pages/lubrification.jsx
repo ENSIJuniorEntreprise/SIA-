@@ -148,13 +148,10 @@ const ProductCard = ({ product, index }) => {
           <span className="font-semibold text-[#1a1a2e]">{product.reference}</span>
         </div>
         <div className="flex justify-between text-xs text-gray-600 mb-1 border-b border-dashed border-gray-100 pb-1">
-          <span className="text-gray-500 font-medium">Psc/carton :</span>
-          <span className="font-semibold text-[#1a1a2e]">{product.pscCarton}</span>
+          <span className="text-gray-500 font-medium">Marque :</span>
+          <span className="font-semibold text-[#1a1a2e]">{product.marque}</span>
         </div>
-        <div className="flex justify-between text-xs text-gray-600 mb-4 border-b border-dashed border-gray-100 pb-1">
-          <span className="text-gray-500 font-medium">SIZE :</span>
-          <span className="font-semibold text-[#c0141c]">{product.size}</span>
-        </div>
+        
 
         <button className="mt-auto mx-1 bg-transparent text-[#E10600] border border-[#E10600] py-2 text-sm font-semibold tracking-wide cursor-pointer transition-all duration-300 hover:bg-[#E10600] hover:text-white hover:shadow-md">
           DEMANDER UN DEVIS

@@ -36,8 +36,7 @@ const initialFormState = {
   name: '',
   reference: '',
   image: null,
-  pscCarton: '',
-  size: '',
+  marque: '',
   division: '',
   sousDivision1: '',
   sousDivision2: '',
@@ -45,7 +44,14 @@ const initialFormState = {
 
 export default function AdminDashboard() {
   const [view, setView] = useState('list'); // 'list' | 'form'
-  const [products, setProducts] = useState(allProductsData);
+  const [products, setProducts] = useState([]);
+  
+  React.useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(err => console.error('Erreur', err));
+  }, [view]);
   const [formData, setFormData] = useState(initialFormState);
   const [selectedDivision, setSelectedDivision] = useState('all');
   const [selectedCat, setSelectedCat] = useState('all');
@@ -79,22 +85,49 @@ export default function AdminDashboard() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.id) {
-      // Édition
-      setProducts(prev => prev.map(p => p.id === formData.id ? { ...formData } : p));
-      alert("Produit modifié avec succès !");
-    } else {
-      // Ajout
-      const newProduct = { ...formData, id: Date.now() };
-      setProducts(prev => [...prev, newProduct]);
-      alert("Produit ajouté avec succès !\nFichier image: " + (formData.image ? formData.image.name : 'Aucun'));
-    }
     
-    // Retour à la liste
-    setFormData(initialFormState);
-    setView('list');
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach(key => {
+      if (key === 'features') {
+        formDataToSend.append(key, JSON.stringify(formData[key]));
+      } else if (key === 'image' && formData[key] instanceof File) {
+        formDataToSend.append('image', formData[key]);
+      } else {
+        formDataToSend.append(key, formData[key]);
+      }
+    });
+
+    try {
+      if (formData.id) {
+        // Ã‰dition
+        const res = await fetch(`http://localhost:3001/api/products/${formData.id}`, {
+          method: 'PUT',
+          body: formDataToSend
+        });
+        if (res.ok) alert("Produit modifiÃ© avec succÃ¨s !");
+      } else {
+        // Ajout
+        const res = await fetch('http://localhost:3001/api/products', {
+          method: 'POST',
+          body: formDataToSend
+        });
+        if (res.ok) alert("Produit ajoutÃ© avec succÃ¨s !");
+      }
+      
+      // Reload products
+      const productsRes = await fetch('http://localhost:3001/api/products');
+      const data = await productsRes.json();
+      setProducts(data);
+      
+      // Retour Ã  la liste
+      setFormData(initialFormState);
+      setView('list');
+    } catch (error) {
+      console.error(error);
+      alert("Erreur lors de l'opÃ©ration");
+    }
   };
 
   const handleEdit = (product) => {
@@ -102,9 +135,21 @@ export default function AdminDashboard() {
     setView('form');
   };
 
-  const handleDelete = (id) => {
-    if (window.confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
-      setProducts(prev => prev.filter(p => p.id !== id));
+  const handleDelete = async (id) => {
+    if (window.confirm("ÃŠtes-vous sÃ»r de vouloir supprimer ce produit ?")) {
+      try {
+        const res = await fetch(`http://localhost:3001/api/products/${id}`, {
+          method: 'DELETE'
+        });
+        if (res.ok) {
+          setProducts(prev => prev.filter(p => p.id !== id));
+        } else {
+          alert("Erreur lors de la suppression");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Erreur serveur");
+      }
     }
   };
 
@@ -204,9 +249,9 @@ export default function AdminDashboard() {
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Référence</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Désignation</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Division</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Psc/Carton</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Marque</th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
@@ -226,7 +271,7 @@ export default function AdminDashboard() {
                           <span className="text-gray-400">{product.sousDivision1} {product.sousDivision2 && `> ${product.sousDivision2}`}</span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.pscCarton}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.marque}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <button onClick={() => handleEdit(product)} className="text-blue-600 hover:text-blue-900 mr-4">Modifier</button>
                         <button onClick={() => handleDelete(product.id)} className="text-red-600 hover:text-red-900">Supprimer</button>
@@ -248,9 +293,9 @@ export default function AdminDashboard() {
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {/* Nom du produit */}
+              {/* Désignation */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Nom du produit</label>
+              <label className="block text-sm font-medium text-gray-700">Désignation</label>
               <input type="text" name="name" required value={formData.name} onChange={handleInputChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" />
             </div>
 
@@ -260,17 +305,13 @@ export default function AdminDashboard() {
               <input type="text" name="reference" required value={formData.reference} onChange={handleInputChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" />
             </div>
 
-            {/* Psc / Carton */}
+            {/* Marque */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Psc/Carton</label>
-              <input type="text" name="pscCarton" value={formData.pscCarton} onChange={handleInputChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" />
+              <label className="block text-sm font-medium text-gray-700">Marque</label>
+              <input type="text" name="marque" value={formData.marque} onChange={handleInputChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" />
             </div>
 
-            {/* Taille / Size */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Size</label>
-              <input type="text" name="size" value={formData.size} onChange={handleInputChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm" />
-            </div>
+            
 
             {/* Photo du produit */}
             <div className="sm:col-span-2">

@@ -196,7 +196,7 @@ function ProductCard({ product, index }) {
             <span style={styles.prodAttrVal}>{product.ref}</span>
           </div>
           <div style={styles.prodAttrRow}>
-            <span style={styles.prodAttrLabel}>Psc/carton :</span>
+            <span style={styles.prodAttrLabel}>Marque :</span>
             <span style={styles.prodAttrVal}>{product.psc || 1}</span>
           </div>
           <div style={styles.prodAttrRow}>
