@@ -7,18 +7,12 @@ import img2 from "../../assets/sia/climatisation chauffage/condenseur/radiateur-
 
 
 
-const products = [
-  { id: 1, name: "Condenseur Clim Fiesta 6", image: img0, reference: "814297", pscCarton: 1, size: "N/A", tag: "" },
-  { id: 2, name: "Condenseur Clim Megane 3", image: img1, reference: "35938", pscCarton: 1, size: "N/A", tag: "" },
-  { id: 3, name: "Radiateur Climatiseur Clio4 Symbol 2 3", image: img2, reference: "350212", pscCarton: 1, size: "N/A", tag: "" },
-];
+const products = [];
 
 
 
 
-const filterDivision = ["Division Pièces de Rechange Automobile", "Division Industrielle", "Division Marine", "Division Travaux Publics"];
-const filterSousDivision1 = ["Moteur", "Suspension", "Freinage", "Filtration"];
-const filterSousDivision2 = ["Lubrification", "Pistons", "Courroies", "Échappement"];
+
 
 const Breadcrumb = () => (
   <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
@@ -32,56 +26,101 @@ const Breadcrumb = () => (
   </nav>
 );
 
+
+const hierarchyData = {
+  "Division Pièces de Rechange Automobile": {
+    "Moteur": ["Lubrification", "Refroidissement", "Injection/Carburant", "Admission/Echappement", "Distribution", "Culasse", "Demarrage", "Embrayage", "Pistons", "Courroies"],
+    "Electricite/Electronique": ["Capteurs", "Gestion moteur", "Charge", "Habitacle"],
+    "Filtration": ["Filtre a huile", "Filtre a air", "Filtre carburant", "Filtre habitacle"],
+    "Freinage": ["Plaquettes", "Disques", "Etriers", "Hydraulique", "Ressorts", "Rotules"],
+    "Suspension/Direction": ["Roulements", "Triangles", "Jantes/Roue", "Embrayage"],
+    "Transmission": ["Cardans", "Boite de vitesse", "Support moteur"],
+    "Carrosserie": ["Avant", "Arriere", "Lateral", "Interieur/Exterieur"],
+    "Climatisation/Chauffage": ["Condenseur", "Compresseur", "Evaporateur", "Ventilation", "Chauffage"],
+    "Consommables et divers": []
+  },
+  "Division Industrielle": {
+    "Transmission et mouvement": ["Courroies industrielles", "Bandes transporteuses et courroie plate", "Chaines et pignons", "Accouplements et composants de transmission"],
+    "Motorisation et entrainement": ["Motoreducteurs", "Moteurs electriques et mecanique", "Variateurs electriques et mecanique", "Paliers"],
+    "Roulement & Supports": ["Roulements", "Paliers"]
+  },
+  "Division Marine": {
+    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
+    "SAV & consommable": ["Consommables", "SAV"]
+  },
+  "Division Travaux Publics": {
+    "Moteurs et groupes electrogenes": [],
+    "Lubrification": [],
+    "Machine de soudure, outillage, consommable": []
+  }
+};
+
 const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters }) => {
   const handleSelect = (key, val) => {
-    setFilters((prev) => ({ ...prev, [key]: val }));
+    if (key === "division") {
+      setFilters(prev => ({ ...prev, division: val, sousDivision1: "", sousDivision2: "" }));
+    } else if (key === "sousDivision1") {
+      setFilters(prev => ({ ...prev, sousDivision1: val, sousDivision2: "" }));
+    } else {
+      setFilters(prev => ({ ...prev, [key]: val }));
+    }
   };
+
+  const divisions = Object.keys(hierarchyData);
+  const categories = filters.division ? Object.keys(hierarchyData[filters.division] || {}) : [];
+  const subCategories = filters.sousDivision1 && filters.division 
+    ? hierarchyData[filters.division][filters.sousDivision1] || [] 
+    : [];
 
   return (
     <aside className={`w-full lg:w-64 flex-shrink-0 bg-white rounded-lg p-5 shadow-[0_2px_12px_rgba(0,0,0,0.07)] lg:sticky lg:top-5 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
       <h3 className="font-['Raleway'] text-sm font-bold text-[#1a1a2e] mb-4 tracking-wide">Chercher par</h3>
 
       <div className="mb-4">
-        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Division</p>
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Division</p>
         <select
           className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.division}
           onChange={(e) => handleSelect("division", e.target.value)}
         >
           <option value="">-- Division --</option>
-          {filterDivision.map((t) => (
+          {divisions.map((t) => (
             <option key={t} value={t}>{t}</option>
           ))}
         </select>
       </div>
 
+      {categories.length > 0 && (
       <div className="mb-4">
-        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Sous-Division 1</p>
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Catégorie</p>
         <select
           className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.sousDivision1}
           onChange={(e) => handleSelect("sousDivision1", e.target.value)}
         >
           <option value="">-- Sous-Division 1 --</option>
-          {filterSousDivision1.map((m) => (
+          {categories.map((m) => (
             <option key={m} value={m}>{m}</option>
           ))}
         </select>
       </div>
+      )}
 
+      {subCategories.length > 0 && (
       <div className="mb-4">
-        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner un Sous-Division 2</p>
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Sous-Catégorie</p>
         <select
           className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
           value={filters.sousDivision2}
           onChange={(e) => handleSelect("sousDivision2", e.target.value)}
         >
           <option value="">-- Sous-Division 2 --</option>
-          {filterSousDivision2.map((s) => (
+          {subCategories.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
       </div>
+      )}
 
       <button 
         className="w-full bg-[#c0141c] text-white border-none rounded-md py-2 text-sm font-bold cursor-pointer mb-2 tracking-wide hover:bg-red-800 transition-colors"
@@ -98,6 +137,7 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
     </aside>
   );
 };
+
 
 const ProductCard = ({ product, index }) => {
   return (
@@ -212,9 +252,7 @@ export default function condenseurPage() {
           <main className="flex-1 w-full">
             {filtered.length === 0 ? (
               <div className="bg-gray-50 rounded-xl p-10 text-center text-gray-500 border border-gray-100 flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                
                 <p className="text-lg font-medium text-gray-700">Aucun produit trouvé</p>
                 <p className="text-sm mt-1 mb-4">Essayez d'ajuster vos critères de filtrage.</p>
                 <button onClick={handleReset} className="text-[#c0141c] hover:underline font-semibold text-sm">Réinitialiser les filtres</button>

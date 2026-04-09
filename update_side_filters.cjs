@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import heroImage from '../../assets/image/different-car-accessories-composition.jpg';
+const fs = require('fs');
+const path = require('path');
 
-const products = [];
+function walkDir(dir, callback) {
+  fs.readdirSync(dir).forEach(f => {
+    let dirPath = path.join(dir, f);
+    let isDirectory = fs.statSync(dirPath).isDirectory();
+    isDirectory ? walkDir(dirPath, callback) : callback(path.join(dir, f));
+  });
+}
 
-
-
-const Breadcrumb = () => (
-  <nav className="flex flex-wrap items-center gap-2 py-4 text-sm text-gray-500">
-    <Link to="/" className="text-gray-600 hover:text-red-700 transition">catalogue</Link>
-    <span className="text-gray-400 text-base"> &gt; </span>
-    <span className="text-[#c0141c] font-semibold">Trier</span>
-  </nav>
-);
-
-
+const hierarchyDataStr = `
 const hierarchyData = {
   "Division Pièces de Rechange Automobile": {
     "Moteur": ["Lubrification", "Refroidissement", "Injection/Carburant", "Admission/Echappement", "Distribution", "Culasse", "Demarrage", "Embrayage", "Pistons", "Courroies"],
@@ -42,7 +37,9 @@ const hierarchyData = {
     "Machine de soudure, outillage, consommable": []
   }
 };
+`;
 
+const newFilterPanel = `${hierarchyDataStr}
 const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters }) => {
   const handleSelect = (key, val) => {
     if (key === "division") {
@@ -61,7 +58,7 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
     : [];
 
   return (
-    <aside className={`w-full lg:w-64 flex-shrink-0 bg-white rounded-lg p-5 shadow-[0_2px_12px_rgba(0,0,0,0.07)] lg:sticky lg:top-5 ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
+    <aside className={\`w-full lg:w-64 flex-shrink-0 bg-white rounded-lg p-5 shadow-[0_2px_12px_rgba(0,0,0,0.07)] lg:sticky lg:top-5 \${showMobileFilters ? 'block' : 'hidden lg:block'}\`}>
       <h3 className="font-['Raleway'] text-sm font-bold text-[#1a1a2e] mb-4 tracking-wide">Chercher par</h3>
 
       <div className="mb-4">
@@ -125,29 +122,27 @@ const FilterPanel = ({ filters, setFilters, onFilter, onReset, showMobileFilters
     </aside>
   );
 };
+`;
 
+let modifiedCount = 0;
 
-export default function RotulesPage() {
-  const [filters, setFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
-  const [activeFilters, setActiveFilters] = useState({ division: '', sousDivision1: '', sousDivision2: '' });
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+walkDir('src/pages', (filePath) => {
+  if (!filePath.endsWith('.jsx')) return;
+  const content = fs.readFileSync(filePath, 'utf-8');
+  
+  if (content.includes('const FilterPanel = ({')) {
+    // Regex replace from the first definition of filter lists to the end of FilterPanel
+    let newContent = content.replace(/const filterDivision = \[[^\]]*\];\s*const filterSousDivision1 = \[[^\]]*\];\s*const filterSousDivision2 = \[[^\]]*\];/, '');
+    
+    // Sometimes there are extra lines or slight differences, so let's try a broader replacement if needed
+    // Look for FilterPanel definition until ProductCard or Product Grid
+    newContent = newContent.replace(/const FilterPanel = \(\{[\s\S]*?<\/aside>\s*\);\s*};/, newFilterPanel);
+    
+    if (content !== newContent) {
+      fs.writeFileSync(filePath, newContent, 'utf-8');
+      modifiedCount++;
+    }
+  }
+});
 
-  const handleFilter = () => { setActiveFilters({ ...filters }); setShowMobileFilters(false); };
-  const handleReset = () => { const empty = { division: '', sousDivision1: '', sousDivision2: '' }; setFilters(empty); setActiveFilters(empty); setShowMobileFilters(false); };
-
-  return (
-    <div className="bg-white min-h-screen text-gray-900 pb-16">
-      <div className="w-full bg-[#f8f8f8] border-b border-gray-200 mb-6"><div className="max-w-6xl mx-auto px-4"><Breadcrumb /></div></div>
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-6">
-          <FilterPanel filters={filters} setFilters={setFilters} onFilter={handleFilter} onReset={handleReset} showMobileFilters={showMobileFilters} />
-          <main className="flex-1 w-full">
-            <div className="bg-gray-50 rounded-xl p-10 text-center text-gray-500 border border-gray-100 flex flex-col items-center">
-              <p className="text-lg font-medium text-gray-700">Aucun produit trouvé</p>
-            </div>
-          </main>
-        </div>
-      </div>
-    </div>
-  );
-}
+console.log("Updated filters in " + modifiedCount + " files.");
