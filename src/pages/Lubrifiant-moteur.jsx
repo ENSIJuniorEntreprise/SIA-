@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import moteur from "../assets/image/moteur.jpg";
 import im1 from "../assets/image/Huile Moteur Cummins 15W-40.jpg";
 import im2 from "../assets/image/Huile Moteur Caterpillar DEO 10W-30.jpg";
@@ -10,7 +10,7 @@ import im7 from "../assets/image/Huile Hydraulique Liebherr HV 46.jpg";
 import Lubrification from "../assets/image/lubrification.jpg";
 
 
-const products = [];
+
 const filterSousDivision1 = ["Huile Hydraulique", "Huile Moteur"]
 
 const hierarchyData = {
@@ -30,14 +30,14 @@ const hierarchyData = {
     "Motorisation et entrainement": ["Motoreducteurs", "Moteurs electriques et mecanique", "Variateurs electriques et mecanique", "Paliers"],
     "Roulement & Supports": ["Roulements", "Paliers"]
   },
-  "Division Marine": {
-    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
-    "SAV & consommable": ["Consommables", "SAV"]
-  },
   "Division Travaux Publics": {
     "Moteurs et groupes electrogenes": [],
     "Lubrification": [],
     "Machine de soudure, outillage, consommable": []
+  },
+  "Division Marine": {
+    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
+    "SAV & consommable": ["Consommables", "SAV"]
   }
 };
 
@@ -157,6 +157,32 @@ const ProductCard = ({ product, index }) => {
 };
 
 export default function LubrificationPage() {
+  const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then(res => res.json())
+      .then(data => {
+        const currentPath = window.location.pathname.toLowerCase();
+        let pageData = data;
+        
+        if (currentPath.includes('lubrification') && !currentPath.includes('travaux')) {
+            pageData = data.filter(p => p.division?.includes('Automobile') && p.sousDivision1?.includes('Moteur') && p.sousDivision2?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('lubrifiant-moteur')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('machine-soudure')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('soudure'));
+        } else if (currentPath.includes('groupe-electrogene')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('moteur'));
+        } else if (currentPath.includes('yact')) {
+            pageData = data.filter(p => p.division?.includes('Marine') && p.sousDivision2?.toLowerCase().includes('yact'));
+        } 
+        
+        setProducts(pageData);
+      })
+      .catch(console.error);
+  }, []);
+
   const navigate = useNavigate();
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "",});

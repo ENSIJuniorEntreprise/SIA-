@@ -78,7 +78,33 @@ export default function Contact() {
   }, []);
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-  const handleSubmit = (e) => { e.preventDefault(); setLoading(true); setTimeout(() => { setLoading(false); setSubmitted(true); }, 1500); };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const resp = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form)
+      });
+      const data = await resp.json();
+      
+      setLoading(false);
+      
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        alert("Oups ! Une erreur est survenue lors de l'envoi.");
+      }
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+      alert("Erreur de connexion au serveur !");
+    }
+  };
   const reset = () => { setSubmitted(false); setForm({ nom:"", email:"", telephone:"", sujet:"", type:"", organisation:"", division:"", message:"" }); };
 
   return (

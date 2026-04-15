@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroImage from "../assets/image/different-car-accessories-composition.jpg";
 
-const products = [];
+
 
 
 
@@ -35,14 +35,14 @@ const hierarchyData = {
     "Motorisation et entrainement": ["Motoreducteurs", "Moteurs electriques et mecanique", "Variateurs electriques et mecanique", "Paliers"],
     "Roulement & Supports": ["Roulements", "Paliers"]
   },
-  "Division Marine": {
-    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
-    "SAV & consommable": ["Consommables", "SAV"]
-  },
   "Division Travaux Publics": {
     "Moteurs et groupes electrogenes": [],
     "Lubrification": [],
     "Machine de soudure, outillage, consommable": []
+  },
+  "Division Marine": {
+    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
+    "SAV & consommable": ["Consommables", "SAV"]
   }
 };
 
@@ -162,6 +162,32 @@ const ProductCard = ({ product, index }) => {
 };
 
 export default function LubrificationPage() {
+  const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then(res => res.json())
+      .then(data => {
+        const currentPath = window.location.pathname.toLowerCase();
+        let pageData = data;
+        
+        if (currentPath.includes('lubrification') && !currentPath.includes('travaux')) {
+            pageData = data.filter(p => p.division?.includes('Automobile') && p.sousDivision1?.includes('Moteur') && p.sousDivision2?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('lubrifiant-moteur')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('machine-soudure')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('soudure'));
+        } else if (currentPath.includes('groupe-electrogene')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('moteur'));
+        } else if (currentPath.includes('yact')) {
+            pageData = data.filter(p => p.division?.includes('Marine') && p.sousDivision2?.toLowerCase().includes('yact'));
+        } 
+        
+        setProducts(pageData);
+      })
+      .catch(console.error);
+  }, []);
+
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -179,9 +205,9 @@ export default function LubrificationPage() {
   };
 
   const filtered = products.filter((p) => {
-    const okDivision = !activeFilters.division || p.name.includes(activeFilters.division);
-    const okSousDiv1 = !activeFilters.sousDivision1 || p.name.includes(activeFilters.sousDivision1);
-    const okSousDiv2 = !activeFilters.sousDivision2 || p.name.includes(activeFilters.sousDivision2);
+    const okDivision = !activeFilters.division || p.division === activeFilters.division;
+    const okSousDiv1 = !activeFilters.sousDivision1 || p.sousDivision1 === activeFilters.sousDivision1;
+    const okSousDiv2 = !activeFilters.sousDivision2 || p.sousDivision2 === activeFilters.sousDivision2;
     // Add additional category check based on tags or properties logic if needed
     return okDivision && okSousDiv1 && okSousDiv2;
   });

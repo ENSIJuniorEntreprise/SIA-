@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import imm1 from "../assets/image/Poste à Souder MIG Lincoln Electric 250A.jpg";
 import imm2 from "../assets/image/Poste à Souder Inverter ESAB 160A.jpg";
@@ -9,7 +9,7 @@ import imm5 from "../assets/image/Marteau Piqueur SDS-Max Makita 1500W.jpg";
 import imm6 from "../assets/image/Clé Dynamométrique.jpg";
 import imm7 from "../assets/image/Électrode Soudure Rutile E6013 3.2mm.jpg";
 import souder from "../assets/image/souder.jpg";
-const products = [];
+
 const filterSousDivision1 = ["Machine de soudure", "Outillage","Consommable"]
 
 
@@ -33,14 +33,14 @@ const hierarchyData = {
     "Motorisation et entrainement": ["Motoreducteurs", "Moteurs electriques et mecanique", "Variateurs electriques et mecanique", "Paliers"],
     "Roulement & Supports": ["Roulements", "Paliers"]
   },
-  "Division Marine": {
-    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
-    "SAV & consommable": ["Consommables", "SAV"]
-  },
   "Division Travaux Publics": {
     "Moteurs et groupes electrogenes": [],
     "Lubrification": [],
     "Machine de soudure, outillage, consommable": []
+  },
+  "Division Marine": {
+    "Groupes electrogenes marin": ["YACT", "Bateau de peche", "Travaux maritimes"],
+    "SAV & consommable": ["Consommables", "SAV"]
   }
 };
 
@@ -160,6 +160,32 @@ const ProductCard = ({ product, index }) => {
 };
 
 export default function LubrificationPage() {
+  const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then(res => res.json())
+      .then(data => {
+        const currentPath = window.location.pathname.toLowerCase();
+        let pageData = data;
+        
+        if (currentPath.includes('lubrification') && !currentPath.includes('travaux')) {
+            pageData = data.filter(p => p.division?.includes('Automobile') && p.sousDivision1?.includes('Moteur') && p.sousDivision2?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('lubrifiant-moteur')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('lubrification'));
+        } else if (currentPath.includes('machine-soudure')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('soudure'));
+        } else if (currentPath.includes('groupe-electrogene')) {
+            pageData = data.filter(p => p.division?.includes('Travaux') && p.sousDivision1?.toLowerCase().includes('moteur'));
+        } else if (currentPath.includes('yact')) {
+            pageData = data.filter(p => p.division?.includes('Marine') && p.sousDivision2?.toLowerCase().includes('yact'));
+        } 
+        
+        setProducts(pageData);
+      })
+      .catch(console.error);
+  }, []);
+
   const navigate = useNavigate();
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "",});
