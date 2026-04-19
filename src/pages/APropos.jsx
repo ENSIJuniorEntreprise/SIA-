@@ -119,7 +119,7 @@ export default function APropos() {
              <button className="bg-sia-red-claire text-white w-full sm:w-auto px-8 md:px-10 py-4 font-bold uppercase hover:bg-white hover:text-sia-red-claire transition-all text-sm md:text-base text-center">
                NOTRE EXPERTISE
              </button>
-             <Link to="/Division" className="border-2 border-white text-white w-full sm:w-auto px-8 md:px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all text-sm md:text-base text-center">
+             <Link to="/divisions" className="border-2 border-white text-white w-full sm:w-auto px-8 md:px-10 py-4 font-bold uppercase hover:bg-sia-red-claire hover:text-white hover:border-sia-red-claire transition-all text-sm md:text-base text-center">
                VOIR LE CATALOGUE
              </Link>
            </div>
@@ -230,7 +230,7 @@ export default function APropos() {
                 ))}
               </div>
               
-              <Link to="/Division" className="bg-black text-white px-5 py-3 font-bold uppercase text-xs sm:text-sm tracking-widest hover:bg-sia-red-claire transition-colors w-full sm:w-max text-center z-20">
+              <Link to="/divisions" className="bg-black text-white px-5 py-3 font-bold uppercase text-xs sm:text-sm tracking-widest hover:bg-sia-red-claire transition-colors w-full sm:w-max text-center z-20">
                 Decouvrir nos solutions
               </Link>
             </div>

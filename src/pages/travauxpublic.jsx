@@ -107,7 +107,7 @@ const styles = {
     zIndex: 1,
   },
   heroTitle: {
-    paddingTop: "60px",
+    paddingTop: "110px",
     position: "relative",
     zIndex: 2,
     margin: 0,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FaUsers, FaThumbsUp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import audi from '../assets/image/audi.jpg'
@@ -27,13 +27,24 @@ const marques = [
 export default function Marques() {
   const [activeCategory, setActiveCategory] = useState('Tous')
   const [search, setSearch] = useState('')
+  const [cardsVisible, setCardsVisible] = useState(false)
+  const cardsRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setCardsVisible(true) },
+      { threshold: 0.1 }
+    )
+    if (cardsRef.current) observer.observe(cardsRef.current)
+    return () => observer.disconnect()
+  }, [])
   const filtered = marques.filter((m) => {
     const matchCat = activeCategory === 'Tous' || m.categorie === activeCategory
     const matchSearch = m.name.toLowerCase().includes(search.toLowerCase())
     return matchCat && matchSearch
   })
   const navigate = useNavigate()
-  return ( <div className='font-sans pt-20 sm:pt-24 lg:pt-28 flex flex-col items-center w-full'>
+  return ( <div className='font-sans flex flex-col items-center w-full'>
               <section className='relative w-full h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] flex flex-col justify-center items-center text-white text-center'
                 style={{backgroundImage: `url("${bgArriere}")`,backgroundSize:'cover',backgroundPosition:'center'}}>
                   <div className='absolute inset-0 bg-black opacity-60'></div>
@@ -43,7 +54,7 @@ export default function Marques() {
                       </div>
               </section>
               
-              <div className='w-full max-w-6xl px-4 flex flex-col md:flex-row z-20 gap-8 md:gap-6 -mt-8 md:-mt-16 lg:-mt-20'>
+              <div ref={cardsRef} className='w-full max-w-6xl px-4 flex flex-col md:flex-row z-20 gap-8 md:gap-6 mt-12 md:mt-16' style={{ opacity: cardsVisible ? 1 : 0, transform: cardsVisible ? 'translateY(0)' : 'translateY(30px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
                           <div className='flex-1 bg-white px-4 py-6 md:py-8 justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow duration-300' style={{border:'1px solid #C00000',borderRadius: '30px',}} >
                               <div className=' text-center '>
                                     <div className='w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-2 shadow-sm' style={{ backgroundColor: '#C00000' ,marginTop: '-45px',}}>

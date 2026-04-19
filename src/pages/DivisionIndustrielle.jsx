@@ -1,7 +1,8 @@
-﻿import { useState, useEffect } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logoImage from "../assets/logo.png";
+import arriereIndus from "./arriereindus.png";
 
 /* ═══════════════════════════════════════════════════════════════
    IMPORTS IMAGES LOCALES
@@ -223,36 +224,27 @@ export default function DivisionIndustrielle() {
   const [activeCat,     setActiveCat]     = useState(null);
   const [activeSousCat, setActiveSousCat] = useState(null);
   const [hoveredCard,   setHoveredCard]   = useState(null);
-  const [filters,       setFilters]       = useState({ marque: "", size: "" });
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   const currentCat     = categories.find((c) => c.id === activeCat);
   const currentSousCat = currentCat?.sousCategories.find((s) => s.id === activeSousCat);
-  const allProduits    = activeSousCat ? produits[activeSousCat] || [] : [];
- const navigate = useNavigate();
-  
 
-  const filtered = allProduits.filter((p) => {
-    const okMarque = !filters.marque || p.marque === filters.marque;
-    const okSize   = !filters.size   || p.size   === filters.size;
-    return okMarque && okSize;
-  });
- const handleFilter = () => {
-    setActiveFilters({ ...filters });
-    setShowMobileFilters(false);
-  };
-  const handleReset = () => { setFilters({ marque: "", size: "" });
-  setFilters(empty);
-    setActiveFilters(empty);
-    setShowMobileFilters(false);  };
-
-  useEffect(() => { setFilters({ marque: "", size: "" }); }, [activeSousCat]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setSectionVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div style={styles.page}>
 
       <div style={styles.hero}>
-        <img src={imgHero} alt="hero" style={styles.heroImg} />
+        <img src={arriereIndus} alt="hero" style={styles.heroImg} />
         <div style={styles.heroOverlay} />
         <h1 style={styles.heroTitle}>
           DIVISION <span style={styles.heroTitleRed}>INDUSTRIELLE</span>
@@ -290,7 +282,7 @@ export default function DivisionIndustrielle() {
         </div>
       </div>
 
-      <section style={styles.section}>
+      <section ref={sectionRef} style={{ ...styles.section, opacity: sectionVisible ? 1 : 0, transform: sectionVisible ? 'translateY(0)' : 'translateY(30px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
 
         
         {!activeCat && (
@@ -305,7 +297,6 @@ export default function DivisionIndustrielle() {
               >
                 <div style={styles.cardTitleWrap}>
                   <span style={styles.cardTitle}>{cat.label}</span>
-                  <span style={styles.cardSubCount}>{cat.sousCategories?.length} familles</span>
                 </div>
                 <div style={styles.cardImgWrap}>
                   <img src={cat.image} alt={cat.label}
@@ -341,45 +332,6 @@ export default function DivisionIndustrielle() {
           </div>
         )}
 
-        {/* LEVEL 2 — PRODUCTS + FILTER SIDEBAR */}
-        {activeCat && activeSousCat && (
-          <>
-            {/* Mobile toggle */}
-            <button
-              style={styles.mobileFilterBtn}
-              onClick={() => setShowMobileFilters((v) => !v)}
-            >
-              <span>⚙ Filtrer les produits</span>
-              <span>{showMobileFilters ? "▲" : "▼"}</span>
-            </button>
-
-            <div style={styles.productLayout}>
-              <FilterPanel
-                allProduits={allProduits}
-                filters={filters}
-                setFilters={setFilters}
-                onReset={handleReset}
-                showMobile={showMobileFilters}
-              />
-
-              <main style={styles.productMain}>
-                {filtered.length === 0 ? (
-                  <div style={styles.emptyState}>
-                    <p style={{ fontSize:16, fontWeight:600, color:"#555" }}>Aucun produit trouvé</p>
-                    <p style={{ fontSize:13, color:"#aaa", marginTop:6 }}>Essayez d'ajuster vos filtres.</p>
-                    <button style={styles.resetLink} onClick={handleReset}>Réinitialiser les filtres</button>
-                  </div>
-                ) : (
-                  <div style={styles.prodGrid}>
-                    {filtered.map((p, i) => (
-                      <ProductCard key={p.id} product={p} index={i} />
-                    ))}
-                  </div>
-                )}
-              </main>
-            </div>
-          </>
-        )}
       </section>
 
       <style>{`
@@ -402,7 +354,7 @@ export default function DivisionIndustrielle() {
 const styles = {
   page: { fontFamily:"'Segoe UI','Helvetica Neue',Arial,sans-serif", background:"#fff", minHeight:"100vh", color:"#111" },
 
-  hero:        { position:"relative", height:250, overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", marginTop:"115px" },
+  hero:        { position:"relative", height:250, overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center" },
   heroImg:     { position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", filter:"brightness(0.9)" },
   heroOverlay: { position:"absolute", inset:0, zIndex:1 },
   heroTitle:   { position:"relative", zIndex:2, margin:0, color:"#fff", fontSize:"clamp(30px,4vw,50px)", fontWeight:800, textAlign:"center", lineHeight:1.25, textShadow:"0 2px 12px rgba(0,0,0,0.5)" },

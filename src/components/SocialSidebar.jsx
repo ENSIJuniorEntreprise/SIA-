@@ -57,13 +57,10 @@ const SocialSidebar = () => {
           ? 'opacity-100 scale-100 translate-x-0' 
           : 'opacity-0 scale-50 translate-x-10 pointer-events-none absolute'
       }`}>
-        <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
+        <a href="https://www.facebook.com/share/17SggVTWcr/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-[#e30613] transition-colors">
           <FacebookIcon />
         </a>
-        <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
-          <LinkedinIcon />
-        </a>
-        <a href="#" className="text-gray-700 hover:text-[#e30613] transition-colors">
+        <a href="tel:+21627314100" className="text-gray-700 hover:text-[#e30613] transition-colors">
           <PhoneIcon />
         </a>
       </div>

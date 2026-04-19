@@ -5,19 +5,19 @@ import heroBg from "../assets/backg.png";
 const infoCards = [
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>,
-    label: "TELEPHONE", line1: "+216 74 123 456", line2: "Lun - Sam: 8h - 18h",
+    label: "TELEPHONE", line1: "+216 74 408 409", line2: "",
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
-    label: "EMAIL", line1: "auto.sfax@gmail.com", line2: "Réponse sous 24h",
+    label: "EMAIL", line1: "sia.bendjemaa@topnet.tn", line2: "",
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>,
-    label: "HORAIRES", line1: "Lun - Sam: 8h - 18h", line2: "Dimanche: Fermé",
+    label: "HORAIRES", line1: "Lun - Ven : 8h - 12h30 / 14h30 - 18h", line2: "Samedi : 8h - 14h", boldLine2: true,
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-    label: "ADRESSE", line1: "sfax,tunisie", line2: "Route de Tunis km 4",
+    label: "ADRESSE", line1: "sfax,tunisie", line2: "",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function Contact() {
                 </div>
                 <h3 className="text-sm font-extrabold uppercase tracking-wide text-black mb-2">{card.label}</h3>
                 <p className="text-sm font-bold text-black">{card.line1}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium">{card.line2}</p>
+                <p className={`mt-1 ${card.boldLine2 ? "text-sm font-bold text-black" : "text-xs text-gray-500 font-medium"}`}>{card.line2}</p>
              </div>
           ))}
         </div>
@@ -211,7 +211,7 @@ export default function Contact() {
         {/* MAPS (Ajust� tel qu'une image l'affiche avec 2 cartes) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
            <div className="rounded-xl overflow-hidden shadow-lg h-64 sm:h-72 md:h-80 w-full">
-             <iframe title="Map 1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.2!2d10.7580!3d34.7406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301b5b7b5c5c5c5%3A0xaabbccddeeff0011!2sSfax!5e0!3m2!1sfr!2stn!4v1700000002" style={{ width:"100%", height:"100%", border:0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+             <iframe title="Map 1" src="https://maps.google.com/maps?q=SIA%20BEN%20DJEMAA,%20Tunis&ftid=0x12fd346c9a4adc65:0xb439a4b819753719&output=embed" style={{ width:"100%", height:"100%", border:0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
            </div>
            <div className="rounded-xl overflow-hidden shadow-lg h-64 sm:h-72 md:h-80 w-full">
              <iframe title="Map 2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.2!2d10.7580!3d34.7406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301b5b7b5c5c5c5%3A0xaabbccddeeff0011!2sSfax!5e0!3m2!1sfr!2stn!4v1700000002" style={{ width:"100%", height:"100%", border:0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />

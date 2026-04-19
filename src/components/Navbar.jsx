@@ -183,11 +183,7 @@ export default function Navbar() {
   const [mobileDivisionsOpen, setMobileDivisionsOpen] = useState(false)
   const location = useLocation()
   
-  // Add marques to pages that need a permanent light theme navbar
-  const permanentlyLightPaths = ['/marques'];
-  const isPermanentlyLight = permanentlyLightPaths.includes(location.pathname);
-  
-  const useLightTheme = isScrolled || isPermanentlyLight;
+  const useLightTheme = isScrolled;
   
   useEffect(() => {
     const handleScroll = () => {
