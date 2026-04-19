@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   AnimatePresence,
   motion,
@@ -358,6 +359,7 @@ function AnimatedSection({ children, className = "", id }) {
 
 /* ─── APP ─────────────────────────────────────────────────────── */
 export default function App() {
+  const navigate = useNavigate();
   const reduced                             = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState(null);
   const { scrollY } = useScroll();
@@ -459,6 +461,7 @@ export default function App() {
           <motion.button type="button" className="cta-btn" variants={fadeUpVariants}
             whileHover={reduced ? undefined : { y: -3, boxShadow: "0 14px 28px rgba(226,6,19,0.35)", transition: { type: "spring", stiffness: 300, damping: 20 } }}
             whileTap={reduced ? undefined : { scale: 0.97 }}
+            onClick={() => navigate('/contact')}
           >
             <span>Nous contacter</span>
             <motion.span className="cta-btn__arrow"

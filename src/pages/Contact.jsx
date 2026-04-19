@@ -188,7 +188,7 @@ export default function Contact() {
 
             <div className="flex justify-center mt-6">
               <button type="submit" disabled={loading} className="px-10 py-3.5 bg-[#E30613] text-white rounded font-bold text-sm tracking-wide shadow-md hover:shadow-lg transition-all hover:bg-red-700 w-full sm:w-auto">
-                 {loading ? "ENVOI EN COURS..." : "envoyer le message"}
+                 {loading ? "ENVOI EN COURS..." : "Envoyer le message"}
               </button>
             </div>
           </form>

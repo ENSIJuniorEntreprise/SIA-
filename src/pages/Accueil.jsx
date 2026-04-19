@@ -95,7 +95,7 @@ const StatCard = ({ number, suffix, title, subtitle }) => {
       ref={ref} 
       className="flex w-full flex-col items-center justify-center border-t-4 border-sia-red-claire bg-white p-8 text-center shadow-lg transition-transform duration-300 hover:-translate-y-2"
     >
-      <h3 className="mb-2 text-3xl font-bold text-[#4a0a0d] sm:text-4xl md:text-5xl">
+      <h3 className="mb-2 text-2xl font-bold text-[#4a0a0d] sm:text-3xl md:text-4xl whitespace-nowrap">
         {suffix}
         {inView ? <CountUp end={number} duration={2.5} separator=" " /> : "0"}
       </h3>
@@ -142,8 +142,8 @@ export default function Accueil() {
             />
             <StatCard 
               suffix="+" 
-              number={5000} 
-              title="Références" 
+              number={100000}
+              title="Références"
               subtitle="Produits en catalogue" 
             />
             <StatCard 

@@ -1,8 +1,9 @@
 ﻿import React from 'react';
 import { Phone, Mail, ArrowUpRight } from 'lucide-react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 const Footer = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isContactPage = location.pathname.startsWith('/contact');
   return (
     <footer className="w-full font-sans">
@@ -25,7 +26,7 @@ const Footer = () => {
               +216 27 314 100
             </a>
             
-            <button className="flex items-center gap-2 rounded-sm border-2 border-white px-6 py-3 font-bold transition-all hover:bg-white hover:text-[#e30613] sm:px-8">
+            <button onClick={() => navigate('/contact')} className="flex items-center gap-2 rounded-sm border-2 border-white px-6 py-3 font-bold transition-all hover:bg-white hover:text-[#e30613] sm:px-8">
               DEMANDER UN DEVIS <ArrowUpRight size={18} />
             </button>
           </div>
