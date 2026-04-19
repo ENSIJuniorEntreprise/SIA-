@@ -123,41 +123,92 @@ const produits = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
+   HIERARCHY DATA
+═══════════════════════════════════════════════════════════════ */
+const hierarchyData = {
+  "Division Industrielle": {
+    "Transmission et mouvement": ["Courroies industrielles", "Bandes transporteuses", "Chaînes et pignons", "Accouplements"],
+    "Motorisation et entraînement": ["Motoréducteurs", "Moteurs électriques", "Variateurs", "Paliers"],
+    "Roulement & Supports": ["Roulements à billes", "Roulements à rouleaux", "Supports & paliers"],
+  },
+};
+
+/* ═══════════════════════════════════════════════════════════════
    FILTER PANEL
 ═══════════════════════════════════════════════════════════════ */
-function FilterPanel({ allProduits, filters, setFilters, onReset, showMobile }) {
-  const marques = [...new Set(allProduits.map((p) => p.marque).filter(Boolean))];
-  const sizes   = [...new Set(allProduits.map((p) => p.size).filter(Boolean))];
+function FilterPanel({ filters, setFilters, onFilter, onReset, showMobile }) {
+  const handleSelect = (key, val) => {
+    if (key === "division") {
+      setFilters(prev => ({ ...prev, division: val, sousDivision1: "", sousDivision2: "" }));
+    } else if (key === "sousDivision1") {
+      setFilters(prev => ({ ...prev, sousDivision1: val, sousDivision2: "" }));
+    } else {
+      setFilters(prev => ({ ...prev, [key]: val }));
+    }
+  };
+
+  const divisions = Object.keys(hierarchyData);
+  const categories = filters.division ? Object.keys(hierarchyData[filters.division] || {}) : [];
+  const subCategories = filters.sousDivision1 && filters.division
+    ? hierarchyData[filters.division][filters.sousDivision1] || []
+    : [];
 
   return (
-    <aside style={{ ...styles.filterAside, display: showMobile ? "block" : undefined }}>
-      <h3 style={styles.filterTitle}>Chercher par</h3>
+    <aside className={`w-full lg:w-64 flex-shrink-0 bg-white rounded-lg p-5 shadow-[0_2px_12px_rgba(0,0,0,0.07)] lg:sticky lg:top-5 ${showMobile ? 'block' : 'hidden lg:block'}`}>
+      <h3 className="font-['Raleway'] text-sm font-bold text-[#1a1a2e] mb-4 tracking-wide">Chercher par</h3>
 
-      <div style={styles.filterGroup}>
-        <p style={styles.filterLabel}>Marque</p>
+      <div className="mb-4">
+        <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Division</p>
         <select
-          style={styles.filterSelect}
-          value={filters.marque}
-          onChange={(e) => setFilters((f) => ({ ...f, marque: e.target.value }))}
+          className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
+          value={filters.division}
+          onChange={(e) => handleSelect("division", e.target.value)}
         >
-          <option value="">-- Marque --</option>
-          {marques.map((m) => <option key={m} value={m}>{m}</option>)}
+          <option value="">-- Division --</option>
+          {divisions.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
       </div>
 
-      <div style={styles.filterGroup}>
-        <p style={styles.filterLabel}>Dimension / SIZE</p>
-        <select
-          style={styles.filterSelect}
-          value={filters.size}
-          onChange={(e) => setFilters((f) => ({ ...f, size: e.target.value }))}
-        >
-          <option value="">-- Size --</option>
-          {sizes.map((s) => <option key={s} value={s}>{s}</option>)}
-        </select>
-      </div>
+      {categories.length > 0 && (
+        <div className="mb-4">
+          <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Catégorie</p>
+          <select
+            className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
+            value={filters.sousDivision1}
+            onChange={(e) => handleSelect("sousDivision1", e.target.value)}
+          >
+            <option value="">-- Catégorie --</option>
+            {categories.map((m) => <option key={m} value={m}>{m}</option>)}
+          </select>
+        </div>
+      )}
 
-      <button style={styles.filterBtnReset} onClick={onReset}>Réinitialiser</button>
+      {subCategories.length > 0 && (
+        <div className="mb-4">
+          <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Sélectionner une Sous-Catégorie</p>
+          <select
+            className="w-full px-3 py-2 text-xs text-gray-700 border border-gray-200 rounded-md bg-white cursor-pointer outline-none focus:border-red-500 transition"
+            value={filters.sousDivision2}
+            onChange={(e) => handleSelect("sousDivision2", e.target.value)}
+          >
+            <option value="">-- Sous-Catégorie --</option>
+            {subCategories.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+      )}
+
+      <button
+        className="w-full bg-[#c0141c] text-white border-none rounded-md py-2 text-sm font-bold cursor-pointer mb-2 tracking-wide hover:bg-red-800 transition-colors"
+        onClick={onFilter}
+      >
+        Filtrer
+      </button>
+      <button
+        className="w-full bg-transparent text-[#c0141c] border border-[#c0141c] rounded-md py-1.5 text-sm font-semibold cursor-pointer tracking-wide hover:bg-red-50 transition-colors"
+        onClick={onReset}
+      >
+        réinitialiser
+      </button>
     </aside>
   );
 }
@@ -224,9 +275,17 @@ export default function DivisionIndustrielle() {
   const [activeCat,     setActiveCat]     = useState(null);
   const [activeSousCat, setActiveSousCat] = useState(null);
   const [hoveredCard,   setHoveredCard]   = useState(null);
+  const [filters,       setFilters]       = useState({ division: "", sousDivision1: "", sousDivision2: "" });
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef(null);
   const navigate = useNavigate();
+
+  const empty = { division: "", sousDivision1: "", sousDivision2: "" };
+  const handleFilter = () => setShowMobileFilters(false);
+  const handleReset = () => { setFilters(empty); setShowMobileFilters(false); };
+
+  useEffect(() => { setFilters(empty); }, [activeSousCat]);
 
   const currentCat     = categories.find((c) => c.id === activeCat);
   const currentSousCat = currentCat?.sousCategories.find((s) => s.id === activeSousCat);
@@ -330,6 +389,45 @@ export default function DivisionIndustrielle() {
               </div>
             ))}
           </div>
+        )}
+
+        {/* LEVEL 2 — FILTRE + AUCUN PRODUIT */}
+        {activeCat && activeSousCat && (
+          <>
+            <div className="lg:hidden mb-4">
+              <button
+                onClick={() => setShowMobileFilters((v) => !v)}
+                className="w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 rounded-lg flex justify-between items-center shadow-sm font-semibold hover:bg-gray-50 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#c0141c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  Filtrer les produits
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 transition-transform ${showMobileFilters ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="flex flex-col lg:flex-row gap-6 items-start">
+              <FilterPanel
+                filters={filters}
+                setFilters={setFilters}
+                onFilter={handleFilter}
+                onReset={handleReset}
+                showMobile={showMobileFilters}
+              />
+              <main className="flex-1 w-full">
+                <div className="bg-gray-50 rounded-xl p-10 text-center text-gray-500 border border-gray-100 flex flex-col items-center">
+                  <p className="text-lg font-medium text-gray-700">Aucun produit trouvé</p>
+                  <p className="text-sm mt-1 mb-4">Essayez d'ajuster vos critères de filtrage.</p>
+                  <button onClick={handleReset} className="text-[#c0141c] hover:underline font-semibold text-sm">Réinitialiser les filtres</button>
+                </div>
+              </main>
+            </div>
+          </>
         )}
 
       </section>

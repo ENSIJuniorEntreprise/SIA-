@@ -118,7 +118,7 @@ const BRAND_URLS = {
 /* ─── DONNÉES ─────────────────────────────────────────────────── */
 const stats = [
   { unit: "Pays",     text: "Couverture mondiale en Europe, Asie et Amérique.",         icon: "", value: 11    },
-  { unit: "Produits", text: "Gamme complète de solutions techniques et industrielles.", icon: "", value: 13230 },
+  { unit: "Références", text: "Gamme complète de solutions techniques et industrielles.", icon: "", value: 100000 },
   { unit: "Marques",  text: "Leaders mondiaux dans leurs domaines respectifs.",         icon: "", value: 30    },
 ];
 

@@ -1,6 +1,6 @@
 import React ,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaUsers, FaThumbsUp, FaShoppingCart } from 'react-icons/fa'
+import { FaUsers, FaThumbsUp } from 'react-icons/fa'
 import { MdOutlineWork } from 'react-icons/md'
 import { FaArrowRight } from 'react-icons/fa'
 import { FaCar, FaCog, FaTint, FaBolt, FaShip, FaTruck, FaTools } from 'react-icons/fa'
@@ -156,10 +156,10 @@ export default function Services() {
     <div className='absolute bottom-[-56px] left-1/2 z-20 flex w-[min(94%,980px)] -translate-x-1/2 flex-row overflow-hidden bg-gray-50 pt-3 shadow-xl md:bottom-[-64px] md:pt-4' style={{ border: '1px solid #C00000', borderRadius: '32px 32px 0 0' }}>
           <div className='flex-1 px-2 py-3 text-center md:py-4'>
             <div className='mx-auto mb-1 flex h-8 w-8 items-center justify-center rounded-full sm:h-10 sm:w-10 md:h-12 md:w-12'style={{ backgroundColor: '#C00000' ,marginTop: '0',}}>
-                <FaShoppingCart className='text-white text-xs sm:text-sm md:text-xl '/>
+                <FaUsers className='text-white text-xs sm:text-sm md:text-xl '/>
            </div>
-            <p className='font-semibold text-sm sm:text-base md:text-2xl'style={{ color:'#C00000',fontFamily:'Montserrat',}}>+100 000</p>
-            <p className='text-xs 'style={{fontFamily:'Montserrat',color:'#C00000',}}>références</p>
+            <p className='font-semibold text-sm sm:text-base md:text-2xl'style={{ color:'#C00000',fontFamily:'Montserrat',}}>+100</p>
+            <p className='text-xs 'style={{fontFamily:'Montserrat',color:'#C00000',}}>collaborateurs</p>
           </div>
           <div className="border-l border-gray-300"></div>
           <div className='flex-1 px-2 py-3 text-center md:py-4'>
