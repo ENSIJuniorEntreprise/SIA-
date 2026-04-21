@@ -165,7 +165,6 @@ export default function EtriersPage() {
   const navigate = useNavigate();
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "", sousDivision2: "" });
-  const navigate = useNavigate();
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const handleFilter = () => { setActiveFilters({ ...filters }); setShowMobileFilters(false); };

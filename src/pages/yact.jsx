@@ -185,7 +185,6 @@ export default function LubrificationPage() {
       .catch(console.error);
   }, []);
 
-  const navigate = useNavigate();
   const [filters, setFilters] = useState({ division: "", sousDivision1: "", });
   const [activeFilters, setActiveFilters] = useState({ division: "", sousDivision1: "",});
   const [showMobileFilters, setShowMobileFilters] = useState(false);

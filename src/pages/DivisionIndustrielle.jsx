@@ -279,7 +279,6 @@ export default function DivisionIndustrielle() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef(null);
-  const navigate = useNavigate();
 
   const empty = { division: "", sousDivision1: "", sousDivision2: "" };
   const handleFilter = () => setShowMobileFilters(false);
