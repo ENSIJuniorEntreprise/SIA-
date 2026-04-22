@@ -181,6 +181,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileDivisionsOpen, setMobileDivisionsOpen] = useState(false)
+  const [openDivision, setOpenDivision] = useState(null)
+  const [openSection, setOpenSection] = useState(null)
   const location = useLocation()
   
   const useLightTheme = isScrolled;
@@ -197,6 +199,8 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false)
     setMobileDivisionsOpen(false)
+    setOpenDivision(null)
+    setOpenSection(null)
   }, [location.pathname])
 
   return (
@@ -344,32 +348,59 @@ export default function Navbar() {
               </button>
 
               {mobileDivisionsOpen && (
-                <div className="mt-2 space-y-2 rounded-md border border-gray-200 bg-gray-50 p-3">
+                <div className="mt-1 rounded-md border border-gray-200 bg-gray-50 overflow-hidden">
                   {divisionTree.map((division) => (
-                    <div key={`mobile-${division.title}`} className="rounded-md border border-gray-200 bg-white overflow-hidden">
-                      <Link to={division.url} onClick={() => { setMobileOpen(false); setMobileDivisionsOpen(false); }} className="block bg-sky-500 px-3 py-2 text-xs font-bold text-white hover:bg-sky-600 transition-colors">
-                        {division.title}
-                      </Link>
-                      <div className="space-y-3 p-3">
-                        {division.sections.map((section) => (
-                          <div key={`mobile-${division.title}-${section.name}`}>
-                            <Link to={section.url} onClick={() => { setMobileOpen(false); setMobileDivisionsOpen(false); }} className="block text-xs font-semibold text-gray-900 hover:text-sia-red transition-colors">
-                              {section.name}
-                            </Link>
-                            {section.items && section.items.length > 0 && (
-                              <ul className="mt-1 space-y-1 pl-2 border-l-2 border-gray-100">
-                                {section.items.map((item) => (
-                                  <li key={`mobile-${item.name}`}>
-                                    <Link to={item.url} onClick={() => { setMobileOpen(false); setMobileDivisionsOpen(false); }} className="block text-[11px] leading-relaxed text-gray-600 hover:text-sia-red transition-colors">
-                                      • {item.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ))}
-                      </div>
+                    <div key={`mob-div-${division.title}`} className="border-b border-gray-200 last:border-b-0">
+                      {/* NIVEAU 1 — Division */}
+                      <button
+                        type="button"
+                        onClick={() => { setOpenDivision(openDivision === division.title ? null : division.title); setOpenSection(null); }}
+                        className="flex w-full items-center justify-between px-4 py-3 text-xs font-bold text-white bg-[#e30613] hover:bg-red-700 transition-colors"
+                      >
+                        <Link to={division.url} onClick={(e) => { e.stopPropagation(); setMobileOpen(false); }} className="flex-1 text-left">
+                          {division.title}
+                        </Link>
+                        {openDivision === division.title ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                      </button>
+
+                      {/* NIVEAU 2 — Sections */}
+                      {openDivision === division.title && (
+                        <div className="bg-white">
+                          {division.sections.map((section) => (
+                            <div key={`mob-sec-${section.name}`} className="border-t border-gray-100">
+                              <button
+                                type="button"
+                                onClick={() => setOpenSection(openSection === section.name ? null : section.name)}
+                                className="flex w-full items-center justify-between px-5 py-2.5 text-xs font-semibold text-gray-800 hover:bg-gray-50 hover:text-sia-red transition-colors"
+                              >
+                                <Link to={section.url} onClick={(e) => { e.stopPropagation(); setMobileOpen(false); }} className="flex-1 text-left">
+                                  {section.name}
+                                </Link>
+                                {section.items && section.items.length > 0 && (
+                                  openSection === section.name ? <ChevronUp size={12} /> : <ChevronDown size={12} />
+                                )}
+                              </button>
+
+                              {/* NIVEAU 3 — Items */}
+                              {openSection === section.name && section.items && section.items.length > 0 && (
+                                <ul className="bg-gray-50 border-t border-gray-100">
+                                  {section.items.map((item) => (
+                                    <li key={`mob-item-${item.name}`} className="border-b border-gray-100 last:border-b-0">
+                                      <Link
+                                        to={item.url}
+                                        onClick={() => setMobileOpen(false)}
+                                        className="block px-8 py-2 text-[11px] text-gray-600 hover:text-sia-red hover:bg-white transition-colors"
+                                      >
+                                        › {item.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
