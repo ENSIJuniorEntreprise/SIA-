@@ -36,8 +36,10 @@ const Footer = () => {
 
           <div className="lg:col-span-1 flex flex-col items-center text-center">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/src/assets/logo.png" alt="SIA Logo" className="h-20 w-20 object-contain"/>
-              <span className="text-2xl font-bold text-[#e30613]">SIA</span>
+              <Link to="/" className="flex items-center gap-3 no-underline">
+                <img src="/src/assets/logo.png" alt="SIA Logo" className="h-20 w-20 object-contain"/>
+                <span className="text-2xl font-bold text-[#e30613]">SIA</span>
+              </Link>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
               L'excellence industrielle tunisienne en mouvement. Précision bicolore sans compromis.
